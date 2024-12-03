@@ -1,12 +1,27 @@
 Rails.application.routes.draw do
+  # Root route (Landing page)
+  root 'pages#home'
+
+  # Musicians Routes
+  resources :musicians, only: [:index, :show, :new, :create] do
+    resources :compositions, only: [:create, :index]
+    # resources :forums, only: [:index]
+  end
+
+  # Compositions Routes
+  resources :compositions, only: [:index, :show] do
+    resources :feedbacks, only: [:index, :create]
+  end
+
+  # Forum Routes
+  resources :forums, only: [:index, :show, :create] do
+    # Nested posts within forums
+    resources :posts, only: [:create, :index]
+  end
+
+  # Instruments Routes (May or may not be necessary if handled by musician profiles)
+  resources :instruments, only: [:index, :show, :create]
+
+  # User Authentication Routes (Devise or custom user authentication)
   devise_for :users
-  root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
