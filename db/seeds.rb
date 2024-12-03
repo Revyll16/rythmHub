@@ -8,104 +8,121 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Seed Users
-Users.destroy_all
-Musicians.destroy_all
-
-
-users = [
-  { email: "admin@example.com", password: "password123" },
-  { email: "user1@example.com", password: "password123" },
-  { email: "user2@example.com", password: "password123" }
-]
-
-users.each do |user_attributes|
-  User.find_or_create_by!(email: user_attributes[:email]) do |user|
-    user.password = user_attributes[:password]
-  end
-end
-
 # Seed Musicians
+
+puts "clearing the database"
+
+Post.destroy_all
+Forum.destroy_all
+Instrument.destroy_all
+Feedback.destroy_all
+Composition.destroy_all
+Musician.destroy_all
+
+
 musicians = [
-  { name: "John Doe", instrument: "Guitar", bio: "A passionate guitarist from NYC." },
-  { name: "Jane Smith", instrument: "Piano", bio: "A classical pianist with a modern twist." },
-  { name: "Alice Johnson", instrument: "Violin", bio: "An aspiring violinist with a love for jazz." }
+  { name: "John Doe", bio: "John is a multi-instrumentalist known for his eclectic style." },
+  { name: "Jane Smith", bio: "Jane is a classically trained pianist with a passion for composition." },
+  { name: "Bob Marley", bio: "Bob is a reggae legend, blending soul and rhythm." },
+  { name: "Louis Armstrong", bio: "Louis is a jazz musician, renowned for his trumpet solos." },
+  { name: "Tina Turner", bio: "Tina is an iconic singer known for her powerful voice and stage presence." },
+  { name: "Elvis Presley", bio: "Elvis is known as the King of Rock and Roll." },
+  { name: "Beethoven", bio: "Beethoven was a German composer and pianist, widely regarded as one of the greatest composers in history." },
+  { name: "Mozart", bio: "Mozart was a prolific and influential composer of the Classical era." }
 ]
 
-musicians.each do |musician_attributes|
-  Musician.find_or_create_by!(name: musician_attributes[:name]) do |musician|
-    musician.instrument = musician_attributes[:instrument]
-    musician.bio = musician_attributes[:bio]
-  end
+musicians.each do |musician|
+  Musician.create!(musician)
 end
-
-# Seed Compositions
-compositions = [
-  { title: "Symphony No. 1", video_url: "https://example.com/symphony1", description: "A masterpiece of modern classical music.", musician_name: "John Doe" },
-  { title: "Jazz Improv", video_url: "https://example.com/jazzimprov", description: "An exploration of jazz and improvisation.", musician_name: "Jane Smith" }
-]
-
-compositions.each do |composition_attributes|
-  musician = Musician.find_by!(name: composition_attributes[:musician_name])
-  Composition.find_or_create_by!(title: composition_attributes[:title]) do |composition|
-    composition.video_url = composition_attributes[:video_url]
-    composition.description = composition_attributes[:description]
-    composition.musician = musician
-  end
-end
+puts "#{Musician.count} musicians seeded"
 
 # Seed Instruments
 instruments = [
-  { name: "Electric Guitar", description: "A versatile instrument for rock and blues.", musician_name: "John Doe" },
-  { name: "Grand Piano", description: "Perfect for classical and jazz performances.", musician_name: "Jane Smith" }
+  { name: "Piano", description: "A large musical instrument with black and white keys." },
+  { name: "Guitar", description: "A string instrument played by plucking or strumming." },
+  { name: "Drums", description: "A percussion instrument played by striking with sticks or hands." },
+  { name: "Trumpet", description: "A brass instrument with a flared bell, played by blowing into a mouthpiece." },
+  { name: "Violin", description: "A string instrument played with a bow." },
+  { name: "Flute", description: "A woodwind instrument played by blowing air across a hole." },
+  { name: "Saxophone", description: "A brass wind instrument with a single-reed mouthpiece." },
+  { name: "Bass Guitar", description: "A stringed instrument typically played in rock and jazz bands." }
 ]
 
-instruments.each do |instrument_attributes|
-  musician = Musician.find_by!(name: instrument_attributes[:musician_name])
-  Instrument.find_or_create_by!(name: instrument_attributes[:name]) do |instrument|
-    instrument.description = instrument_attributes[:description]
-    instrument.musician = musician
-  end
+# Associate instruments with musicians
+instruments.each_with_index do |instrument, index|
+  Musician.all.sample.instruments.create!(instrument)
 end
+puts "#{Instrument.count} instruments seeded"
+
+# Seed Compositions
+compositions = [
+  { title: "Symphony No. 5", video_url: "https://example.com/symphony_5", description: "A famous symphony by Beethoven." },
+  { title: "Imagine", video_url: "https://example.com/imagine", description: "A classic song by John Lennon." },
+  { title: "No Woman, No Cry", video_url: "https://example.com/no_woman_no_cry", description: "A reggae anthem by Bob Marley." },
+  { title: "What’s Love Got to Do with It", video_url: "https://example.com/whats_love", description: "A hit song by Tina Turner." },
+  { title: "Jailhouse Rock", video_url: "https://example.com/jailhouse_rock", description: "A rock song by Elvis Presley." },
+  { title: "Clair de Lune", video_url: "https://example.com/clair_de_lune", description: "A beautiful piano piece by Claude Debussy." },
+  { title: "Eine kleine Nachtmusik", video_url: "https://example.com/eine_kleine", description: "A popular serenade by Mozart." },
+  { title: "What a Wonderful World", video_url: "https://example.com/wonderful_world", description: "A soulful song by Louis Armstrong." }
+]
+
+# Associate compositions with musicians
+compositions.each_with_index do |composition, index|
+  Musician.all.sample.compositions.create!(composition)
+end
+puts "#{Composition.count} compositions seeded"
 
 # Seed Forums
 forums = [
-  { title: "Guitar Techniques", musician_name: "John Doe" },
-  { title: "Piano Compositions", musician_name: "Jane Smith" }
+  { title: "Jazz Lovers Forum", musician_id: Musician.all.sample.id },
+  { title: "Rock and Roll Discussion", musician_id: Musician.all.sample.id },
+  { title: "Classical Music Enthusiasts", musician_id: Musician.all.sample.id },
+  { title: "Reggae Fans Forum", musician_id: Musician.all.sample.id },
+  { title: "Piano Players Hub", musician_id: Musician.all.sample.id },
+  { title: "String Instruments Group", musician_id: Musician.all.sample.id },
+  { title: "Music Composition Forum", musician_id: Musician.all.sample.id },
+  { title: "Live Music Lovers", musician_id: Musician.all.sample.id }
 ]
 
-forums.each do |forum_attributes|
-  musician = Musician.find_by!(name: forum_attributes[:musician_name])
-  Forum.find_or_create_by!(title: forum_attributes[:title]) do |forum|
-    forum.musician = musician
-  end
+
+forums.each do |forum|
+  Forum.create!(forum)
 end
+puts "#{Forum.count} forums seeded"
 
 # Seed Posts
 posts = [
-  { content: "What's the best way to improve finger strength?", forum_title: "Guitar Techniques", musician_name: "Alice Johnson" },
-  { content: "What are some good exercises for sight-reading?", forum_title: "Piano Compositions", musician_name: "Jane Smith" }
+  { content: "I love the improvisation in jazz!", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id },
+  { content: "Rock and roll forever!", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id },
+  { content: "Classical music is timeless!", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id },
+  { content: "Bob Marley is a true legend.", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  },
+  { content: "The piano is such an expressive instrument.", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  },
+  { content: "I prefer acoustic guitars over electric ones.", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  },
+  { content: "Composing music is both challenging and rewarding.", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  },
+  { content: "Nothing beats a live concert experience!", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  }
 ]
 
-posts.each do |post_attributes|
-  forum = Forum.find_by!(title: post_attributes[:forum_title])
-  musician = Musician.find_by!(name: post_attributes[:musician_name])
-  Post.find_or_create_by!(content: post_attributes[:content]) do |post|
-    post.forum = forum
-    post.musician = musician
-  end
+posts.each do |post|
+  Post.create!(post)
 end
-
+puts "#{Post.count} posts seeded"
 # Seed Feedbacks
 feedbacks = [
-  { content: "Amazing work on this composition!", composition_title: "Symphony No. 1", musician_name: "Alice Johnson" },
-  { content: "This is a great jazz piece!", composition_title: "Jazz Improv", musician_name: "John Doe" }
+  { content: "Great melody!", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
+  { content: "Beautiful song, very emotional.", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
+  { content: "Reggae music always brings joy.", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id },
+  { content: "Tina's voice is incredible!", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id },
+  { content: "Elvis is still the king of rock!", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
+  { content: "I love the harmony in this piece.", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
+  { content: "Such a lively and upbeat composition!", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
+  { content: "Louis Armstrong’s music has so much soul.", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id }
 ]
 
-feedbacks.each do |feedback_attributes|
-  composition = Composition.find_by!(title: feedback_attributes[:composition_title])
-  musician = Musician.find_by!(name: feedback_attributes[:musician_name])
-  Feedback.find_or_create_by!(content: feedback_attributes[:content]) do |feedback|
-    feedback.composition = composition
-    feedback.musician = musician
-  end
+feedbacks.each do |feedback|
+  Feedback.create!(feedback)
 end
+puts "#{Feedback.count} feedbacks seeded"
+
+puts "------------------------------------------------------------------"
+
+puts "Database seeded successfully!"
