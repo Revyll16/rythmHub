@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(116, 116, 116);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,29 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navtitle {
+  color: white; /* White text */
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+  animation: glow-whirl 3s infinite;
+}
+
+/* Keyframes for glow and whirl effect */
+@keyframes glow-whirl {
+  0% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+    transform: rotate(0deg);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 24px rgba(255, 255, 255, 0.9);
+    transform: rotate(1deg);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+    transform: rotate(-1deg);
+  }
 }
