@@ -1,21 +1,33 @@
 class MusiciansController < ApplicationController
-    has_many :compositions, dependent: :destroy
-    # Other associations and model logic
+
+    def index
+      @musicians = Musician.all
+    end
+
+
+    def show
+      @musician = Musician.find(params[:id])
+    end
+
+
+    def new
+      @musician = Musician.new
+    end
+
+
+    def create
+      @musician = Musician.new(musician_params)
+      if @musician.save
+        redirect_to @musician, notice: 'Musician was successfully created.'
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
+
+    private
+
+
+    def musician_params
+      params.require(:musician).permit(:name, :genre, :instrument, :bio)
+    end
   end
-
-  def destroy
-    musician = Musician.find(params[:id])
-
-    # Reassign compositions to another musician (if desired)
-    musician.compositions.update_all(musician_id: new_musician_id)
-
-    # Or delete compositions associated with the musician
-    musician.compositions.destroy_all
-
-    # Then destroy the musician
-    musician.destroy
-
-    # Redirect or render success
-    redirect_to musicians_path
-  end
-end
