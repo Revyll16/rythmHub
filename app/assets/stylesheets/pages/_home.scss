@@ -1,28 +1,5 @@
 // Specific CSS for your home-page
 
-// #carouselExampleDark {
-//   height: 450px;
-//   overflow: hidden;
-//   position: relative;
-
-// }
-
-// .carousel_img {
-//   // height: 100%;
-//   // width: 100%;
-//   object-fit: cover;
-// }
-
-// #carouselExampleDark {
-//   height: 100%;
-//   position: absolute;
-//   bottom: 20px;
-//   left: 0;
-//   right: 0;
-//   padding: 0 15px;
-//   z-index: 10;
-// }
-
 // add a class to the whole carousel to lımıt the heıght
 .carousel-height {
   height: 55vh
@@ -31,7 +8,6 @@
 .caption-height {
   position: absolute;
   top: 40vh;
-  color: aliceblue;
 }
 
 .p-carousel {
@@ -42,4 +18,145 @@
 .h2-carousel {
   color: azure;
   font-weight: bolder;
+}
+
+.carousel {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+// fixed-background
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e3e9f3;
+  margin-top: 50px;
+}
+
+.row,
+.container-fluid {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.fixed {
+  background-image: url("images/background-fixed.jpg");
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -999 !important;
+  display: block;
+  top: 0;
+  left: 0;
+}
+
+.fixed-background {
+  padding: 10rem 0;
+  position: relative;
+  width: 100%;
+  z-index: 1000 !important;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 15px 1px;
+}
+
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -999 !important;
+}
+
+.col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+.featurette-divider {
+  margin: 5rem 0;
+}
+
+
+.featurette-heading {
+  font-weight: 200;
+  line-height: 2;
+}
+
+@media (min-width: 40em) {
+  .featurette-heading {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3rem;
+  }
+}
+
+.background-clip {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.container-fluid-1 {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 15px 1px;
+}
+
+@media (min-aspect-ratio:16/9) {
+  .background-clip {
+    width: 32rem;
+    height: 90%;
+  }
+
+  p,
+  h2,
+  h1 {
+    font-size: 1, 5rem;
+  }
+}
+
+@media (max-aspect-ratio:16/4) {
+  .background-clip {
+    width: 32rem;
+    height: 90%;
+  }
+
+  p,
+  h2,
+  h1 {
+    font-size: 0, 5rem;
+  }
+}
+
+.row-background {
+  box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .5);
+  background-color: rgb(3, 3, 3);
 }
