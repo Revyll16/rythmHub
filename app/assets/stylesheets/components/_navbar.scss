@@ -28,10 +28,111 @@
   }
   50% {
     text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 24px rgba(255, 255, 255, 0.9);
-    transform: rotate(1deg);
+    transform: rotate(0.5deg);
   }
   100% {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
-    transform: rotate(-1deg);
+    transform: rotate(-0.5deg);
   }
+}
+
+/* Cool Navbar Style */
+.cool-navbar {
+  background-color: #1a1a1a; /* Dark background for contrast */
+  color: white; /* White text */
+  padding: 15px 20px; /* Padding around navbar */
+  border-radius: 10px; /* Rounded corners for the navbar */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Navbar hover effect */
+.cool-navbar:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Darker shadow when hovered */
+}
+
+/* Title Styling with Animation */
+.navtitle h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f5f5f5; /* Bold color for the title */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Glowing effect */
+  animation: titleGlow 3s infinite alternate; /* Glow animation */
+}
+
+/* Keyframes for glowing title */
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 15px rgba(228, 210, 204, 0.7), 0 0 30px rgba(255, 87, 34, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 25px rgb(235, 213, 206), 0 0 50px rgba(255, 87, 34, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(244, 213, 204, 0.7), 0 0 30px rgba(255, 87, 34, 0.7);
+  }
+}
+
+/* Navbar links styling */
+.navbar-nav .nav-item .nav-link {
+  color: #ffffff; /* White text for navbar items */
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 20px;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Hover effects for nav links */
+.navbar-nav .nav-item .nav-link:hover {
+  color: #e7d5d0; /* Color change on hover */
+  text-shadow: 0 0 15px rgb(251, 207, 194); /* Glowing effect */
+}
+
+/* Animated underline on hover */
+.navbar-nav .nav-item .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #ead9d4; /* Underline color */
+  left: 0;
+  bottom: -5px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+/* Avatar dropdown styling */
+.navbar-nav .nav-item .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ffffff; /* Border color */
+  transition: all 0.3s ease;
+}
+
+/* Avatar hover effect */
+.navbar-nav .nav-item .avatar:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Navbar toggler button on small screens */
+.navbar-toggler {
+  border-color: #ffffff; /* Border color */
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff; /* Toggler icon color */
+}
+
+/* Hover effect for toggler */
+.navbar-toggler:hover {
+  background-color: #ff5722; /* Toggler background color */
+  transform: scale(1.1); /* Slight zoom effect on hover */
 }

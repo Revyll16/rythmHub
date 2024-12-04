@@ -4,17 +4,17 @@ class MusiciansController < ApplicationController
       @musicians = Musician.all
     end
 
-    
+
     def show
       @musician = Musician.find(params[:id])
     end
 
-    
+
     def new
       @musician = Musician.new
     end
 
-    
+
     def create
       @musician = Musician.new(musician_params)
       if @musician.save
@@ -26,7 +26,7 @@ class MusiciansController < ApplicationController
 
     private
 
-    
+
     def musician_params
       params.require(:musician).permit(:name, :genre, :instrument, :bio)
     end

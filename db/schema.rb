@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_03_092738) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_04_104253) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_092738) do
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url"
+    t.string "address"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -80,7 +82,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_092738) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "compositions", "musicians"
+  add_foreign_key "compositions", "musicians", on_delete: :cascade
   add_foreign_key "feedbacks", "compositions"
   add_foreign_key "feedbacks", "musicians"
   add_foreign_key "forums", "musicians"
