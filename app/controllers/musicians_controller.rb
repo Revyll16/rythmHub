@@ -1,7 +1,8 @@
 class MusiciansController < ApplicationController
     has_many :compositions, dependent: :destroy
     # Other associations and model logic
-  end
+
+    
 
   def destroy
     musician = Musician.find(params[:id])
