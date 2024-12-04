@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :musicians, only: [:index, :show, :new, :create] do
     resources :compositions, only: [:create, :index]
-    # resources :forums, only: [:index]
   end
 
   resources :compositions, only: [:index, :show] do

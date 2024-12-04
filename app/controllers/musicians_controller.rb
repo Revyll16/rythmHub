@@ -1,4 +1,6 @@
 class MusiciansController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   before_action :set_musician, only: [:show]
 
   def index
@@ -29,6 +31,6 @@ class MusiciansController < ApplicationController
   end
 
   def musician_params
-    params.require(:musician).permit(:name, :bio)
+    params.require(:musician).permit(:name, :bio, :address, :image_url)
   end
 end
