@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'compositions/create'
   get 'compositions/index'
-
+  
   root 'pages#home'
 
   resources :musicians, only: [:index, :show, :new, :create] do
