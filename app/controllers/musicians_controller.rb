@@ -13,6 +13,7 @@ class MusiciansController < ApplicationController
 
     def edit
       @musician = Musician.find(params[:id])
+      @compositions = @musician.compositions
     end
 
     def update
