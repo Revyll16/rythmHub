@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :musicians, only: [:index, :show, :new, :create] do
+  # Musicians Routes
+  resources :musicians, only: [:index, :show, :new, :create, :edit, :update] do
+
     resources :compositions, only: [:create, :index]
   end
 
