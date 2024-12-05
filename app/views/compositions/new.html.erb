@@ -1,0 +1,7 @@
+<h1>Create New Composition</h1>
+<%= simple_form_for [@musician,@composition] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :file, as: :file %>
+  <%= f.submit %>
+<% end %>
