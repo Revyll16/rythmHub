@@ -1,28 +1,38 @@
-<h1>Forums</h1>
+<div class="inddex-background-container"
+     style="background-image: url('https://images.pexels.com/photos/8198625/pexels-photo-8198625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover; background-position: center; background-attachment: fixed; height: 100vh; padding: 0;">
 
-<% if @forums.present? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Created By</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="header-container" style="text-align: center; padding-top: 20px;">
+    <br>
+    <h1 class="animated-header" style="color: white; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Forums</h1>
+  </div>
+
+  <div class="banners-container" style="display: flex; flex-direction: column; gap: 16px; justify-content: center; padding-top: 30px;">
+    <% if @forums.present? %>
       <% @forums.each do |forum| %>
-        <tr>
-          <td><%= forum.title %></td>
-          <td><%= forum.musician&.name %></td>
-          <td>
-            <%= link_to "Show", forum_path(forum) %> |
-            <%= link_to "Edit", edit_forum_path(forum) %> |
-            <%= link_to "Delete", forum_path(forum), method: :delete, data: { confirm: "Are you sure?" } %>
-          </td>
-        </tr>
+        <div class="banner m-4"
+             style="background-image: url('<%= forum.image_url %>'); background-size: cover; background-position: center;
+                    padding: 60px 20px; border-radius: 16px; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+                    transition: transform 0.3s ease-in-out; color: white; position: relative;">
+          <div class="banner-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                                            background: rgba(0, 0, 0, 0.5); filter: blur(10px); border-radius: 16px;">
+          </div>
+
+          <div class="banner-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;
+                                            position: relative; z-index: 1;">
+            <h2 style="font-size: 2.5em; font-weight: bold; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+              <%= forum.title %>
+            </h2>
+            <p style="font-size: 1.2em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">
+              Associated Musician: <%= forum.musician&.name || "No associated musician" %>
+            </p>
+
+            <%= link_to "Join Forum", forum_path(forum), class: "button", style: "text-decoration: none; color: white; background-color: #FF6F61; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; transition: background-color 0.3s ease-in-out;" %>
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>No forums available. <%= link_to "Create one", new_forum_path %>.</p>
-<% end %>
+    <% else %>
+      <p style="font-size: 1.5em; color: #fff; text-align: center;">No forums available. Please check back later!</p>
+    <% end %>
+  </div>
+</div>
