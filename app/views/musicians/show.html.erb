@@ -4,14 +4,12 @@
     <div class="header-container">
       <h1 class="animated-header"><%= @musician.name %></h1>
     </div>
-
     <!-- Musician Details Section -->
     <div class="musician-details-container" style="display: flex; flex-wrap: wrap; gap: 32px; margin: 40px auto; max-width: 900px; justify-content: center; align-items: flex-start;">
       <!-- Musician Image -->
       <div class="musician-image" style="flex: 1; min-width: 300px; max-width: 400px; border-radius: 16px; overflow: hidden; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
         <img src="<%= @musician.image_url %>" alt="<%= @musician.name %>" style="width: 100%; height: auto; object-fit: cover;">
       </div>
-
       <!-- Musician Details -->
       <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
         <h2 style="margin-bottom: 16px;">About <%= @musician.name %></h2>
@@ -20,9 +18,11 @@
         <div class="musician-address">
           <p style="font-style: italic; color: #555;">Address: <%= @musician.address %></p>
         </div>
+        <div style="text-align: center; margin-top: 40px;">
+          <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
+        </div>
       </div>
     </div>
-
     <!-- Back Button (Fixed at the Bottom) -->
     <div class="back-button-container">
     <br>
