@@ -1,0 +1,28 @@
+<h1>Forums</h1>
+
+<% if @forums.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @forums.each do |forum| %>
+        <tr>
+          <td><%= forum.title %></td>
+          <td><%= forum.musician&.name %></td>
+          <td>
+            <%= link_to "Show", forum_path(forum) %> |
+            <%= link_to "Edit", edit_forum_path(forum) %> |
+            <%= link_to "Delete", forum_path(forum), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No forums available. <%= link_to "Create one", new_forum_path %>.</p>
+<% end %>
