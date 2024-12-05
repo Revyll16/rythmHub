@@ -14,7 +14,7 @@
         <div class="details" style="padding: 16px;">
           <div class="cardHeader" style="font-weight: bold; font-size: 1.2em; margin-bottom: 8px;"><%= musician.name %></div>
           <div class="cardText" style="margin-bottom: 12px;">
-           <%= truncate(musician.bio, length: 30) %>
+            <%= truncate(musician.bio, length: 30) %>
             <%# <%= musician.bio %>
           </div>
           <div class="cardAddress" style="font-style: italic; color: #555; margin-bottom: 16px;">
@@ -24,5 +24,9 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+  <div class="col-12 text-center button-create-musicians">
+    <%= link_to "Register as a musician", new_musician_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px; margin-bottom: 50px" %>
   </div>
 </div>
