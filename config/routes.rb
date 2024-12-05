@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 
   # Musicians Routes
   resources :musicians, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :compositions, only: [:create, :index]
+    resources :compositions, only: [:create, :index, :new]
     # resources :forums, only: [:index]
   end
 
   # Compositions Routes
-  resources :compositions, only: [:index, :show] do
+  resources :compositions, only: [:index, :show, :edit, :update] do
     resources :feedbacks, only: [:index, :create]
   end
 
