@@ -1,4 +1,4 @@
-<div id="carouselExampleDark" class="carousel carousel-dark slide carousel-fade m-4" data-bs-ride="carousel">
+<div id="carouselExampleDark" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -8,35 +8,45 @@
     <div class="carousel-item active" data-bs-interval="5000">
       <%= image_tag "carousel6.jpg", class:"d-block custom-carousel w-100" %>
       <div class="carousel-caption caption-height d-none d-md-block">
-        <h2 class="h2-carousel">First slide label</h2>
-        <p class="p-carousel">Some representative placeholder content for the first slide.</p>
+        <div class="bg-custom">
+          <h2 class="h2-carousel">First slide label</h2>
+          <p class="p-carousel">Some representative placeholder content for the first slide.</p>
+          <%= link_to "Show more", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px;" %>
+        </div>
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="6000">
       <%= image_tag "carousel1.jpg", class:"d-block custom-carousel w-100" %>
       <div class="carousel-caption caption-height d-none d-md-block">
-        <h2 class="h2-carousel">Second slide label</h2>
-        <p class="p-carousel">Some representative placeholder content for the second slide.</p>
+        <div class="bg-custom">
+          <h2 class="h2-carousel">Second slide label</h2>
+          <p class="p-carousel">Some representative placeholder content for the second slide.</p>
+          <%= link_to "Show more", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px;" %>
+        </div>
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="5500">
       <%= image_tag "carousel8.jpg", class:"d-block custom-carousel w-100" %>
       <div class="carousel-caption caption-height d-none d-md-block">
-        <h2 class="h2-carousel">Third slide label</h2>
-        <p class="p-carousel">Some representative placeholder content for the third slide.</p>
+        <div class="bg-custom">
+          <h2 class="h2-carousel">Third slide label</h2>
+          <p class="p-carousel">Some representative placeholder content for the third slide.</p>
+          <p class="p-carousel">Some representative placeholder content</p>
+          <%= link_to "Show more", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px;" %>
+        </div>
       </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+  <%# THE CODE BELOW IS THE Prev & Next BUTTON OF THE CAROUSEL THAT WAS COMMENT  %>
+  <%# <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </button>
+  </button> %>
 </div>
-
 <div class="container-fluid">
   <div class="row my-5">
     <div class="col-md-4 col-lg-4 col-md-4 col-sm-4 my-4">
@@ -64,10 +74,9 @@
       <a href="" class="btn btn-outline-primary">Read more</a>
     </div>
   </div>
-
   <div class="row my-5">
     <div class="col-md-4 col-lg-4 col-md-4 col-sm-4 my-4">
-        <%= image_tag "card4.jpg", class:"d-block custom-carousel w-100" %>
+      <%= image_tag "card4.jpg", class:"d-block custom-carousel w-100" %>
       <h4 class="my-4">The Impact of Technology on Music Production</h4>
       <p>
         How has technology transformed the music industry? In recent decades, technological advancements have revolutionized how music is produced, recorded, and distributed. From the invention of synthesizers to the rise of digital audio workstations, technology has empowered musicians to push creative boundaries. Today, anyone with a computer and software can produce professional-quality music, making the music industry more accessible than ever before. Curious about how technology is shaping the sounds of tomorrow? Join us and explore the intersection of music and technology.
@@ -75,7 +84,7 @@
       <a href="" class="btn btn-outline-primary">Read more</a>
     </div>
     <div class="col-md-4 col-lg-4 col-md-4 col-sm-4 my-4">
-        <%= image_tag "card5.jpg", class:"d-block custom-carousel w-100" %>
+      <%= image_tag "card5.jpg", class:"d-block custom-carousel w-100" %>
       <h4 class="my-4">The Power of Music in Healing</h4>
       <p>
         How can music heal the soul? Music has long been recognized for its therapeutic effects. Whether it’s calming anxiety, helping with physical rehabilitation, or improving mental health, music has the power to heal. Music therapy is an established practice used in hospitals, schools, and even prisons to aid in emotional and physical recovery. If you’re curious about the science and art behind music’s healing properties, come with us on a journey through the world of music therapy and discover how melodies can transform lives.
@@ -93,66 +102,64 @@
   </div>
 </div>
 
+<!--Emoji Navbar first -->
+<%# <a class="navbar bg-primary sticky-top emoji" href="#emoji" role="button" data-toggle="collapse"></a> %>
+
 <!-- FIXED BACKGROUND -->
 <div class="fixed-background">
-    <div class="row text-light py-5">
-        <div class="col-12 text-center">
-          <h1>Advance to the Next Level</h1>
-          <h3 class="py-4">...See what's in the other side</h3>
-          <%= link_to "Musicains", musicians_path, class: "btn btn-primary btn-lg" %>
-        </div>
+  <div class="row text-light py-5">
+    <div class="col-12 text-center">
+      <h1>Advance to the Next Level</h1>
+      <h3 class="py-4">...See what's in the other side</h3>
+      <%= link_to "Click me", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px;" %>
     </div>
-    <div class="fixed-wrap">
-      <div class="fixed"></div>
-    </div>
+  </div>
+  <div class="fixed-wrap">
+    <div class="fixed"></div>
+  </div>
 </div>
+
+<%# <a class="navbar bg-primary emoji" href="#emoji" role="button" data-toggle="collapse"><i class="fas fa-home"></i></a> %>
+<!--Emoji Navbar Second -->
+
 
 <!-- START THE FEATURETTES -->
 <div class="container-fluid">
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-            <p>Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-            <p>Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-            <p>Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-        </div>
-        <div class="col-md-5 col-lg-4 order-md-1">
-          <%= image_tag("colin-lloyd-yRlp-w4WiS4-unsplash.jpg", class: "img-fluid", alt: "UX Design Studio") %>
-        </div>
+  <hr class="featurette-divider">
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+      <p>Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+      <p>Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+      <p>Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
     </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-5 col-lg-8 order-md-2">
-            <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-            <p>Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-        </div>
-        <div class="col-md-7 col-lg-4 order-md-1">
-            <%= image_tag("alberto-bigoni-WWEQu91eCi8-unsplash.jpg", class: "img-fluid", alt: "UX Design Studio") %>
-        </div>
+    <div class="col-md-5 col-lg-4 order-md-1">
+      <%= image_tag("colin-lloyd-yRlp-w4WiS4-unsplash.jpg", class: "img-fluid", alt: "UX Design Studio") %>
     </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-lg-5 col-md-4">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p>And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-        </div>
-        <div class="col-lg-7 col-md-5">
-            
-        </div>
+  </div>
+  <hr class="featurette-divider">
+  <div class="row featurette">
+    <div class="col-md-5 col-lg-8 order-md-2">
+      <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+      <p>Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
     </div>
-
-    <hr class="featurette-divider">
+    <div class="col-md-7 col-lg-4 order-md-1">
+      <%= image_tag("alberto-bigoni-WWEQu91eCi8-unsplash.jpg", class: "img-fluid", alt: "UX Design Studio") %>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+  <div class="row featurette">
+    <div class="col-lg-5 col-md-4">
+      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+      <p>And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+    </div>
+    <div class="col-lg-7 col-md-5">
+    </div>
+  </div>
+  <hr class="featurette-divider">
 </div>
-
-
 <div class="container-fluid mt-5" style="text-align: center;">
   <ul>
-      <p class="footerParagraph">Copyright &copy; 2024 <a href="#privacy">Bootcamp Cape Town</a> | Designed by <a href="#terms">RythmHub</a></p>
+    <p class="footerParagraph">Copyright &copy; 2024 <a href="#privacy">Bootcamp Cape Town</a> | Designed by <a href="#terms">RythmHub</a></p>
   </ul>
 </div>

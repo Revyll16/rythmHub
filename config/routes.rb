@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   # Musicians Routes
   resources :musicians, only: [:index, :show, :new, :create, :edit, :update] do
-
-    resources :compositions, only: [:create, :index]
+    resources :compositions, only: [:create, :index, :new]
     # resources :forums, only: [:index]
+  end
+
+  resources :compositions, only: [ :show, :edit, :update] do
   end
 
   resources :compositions, only: [:index, :show] do
