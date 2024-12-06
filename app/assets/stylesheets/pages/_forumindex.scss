@@ -1,0 +1,91 @@
+/* For Banners */
+.banner {
+  position: relative;
+  background: linear-gradient(135deg, #6e7e85, #3a4e5b);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.banner:hover {
+  transform: translateY(-10px);
+}
+
+.banner h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* For Join Forum Button */
+.button {
+  text-decoration: none;
+  color: white;
+  background-color: #FF6F61;
+  padding: 14px 28px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 1.2em;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #FF3E2E;
+}
+
+/* For No Forum Message */
+p {
+  font-size: 1.5em;
+  color: #555;
+}
+
+
+body {
+  background-image: url('https://images.pexels.com/photos/8198625/pexels-photo-8198625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif; /* Adjust as per your font preference */
+}
+
+// .index-background-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: flex-start;
+//   height: 100vh; /* Full height of the viewport */
+//   padding: 0; /* Remove any default padding */
+//   margin: 0; /* Ensure no margin around the container */
+//   background-image: url('https://images.pexels.com/photos/8198625/pexels-photo-8198625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+//   background-size: cover;
+//   background-position: center;
+//   background-attachment: fixed;
+// }
+
+.header-container {
+  text-align: center;
+  padding-top: 20px; /* Space from the top of the page */
+}
+
+.banners-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  flex-grow: 1; /* Allows the banners to take remaining space */
+  padding: 20px;
+  width: 100%; /* Ensure banners fill the width of the container */
+}
+
+.inddex-background-container { height: 100vh; /* Full viewport height */ background-image: url('your-image.jpg'); /* Replace with your image path */ background-size: cover; background-position: center; background-repeat: no-repeat; }

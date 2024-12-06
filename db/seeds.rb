@@ -136,15 +136,48 @@ puts "#{Composition.count} compositions seeded"
 
 # Seed Forums
 forums = [
-  { title: "Jazz Lovers Forum", musician_id: Musician.all.sample.id },
-  { title: "Rock and Roll Discussion", musician_id: Musician.all.sample.id },
-  { title: "Classical Music Enthusiasts", musician_id: Musician.all.sample.id },
-  { title: "Reggae Fans Forum", musician_id: Musician.all.sample.id },
-  { title: "Piano Players Hub", musician_id: Musician.all.sample.id },
-  { title: "String Instruments Group", musician_id: Musician.all.sample.id },
-  { title: "Music Composition Forum", musician_id: Musician.all.sample.id },
-  { title: "Live Music Lovers", musician_id: Musician.all.sample.id }
+  {
+    title: "Jazz Lovers Forum",
+    musician_id: Musician.all.sample.id,
+    image_url: "https://th.bing.com/th/id/OIP.G-vodZ4jq2obkuHUbi5_EgHaHa?rs=1&pid=ImgDetMain"
+  },
+  {
+    title: "Rock and Roll Discussion",
+    musician_id: Musician.all.sample.id,
+    image_url: "https://th.bing.com/th/id/OIP.GmTHUTn9Z27FDWe57SRqCwHaE8?rs=1&pid=ImgDetMain"
+  },
+  {
+    title: "Classical Music Enthusiasts",
+    musician_id: Musician.all.sample.id,
+    image_url: "https://w0.peakpx.com/wallpaper/261/459/HD-wallpaper-violin-music-concepts-creative-3d-art-sheet-music-abstract-art-musical-instruments.jpg"
+  },
+  {
+    title: "Reggae Fans Forum",
+    musician_id: Musician.all.sample.id,
+    image_url: "https://th.bing.com/th/id/OIP.3pEW3RRA45KN2QZutxjidwHaHa?rs=1&pid=ImgDetMain"
+  },
+  {
+    title: "Piano Players Hub",
+    musician_id: Musician.all.sample.id,
+    image_url: "https://png.pngtree.com/thumb_back/fh260/background/20230717/pngtree-3d-rendered-piano-keys-image_3897413.jpg"
+  },
+  {
+    title: "String Instruments Group",
+    musician_id: Musician.all.sample.id,
+    image_url: "https://th.bing.com/th/id/R.54b89db050cd2a9840e4ca776124a3e7?rik=s63qGrFtxEEhBw&pid=ImgRaw&r=0"
+  },
+  {
+    title: "Music Composition Forum",
+    musician_id: Musician.all.sample.id,
+    image_url: "https://th.bing.com/th/id/OIP.ibc4VQldQOONUo1ake1B1gHaEK?rs=1&pid=ImgDetMain"
+  },
+  {
+    title: "Live Music Lovers",
+    musician_id: Musician.all.sample.id,
+    image_url: ""
+  }
 ]
+
 
 
 forums.each do |forum|

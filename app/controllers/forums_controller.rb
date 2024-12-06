@@ -1,4 +1,4 @@
-class ForumsController < ApplicationController
+
 
   class ForumsController < ApplicationController
     before_action :set_forum, only: [:show, :edit, :update, :destroy]
@@ -6,7 +6,6 @@ class ForumsController < ApplicationController
 
     def index
       @forums = Forum.all
-      @forums = Forum.includes(:musician)
     end
 
 
@@ -46,6 +45,8 @@ class ForumsController < ApplicationController
       redirect_to forums_url, notice: 'Forum was successfully destroyed.'
     end
 
+    
+
     private
 
 
@@ -58,5 +59,3 @@ class ForumsController < ApplicationController
       params.require(:forum).permit(:title, :musician_id)
     end
   end
-
-end
