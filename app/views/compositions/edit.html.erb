@@ -1,0 +1,7 @@
+<h1>Edit Composition</h1>
+<%= simple_form_for(@composition) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :file, as: :file %>
+  <%= f.submit %>
+<% end %>

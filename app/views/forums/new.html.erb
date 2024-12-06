@@ -1,0 +1,14 @@
+<h1>Create a New Forum</h1>
+
+<%= simple_form_for @forum do |f| %>
+  
+  <div>
+    <%= f.input :title, label: "Title" %>
+  </div>
+  <div>
+    <%= f.input :image_url, label: "Image URL " %>
+  </div>
+  <div>
+    <%= f.submit "Create Forum", class: "btn btn-primary" %>
+  </div>
+<% end %>
