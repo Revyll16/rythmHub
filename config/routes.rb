@@ -6,17 +6,21 @@ Rails.application.routes.draw do
 
   # Musicians Routes
   resources :musicians, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :compositions, only: [:create, :index, :new]
+    # resources :forums, only: [:index]
+  end
 
-    resources :compositions, only: [:create, :index]
+  resources :compositions, only: [ :show, :edit, :update] do
   end
 
   resources :compositions, only: [:index, :show] do
     resources :feedbacks, only: [:index, :create]
   end
 
-  resources :forums, only: [:index, :show, :create] do
+  resources :forums, only: [:index, :show, :create, :new] do
     resources :posts, only: [:create, :index]
   end
+
 
   resources :instruments, only: [:index, :show, :create]
 
