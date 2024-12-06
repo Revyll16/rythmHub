@@ -36,6 +36,15 @@
       <p style="font-size: 1.2em; color: #555;">No discussions yet. Be the first to start a discussion!</p>
     <% end %>
 
+   <%= simple_form_for [@forum, @post] do |f| %>
+  <div class="input-group mb-3 w-100">
+    <div class="form-floating">
+      <%= f.input :content, label: false, wrapper: false %>
+    </div>
+    <%= f.submit "Ask", id: "new-question-button", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
     <!-- Add Discussion Button -->
     <div class="add-discussion-button" style="text-align: center; margin-top: 40px;">
 
@@ -48,4 +57,3 @@
   </div>
 
 </div>
-

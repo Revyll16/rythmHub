@@ -12,21 +12,28 @@ class MusiciansController < ApplicationController
   end
 
 
-    def edit
-      @musician = Musician.find(params[:id])
-      @compositions = @musician.compositions
-    end
+  def edit
+    @musician = Musician.find(params[:id])
+    @compositions = @musician.compositions
+  end
 
-    def update
-      @musician = Musician.find(params[:id])
-      @musician.update(musician_params)
-      redirect_to musician_path(@musician)
-    end
+  def update
+    @musician = Musician.find(params[:id])
+    @musician.update(musician_params)
+    redirect_to musician_path(@musician)
+  end
+
+  def new
+    @musician = Musician.new
+
+  end
 
   def create
     @musician = Musician.new(musician_params)
+    @musician.user = current_user
     if @musician.save
       redirect_to @musician, notice: 'Musician was successfully created.'
+
     else
       render :new
     end

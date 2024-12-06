@@ -3,4 +3,5 @@ class Forum < ApplicationRecord
   has_many :posts
   has_many :messages, dependent: :destroy
   validates :image_url, presence: true, allow_blank: true
+  validates :title, presence: true
 end
