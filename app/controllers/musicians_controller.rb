@@ -1,12 +1,9 @@
 class MusiciansController < ApplicationController
-    
+
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   before_action :set_musician, only: [:show]
-  
-   has_many :compositions, dependent: :destroy
-    # Other associations and model logic
-  
+
   def index
     @musicians = Musician.all
   end
