@@ -393,9 +393,6 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   max-height: 400px;
-  display: -webkit-box;
-  -webkit-line-clamp: 10;
-  -webkit-box-orient: vertical;
 }
 
 /* Back Button Styling */
