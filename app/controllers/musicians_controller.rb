@@ -9,7 +9,13 @@ class MusiciansController < ApplicationController
 
   def show
     @musician = Musician.find(params[:id])
+    @compositions = @musician.compositions
   end
+
+  def new
+    @musician = Musician.new
+  end
+
 
 
     def edit
@@ -25,6 +31,7 @@ class MusiciansController < ApplicationController
 
   def create
     @musician = Musician.new(musician_params)
+    @musician.user = current_user
     if @musician.save
       redirect_to @musician, notice: 'Musician was successfully created.'
     else

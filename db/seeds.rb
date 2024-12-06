@@ -28,21 +28,6 @@ Musician.destroy_all
 # List of musicians with associated attributes
 musicians = [
   {
-    name: "John Doe",
-
-    bio: "John Doe is a multi-instrumentalist known for his eclectic style that blends various genres, from classical to jazz, rock, and electronic. His musical journey began at an early age when he first picked up a guitar at the age of seven. Over the years, John honed his skills on a variety of instruments, including piano, drums, and violin.",
-    image_url: "https://th.bing.com/th/id/OIP.LuE7kwG2B8SunikDvzhgVQHaE8?rs=1&pid=ImgDetMain",
-    address: "123 Harmony Lane, Music City"
-  },
-  {
-    name: "Jane Smith",
-
-    bio: "Jane Smith is a classically trained pianist with a passion for composition and a deep understanding of music theory. From a young age, she was recognized for her exceptional talent, earning a scholarship to one of the most prestigious music conservatories in the world. Jane’s early influences were composers like Chopin, Debussy, and Rachmaninoff, whose works she studied meticulously.",
-
-    image_url: "https://th.bing.com/th/id/R.d35ff56255afd9012eb7319d478c6e62?rik=zWoURL%2b9N3faHA&riu=http%3a%2f%2felissagayle.ebersold.org%2fblog%2fwp-content%2fuploads%2f2019%2f04%2f190412_MoriahFormica_ElissaEbersold_ConcertPhotography-lg-12.jpg&ehk=AO%2bQf%2bXrAF58qzjbRGi6lC4WE%2bHuuYRbuUTRYzpE%2b5A%3d&risl=&pid=ImgRaw&r=0",
-    address: "456 Sonata Street, Piano Town"
-  },
-  {
     name: "Bob Marley",
 
     bio: "Bob Marley is a reggae legend, blending soul and rhythm to create some of the most iconic songs in music history. Born in Jamaica, Bob’s early life was shaped by the sounds of traditional Jamaican music, but it was the influence of R&B and soul that made his music universally loved. His breakthrough came in the 1970s with the formation of the band, The Wailers, whose mix of reggae, rock, and soul was revolutionary.",
@@ -97,7 +82,7 @@ musicians.each do |musician|
   # Create a user for the musician
   user = User.create!(
     email: "#{musician[:name].downcase.gsub(' ', '.')}@example.com",
-    password: "password123"
+    password: "password"
   )
 
   # Create the musician and associate with the user
@@ -133,19 +118,19 @@ puts "#{Instrument.count} instruments seeded"
 
 # Seed Compositions
 compositions = [
-  { title: "Symphony No. 5", video_url: "https://example.com/symphony_5", description: "A famous symphony by Beethoven." },
-  { title: "Imagine", video_url: "", description: "A classic song by John Lennon." },
   { title: "No Woman, No Cry", video_url: "https://example.com/no_woman_no_cry", description: "A reggae anthem by Bob Marley." },
+  { title: "What a Wonderful World", video_url: "https://example.com/wonderful_world", description: "A soulful song by Louis Armstrong." },
   { title: "What’s Love Got to Do with It", video_url: "https://example.com/whats_love", description: "A hit song by Tina Turner." },
   { title: "Jailhouse Rock", video_url: "https://example.com/jailhouse_rock", description: "A rock song by Elvis Presley." },
-  { title: "Clair de Lune", video_url: "https://example.com/clair_de_lune", description: "A beautiful piano piece by Claude Debussy." },
-  { title: "Eine kleine Nachtmusik", video_url: "https://example.com/eine_kleine", description: "A popular serenade by Mozart." },
-  { title: "What a Wonderful World", video_url: "https://example.com/wonderful_world", description: "A soulful song by Louis Armstrong." }
+  { title: "Symphony No. 5", video_url: "https://example.com/symphony_5", description: "A famous symphony by Beethoven." },
+  { title: "Eine kleine Nachtmusik", video_url: "https://example.com/eine_kleine", description: "A popular serenade by Mozart." }
 ]
 
 # Associate compositions with musicians
-compositions.each_with_index do |composition, index|
-  Musician.all.sample.compositions.create!(composition)
+musicians = Musician.all
+
+compositions.each_with_index do |comp, index|
+  musicians[index].compositions.create!(comp)
 end
 puts "#{Composition.count} compositions seeded"
 
