@@ -1,3 +1,4 @@
+
 .background-container {
   position: relative;
   min-height: 100vh; /* Make sure it covers the entire screen */
@@ -47,7 +48,6 @@
   border: 1px solid rgba(255, 255, 255, 0.3); /* Slight white border for separation */
   backdrop-filter: blur(10px); /* Apply blur effect to the background */
   -webkit-backdrop-filter: blur(10px); /* For Safari */
-
   filter: grayscale(100%); /* Initially make the image black and white */
   transition: filter 0.4s ease, transform 0.4s ease; /* Smooth transition for filter and transform */
 }
@@ -119,6 +119,7 @@
 
 /* Hover effects on text */
 .card:hover .cardHeader {
+
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Stronger shadow when hovered */
 }
 
@@ -264,6 +265,11 @@ html {
   transition: background-color 0.4s ease-in-out; /* Smoother background-color transition */
 }
 
+// .full-background {
+//   background-color: #030d19;
+//   min-height: 100vh;
+// }
+
 
 /* General body and container styles */
 body {
@@ -405,18 +411,19 @@ body {
 }
 
 
-.button {
-  padding: 12px 24px;
-  background-color: #007BFF;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 1rem;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-}
+// .button {
+//   padding: 12px 24px;
+//   background-color: #007BFF;
+//   color: white;
+//   border-radius: 4px;
+//   text-decoration: none;
+//   font-size: 1rem;
+//   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+//   transition: background-color 0.3s ease;
+// }
 
-.button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05); /* Button grows a little on hover */
-}
+// .button:hover {
+//   background-color: #0056b3;
+//   transform: scale(1.05); /* Button grows a little on hover */
+// }
+

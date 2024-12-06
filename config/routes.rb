@@ -17,11 +17,11 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:index, :create]
   end
 
-  resources :forums, only: [:index, :show, :create] do
+  resources :forums, only: [:index, :show, :create, :new] do
     resources :posts, only: [:create, :index]
   end
 
-  
+
   resources :instruments, only: [:index, :show, :create]
 
   # User Authentication Routes (Devise or custom user authentication)
