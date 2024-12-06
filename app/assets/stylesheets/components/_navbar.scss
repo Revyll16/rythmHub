@@ -159,7 +159,7 @@
   left: 0;
   width: 100%;
   z-index: 1001;
-  background-color: rgb(103, 144, 176);
+  background-color: rgba(9, 123, 189, 0.7);
   /* Transparent background with 70% opacity */
   backdrop-filter: blur(2px);
   /* Adds the blur effect */
@@ -167,8 +167,7 @@
   /* For Safari support */
 }
 
-// Custom search input
-
+// Custom search input----------------------------------------------
 
 .white,
 .border,
@@ -506,3 +505,4 @@
   left: 20px;
   top: 15px;
 }
+
