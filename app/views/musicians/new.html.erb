@@ -1,8 +1,10 @@
-<h1>Create New Musician</h1>
-<%= simple_form_for(@musician) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :bio %>
-  <%= f.input :image_url %>
-  <%= f.submit %>
-<% end %>
+<div class="container-fluid-form">
+  <h1>Create New Musician</h1>
+  <%= simple_form_for(@musician) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :bio %>
+    <%= f.input :image_url %>
+    <%= f.submit %>
+  <% end %>
+</div>
