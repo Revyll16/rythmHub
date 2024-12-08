@@ -1,11 +1,19 @@
-.background-container {
-  position: relative;
-  min-height: 100vh; /* Make sure it covers the entire screen */
-  background-image: url('https://images.unsplash.com/photo-1685195154261-c8167ca7f88c?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image URL */
-  background-size: cover; /* Ensure the image covers the entire container */
-  background-position: center; /* Center the image */
-  color: white; /* Text color */
-  animation: moveBackground 3s ease-in-out forwards; /* Smooth background movement animation */
+// .background-container {
+//   position: relative;
+//   min-height: 100vh; /* Make sure it covers the entire screen */
+//   background-image: url('https://images.unsplash.com/photo-1685195154261-c8167ca7f88c?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image URL */
+//   background-size: cover; /* Ensure the image covers the entire container */
+//   background-position: center; /* Center the image */
+//   color: white; /* Text color */
+//   animation: moveBackground 3s ease-in-out forwards; /* Smooth background movement animation */
+// }
+
+/* General body and container styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 /* Parallax background effect on scroll */
@@ -13,6 +21,7 @@
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: 100% 100%;
   }
@@ -20,18 +29,23 @@
 
 .index-background-container {
   position: relative;
-  min-height: 100vh; /* Make sure it covers the entire screen */
-  background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image URL */
-  background-size: cover; /* Ensure the image covers the entire container */
-  background-position: center; /* Center the image */
-  color: white; /* Text color */
+  min-height: 100vh;
+  /* Make sure it covers the entire screen */
+  background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  /* Background image URL */
+  background-size: cover;
+  /* Ensure the image covers the entire container */
+  background-position: center;
+  /* Center the image */
+  color: white;
+  /* Text color */
   /* Smooth background movement animation */
 }
 
 /* Glassmorphism effect on cards with background image */
 .card {
-
-  background-size: cover; /* Ensure the background image covers the whole card */
+  background-size: cover;
+  /* Ensure the background image covers the whole card */
   position: relative;
   max-width: 250px;
   height: 350px;
@@ -42,34 +56,45 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 7.5px;
-  transition: all 0.7s ease-in-out; /* Smoother transition for all movements */
+  transition: all 0.7s ease-in-out;
+  /* Smoother transition for all movements */
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Slight white border for separation */
-  backdrop-filter: blur(10px); /* Apply blur effect to the background */
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  filter: grayscale(100%); /* Initially make the image black and white */
-  transition: filter 0.4s ease, transform 0.4s ease; /* Smooth transition for filter and transform */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Slight white border for separation */
+  backdrop-filter: blur(10px);
+  /* Apply blur effect to the background */
+  -webkit-backdrop-filter: blur(10px);
+  /* For Safari */
+  filter: grayscale(100%);
+  /* Initially make the image black and white */
+  transition: filter 0.4s ease, transform 0.4s ease;
+  /* Smooth transition for filter and transform */
 }
 
 /* Hover effect for cards with scaling */
 .card:hover {
-  filter: grayscale(0%); /* Remove grayscale filter */
-  transform: scale(1.1) rotate(5deg); /* Slight scaling and rotation */
+  filter: grayscale(0%);
+  /* Remove grayscale filter */
+  transform: scale(1.1) rotate(5deg);
+  /* Slight scaling and rotation */
   border-radius: 15px;
 }
 
 /* Subtle floating effect on cards */
 .card:hover {
-  animation: float 1s ease-in-out infinite; /* Floating animation on hover */
+  animation: float 1s ease-in-out infinite;
+  /* Floating animation on hover */
 }
 
 @keyframes float {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -81,8 +106,10 @@
   position: relative;
   width: max-content;
   font-weight: bold;
-  transition: all 0.7s ease-in-out; /* Smoother transition for header */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow to header text */
+  transition: all 0.7s ease-in-out;
+  /* Smoother transition for header */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  /* Add shadow to header text */
 }
 
 .cardHeader::after {
@@ -104,44 +131,35 @@
   flex-direction: column;
   gap: 5px;
   transform: translateY(95%);
-  opacity: 0; /* Hide text initially */
-  transition: all 0.7s ease-in-out; /* Smoother transition for details */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow to details text */
+  opacity: 0;
+  /* Hide text initially */
+  transition: all 0.7s ease-in-out;
+  /* Smoother transition for details */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  /* Add shadow to details text */
 }
 
 /* On hover, show the details */
 .card:hover .details {
   transform: translateY(0%);
-  opacity: 1; /* Reveal text */
-  transition-delay: 0.6s; /* Slight delay for the details appearance */
+  opacity: 1;
+  /* Reveal text */
+  transition-delay: 0.6s;
+  /* Slight delay for the details appearance */
 }
 
 /* Hover effects on text */
 .card:hover .cardHeader {
 
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Stronger shadow when hovered */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  /* Stronger shadow when hovered */
 }
 
 .card:hover .details {
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Stronger shadow when hovered */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  /* Stronger shadow when hovered */
 }
 
-/* Button */
-.button {
-  background-color: aqua;
-  color: black;
-  padding: 2.5px 5px;
-  width: max-content;
-  border-radius: 2.5px;
-  transition: all 0.4s ease-in-out; /* Smoother button transition */
-}
-
-/* Floating button effect */
-.button:hover {
-  background-color: #ff5722;
-  transform: translateY(-3px); /* Slight float effect */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Smoother shadow */
-}
 
 /* Center the header */
 .header-container {
@@ -149,7 +167,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: fadeIn 2.5s ease-in-out; /* Smooth fade-in animation for header */
+  animation: fadeIn 2.5s ease-in-out;
+  /* Smooth fade-in animation for header */
 }
 
 /* Animated and bold h1 */
@@ -158,10 +177,12 @@
   font-weight: bold;
   color: #030d19;
   text-transform: uppercase;
-  animation: fadeIn 3s ease-in-out, glowingColors 7s infinite alternate; /* Smooth glowing animation */
+  animation: fadeIn 3s ease-in-out, glowingColors 7s infinite alternate;
+  /* Smooth glowing animation */
   position: relative;
   margin-top: 72px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Subtle glow around text */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  /* Subtle glow around text */
 }
 
 /* Keyframes for the fade-in animation */
@@ -170,6 +191,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -179,34 +201,45 @@
 /* Keyframes for the multi-colored glowing effect */
 @keyframes glowingColors {
   0% {
-    text-shadow: 0 0 10px rgba(255, 0, 0, 1), 0 0 20px rgba(255, 0, 0, 0.8); /* Red */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 1), 0 0 20px rgba(255, 0, 0, 0.8);
+    /* Red */
   }
+
   25% {
-    text-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 255, 0, 0.8); /* Green */
+    text-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 255, 0, 0.8);
+    /* Green */
   }
+
   50% {
-    text-shadow: 0 0 10px rgba(0, 0, 255, 1), 0 0 20px rgba(0, 0, 255, 0.8); /* Blue */
+    text-shadow: 0 0 10px rgba(0, 0, 255, 1), 0 0 20px rgba(0, 0, 255, 0.8);
+    /* Blue */
   }
+
   75% {
-    text-shadow: 0 0 10px rgba(255, 255, 0, 1), 0 0 20px rgba(255, 255, 0, 0.8); /* Yellow */
+    text-shadow: 0 0 10px rgba(255, 255, 0, 1), 0 0 20px rgba(255, 255, 0, 0.8);
+    /* Yellow */
   }
+
   100% {
-    text-shadow: 0 0 10px rgba(255, 0, 255, 1), 0 0 20px rgba(255, 0, 255, 0.8); /* Magenta */
+    text-shadow: 0 0 10px rgba(255, 0, 255, 1), 0 0 20px rgba(255, 0, 255, 0.8);
+    /* Magenta */
   }
 }
 
 /* Optional: Add a glowing effect on hover */
 .animated-header:hover {
-  text-shadow: 0 0 10px rgba(4, 21, 43, 0.8), 0 0 20px rgba(2, 12, 24, 0.6);
-  color: #240b03;
+  text-shadow: 0 0 10px rgba(9, 42, 86, 0.8), 0 0 20px rgba(5, 40, 84, 0.6);
+  color: #0bb6e5;
   transition: all 0.3s ease-in-out;
 }
 
 /* Button Styles */
 .button {
-  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  background: linear-gradient(45deg, #1ba4e4, #dc2a06);
   color: white;
-  padding: 10px 15px;
+  // padding: 5px 10px;
+  margin-top: 20px;
+  margin-right: 8px;
   font-size: 14px;
   font-weight: bold;
   border: none;
@@ -214,20 +247,22 @@
   cursor: pointer;
   text-align: center;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s ease-in-out; /* Smoother button transition */
+  transition: all 0.4s ease-in-out;
+  /* Smoother button transition */
   display: inline-block;
   text-decoration: none;
 }
 
 .button:hover {
-  background: linear-gradient(45deg, #ee0979, #ff6a00);
+  background: linear-gradient(45deg, #025c86, #8f1901);
   transform: translateY(-3px);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Scroll effect */
 html {
-  scroll-behavior: smooth; /* Smooth scroll effect on anchor links */
+  scroll-behavior: smooth;
+  /* Smooth scroll effect on anchor links */
 }
 
 /* Musician Details */
@@ -246,49 +281,26 @@ html {
 /* Back Button */
 .back-button-container {
   position: absolute;
-  bottom: 20px; /* Pushes the button to the bottom of the container */
+  bottom: 20px;
+  /* Pushes the button to the bottom of the container */
   width: 100%;
   text-align: center;
-}
-
-.button {
-  display: inline-block;
-  background-color: #00bcd4;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-  text-decoration: none;
-  margin-top: 20px;
-  text-align: center;
-  transition: background-color 0.4s ease-in-out; /* Smoother background-color transition */
-}
-
-// .full-background {
-//   background-color: #030d19;
-//   min-height: 100vh;
-// }
-
-
-/* General body and container styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
 }
 
 .show-background-container {
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;  /* Fix background while scrolling */
+  background-attachment: fixed;
+  /* Fix background while scrolling */
   min-height: 100vh;
   padding: 40px 0;
-  color: white; /* Ensures the text stands out on top of the background */
+  color: white;
+  /* Ensures the text stands out on top of the background */
 }
 
 .musician-container {
-  position: relative; /* To ensure the content is above the background */
+  position: relative;
+  /* To ensure the content is above the background */
   z-index: 1;
 }
 
@@ -300,7 +312,8 @@ body {
 
 .animated-header {
   font-size: 2.5rem;
-  color: #fff; /* White text for better contrast against the background */
+  color: #fff;
+  /* White text for better contrast against the background */
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
@@ -315,7 +328,8 @@ body {
   max-width: 900px;
   justify-content: center;
   align-items: flex-start;
-  z-index: 2; /* Ensures content stays above the background */
+  z-index: 2;
+  /* Ensures content stays above the background */
 }
 
 /* Musician Image styling */
@@ -323,8 +337,10 @@ body {
   flex: 1;
   min-width: 300px;
   max-width: 400px;
+  height: fit-content;
   border-radius: 16px;
   overflow: hidden;
+  padding-right: 65px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   animation: floatImage 3s ease-in-out infinite;
@@ -334,6 +350,7 @@ body {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 /* Floating effect for the musician image */
@@ -341,9 +358,11 @@ body {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -357,28 +376,34 @@ body {
   padding: 16px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency to see background */
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Slight transparency to see background */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
-  animation: danceText 4s ease-in-out infinite;
+  // animation: danceText 4s ease-in-out infinite;
 }
 
 /* Bio text dancing animation */
-@keyframes danceText {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(5px);
-  }
-  50% {
-    transform: translateX(-5px);
-  }
-  75% {
-    transform: translateX(5px);
-  }
-}
+// @keyframes danceText {
+
+//   0%,
+//   100% {
+//     transform: translateX(0);
+//   }
+
+//   25% {
+//     transform: translateX(5px);
+//   }
+
+//   50% {
+//     transform: translateX(-5px);
+//   }
+
+//   75% {
+//     transform: translateX(5px);
+//   }
+// }
 
 /* Musician Info - Bio Text */
 .musician-info h2 {
@@ -397,28 +422,16 @@ body {
 
 /* Back Button Styling */
 .back-button-container {
-  position: fixed; /* Use fixed positioning instead of absolute */
-  bottom: 20px; /* Distance from the bottom of the page */
+  position: fixed;
+  /* Use fixed positioning instead of absolute */
+  bottom: 20px;
+  /* Distance from the bottom of the page */
   left: 50%;
-  transform: translateX(-50%); /* Center the button horizontally */
-  width: auto; /* Adjust width as needed */
+  transform: translateX(-50%);
+  /* Center the button horizontally */
+  width: auto;
+  /* Adjust width as needed */
   text-align: center;
-  z-index: 10; /* Ensure it's above other elements */
+  z-index: 10;
+  /* Ensure it's above other elements */
 }
-
-
-// .button {
-//   padding: 12px 24px;
-//   background-color: #007BFF;
-//   color: white;
-//   border-radius: 4px;
-//   text-decoration: none;
-//   font-size: 1rem;
-//   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-//   transition: background-color 0.3s ease;
-// }
-
-// .button:hover {
-//   background-color: #0056b3;
-//   transform: scale(1.05); /* Button grows a little on hover */
-// }

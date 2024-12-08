@@ -6,6 +6,15 @@ class MusiciansController < ApplicationController
 
   def index
     @musicians = Musician.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+      musicians.name @@ :query
+      OR musicians.bio @@ :query
+      OR musicians.address @@ :query
+      OR users.email @@ :query
+    SQL
+    @musicians = @musicians.joins(:user).where(sql_subquery, query: params[:query])
+    end
   end
 
   def show
