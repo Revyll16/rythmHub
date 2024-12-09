@@ -9,6 +9,7 @@ class MusiciansController < ApplicationController
 
   def show
     @musician = Musician.find(params[:id])
+    @composition = Composition.new
     @compositions = @musician.compositions
   end
 

@@ -1,1 +1,14 @@
+# app/views/feedbacks/create.turbo_stream.erb
+<turbo-stream action="append" target="feedbacks">
+  <template>
+    <div id="feedback_<%= @feedback.id %>">
+      <%= @feedback.content %>
+    </div>
+  </template>
+</turbo-stream>
 
+<turbo-stream action="replace" target="feedback_form">
+  <template>
+    <%= render "feedbacks/form", feedback: Feedback.new %>
+  </template>
+</turbo-stream>
