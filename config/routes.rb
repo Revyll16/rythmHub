@@ -21,8 +21,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :index]
   end
 
-
-
   resources :instruments, only: [:index, :show, :create]
 
   # User Authentication Routes (Devise or custom user authentication)

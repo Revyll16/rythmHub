@@ -38,6 +38,14 @@
     <div class="back-button-container">
     <br>
 
+    <div class="text-decoration: none;">
+      <% @musician.compositions.each do |composition| %>
+        <%= link_to composition do %>
+          <%= composition.title %> - <%= composition.description %>
+
+        <% end %>
+      <% end %>
     </div>
+
   </div>
 </div>
