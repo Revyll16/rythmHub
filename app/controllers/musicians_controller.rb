@@ -35,6 +35,7 @@ class MusiciansController < ApplicationController
     @musician.user = current_user
     if @musician.save
       redirect_to @musician, notice: 'Musician was successfully created.'
+
     else
       render :new
     end

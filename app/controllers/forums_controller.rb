@@ -28,6 +28,7 @@ class ForumsController < ApplicationController
       end
     end
 
+
     def edit
     end
 
