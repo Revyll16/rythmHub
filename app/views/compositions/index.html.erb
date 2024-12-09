@@ -1,7 +1,8 @@
-<div class="container-fluid">
-  <% @compositions.each do |composition| %>
+
+<% @compositions.each do |composition| %>
   <h1><%= composition.title %></h1>
   <p><%= composition.description %></p>
+
   <% if composition.file.attached? %>
     <% case composition.file.blob.content_type %>
     <% when /^image\// %>
@@ -17,4 +18,3 @@
     <p>No file uploaded.</p>
   <% end %>
 <% end %>
-</div>

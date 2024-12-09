@@ -38,6 +38,30 @@
     <div class="back-button-container">
     <br>
 
+    <div class="text-decoration: none; button">
+      <% @musician.compositions.each do |composition| %>
+        <%= link_to composition do %>
+          <%= composition.title %> - <%= composition.description %>
+
+        <% end %>
+      <% end %>
     </div>
-  </div>
-</div>
+
+<%# if statement, to only show form if current_user.musicians.last == @musican %>
+
+
+<% if current_user.musicians.last == @musician %>
+  <h2>Upload a New Composition</h2>
+  <%= simple_form_for [@musician, @composition] do |form| %>
+
+      <%= form.input :title %>
+
+      <%= form.input :description %>
+
+
+      <%= form.input :file, as: :file %>
+      <%= form.submit %>
+
+
+  <% end %>
+<% end %>

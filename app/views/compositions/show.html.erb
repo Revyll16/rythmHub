@@ -2,37 +2,43 @@
 
   <div class="container">
     <h1><%= @composition.title %></h1>
-
-  </div>
     <p><%= @composition.description %></p>
 
-  <% if @composition.file.attached? %>
-    <% case @composition.file.blob.content_type %>
-    <% when /^image\// %>
-      <%= cl_image_tag @composition.file.key, quality: 'auto', fetch_format: 'auto' %>
-    <% when /^video\// %>
-      <%= cl_video_tag @composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
-    <% when /^audio\// %>
-      <%= cl_video_tag @composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
-
+  <div class="video" style="max-width: 80%;">
+    <% if @composition.file.attached? %>
+      <% case @composition.file.blob.content_type %>
+      <% when /^image\// %>
+        <%= cl_image_tag @composition.file.key, quality: 'auto', fetch_format: 'auto', style: "width: 100%; height: auto;" %>
+      <% when /^video\// %>
+        <%= cl_video_tag @composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto', style: "width: 100%; height: auto;" %>
+      <% when /^audio\// %>
+        <%= cl_video_tag @composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto', style: "width: 100%; height: auto;" %>
+      <% else %>
+        <p>Unsupported file type.</p>
+      <% end %>
     <% else %>
-      <p>Unsupported file type.</p>
+      <p>No file uploaded.</p>
     <% end %>
-  <% else %>
-    <p>No file uploaded.</p>
-  <% end %>
+    </div>
+  </div>
 
-  <div>
-    <%@feedbacks.each do |feedback|  %>
-    <%= feedback.content %>
+  <div data-controller="insert-in-list" data-insert-in-list-target="items">
+    <% @feedbacks.each do |feedback|  %>
+      <%= feedback.content %>
     <% end %>
   </div>
 
+<div id="feedbacks" class="feedbacks">
+  <% @composition.feedbacks.each do |feedback| %>
+    <%= render "feedbacks/feedback", feedback: feedback %>
+  <% end %>
+</div>
+
+
+
+
   <div>
-    <%= simple_form_for([@composition, Feedback.new]) do |f| %>
-      <%= f.input :content, label: "Your Feedback", as: :text, input_html: { rows: 3 } %>
-      <%= f.submit "Post Feedback", class: "btn btn-primary" %>
-    <% end %>
+    <%= render '/feedbacks/form' %>
   </div>
 
 </div>
