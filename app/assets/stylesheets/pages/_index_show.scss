@@ -1,24 +1,21 @@
-/* Color variables */
-:root {
-  --color-light: #a7d7b7;
-  --color-medium-light: #6c9d7a;
-  --color-medium-dark: #4b816f;
-  --color-dark: #2d5c5a;
-  --color-darker: #1f3b3d;
-}
-
-/* Background Container */
+/* Specific CSS for your index-and-show-pages */
 .background-container {
   position: relative;
   min-height: 100vh;
+  /* Make sure it covers the entire screen */
   background-image: url('https://images.unsplash.com/photo-1685195154261-c8167ca7f88c?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  /* Background image URL */
   background-size: cover;
+  /* Ensure the image covers the entire container */
   background-position: center;
+  /* Center the image */
   color: white;
+  /* Text color */
   animation: moveBackground 3s ease-in-out forwards;
+  /* Smooth background movement animation */
 }
 
-/* Parallax background effect */
+/* Parallax background effect on scroll */
 @keyframes moveBackground {
   0% {
     background-position: 0 0;
@@ -29,9 +26,6 @@
   }
 }
 
-/* Card Styles */
-.card {
-  background-size: cover;
 .index-background-container {
   position: relative;
   min-height: 100vh;
@@ -49,6 +43,7 @@
 
 /* Glassmorphism effect on cards with background image */
 .card {
+
   background-size: cover;
   /* Ensure the background image covers the whole card */
   position: relative;
@@ -62,11 +57,6 @@
   justify-content: flex-end;
   gap: 7.5px;
   transition: all 0.7s ease-in-out;
- 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  filter: grayscale(100%);
-  transition: filter 0.4s ease, transform 0.4s ease;
   /* Smoother transition for all movements */
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -75,25 +65,28 @@
   /* Apply blur effect to the background */
   -webkit-backdrop-filter: blur(10px);
   /* For Safari */
+
   filter: grayscale(100%);
   /* Initially make the image black and white */
   transition: filter 0.4s ease, transform 0.4s ease;
   /* Smooth transition for filter and transform */
 }
 
-/* Card Hover Effects */
+/* Hover effect for cards with scaling */
 .card:hover {
   filter: grayscale(0%);
+  /* Remove grayscale filter */
   transform: scale(1.1) rotate(5deg);
+  /* Slight scaling and rotation */
   border-radius: 15px;
 }
 
-/* Floating effect */
+/* Subtle floating effect on cards */
 .card:hover {
   animation: float 1s ease-in-out infinite;
+  /* Floating animation on hover */
 }
 
-/* Floating keyframes */
 @keyframes float {
   0% {
     transform: translateY(0);
@@ -115,10 +108,11 @@
   width: max-content;
   font-weight: bold;
   transition: all 0.7s ease-in-out;
+  /* Smoother transition for header */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  /* Add shadow to header text */
 }
 
-/* Card Header After Animation */
 .cardHeader::after {
   content: "";
   width: calc(100% + 1rem);
@@ -131,7 +125,7 @@
   opacity: 0;
 }
 
-/* Details Section */
+/* Details - Initially hidden */
 .details {
   z-index: 2;
   display: flex;
@@ -139,50 +133,64 @@
   gap: 5px;
   transform: translateY(95%);
   opacity: 0;
+  /* Hide text initially */
   transition: all 0.7s ease-in-out;
+  /* Smoother transition for details */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  /* Add shadow to details text */
 }
 
+/* On hover, show the details */
 .card:hover .details {
   transform: translateY(0%);
   opacity: 1;
+  /* Reveal text */
   transition-delay: 0.6s;
+  /* Slight delay for the details appearance */
 }
 
+/* Hover effects on text */
 .card:hover .cardHeader {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  /* Stronger shadow when hovered */
 }
 
 .card:hover .details {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  /* Stronger shadow when hovered */
 }
 
-/* Button Styles */
+/* Button */
 .button {
-  background-color: var(--color-light);
+  background-color: aqua;
   color: black;
   padding: 2.5px 5px;
   width: max-content;
   border-radius: 2.5px;
   transition: all 0.4s ease-in-out;
+  /* Smoother button transition */
 }
 
+/* Floating button effect */
 .button:hover {
-  background-color: #ff5722;
+  background-color: #1bb41e;
   transform: translateY(-3px);
+  /* Slight float effect */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  /* Smoother shadow */
 }
 
-/* Header Styling */
+/* Center the header */
 .header-container {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   animation: fadeIn 2.5s ease-in-out;
+  /* Smooth fade-in animation for header */
 }
 
-/* Glowing Header */
+/* Animated and bold h1 */
 .animated-header {
   font-size: 3rem;
   font-weight: bold;
@@ -218,6 +226,7 @@
 
   25% {
     text-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 255, 0, 0.8);
+    /* Green */
   }
 
   50% {
@@ -238,18 +247,16 @@
 
 /* Optional: Add a glowing effect on hover */
 .animated-header:hover {
-  text-shadow: 0 0 10px rgba(9, 42, 86, 0.8), 0 0 20px rgba(5, 40, 84, 0.6);
-  color: #0bb6e5;
+  text-shadow: 0 0 10px rgba(4, 21, 43, 0.8), 0 0 20px rgba(2, 12, 24, 0.6);
+  color: #240b03;
   transition: all 0.3s ease-in-out;
 }
 
 /* Button Styles */
 .button {
-  background: linear-gradient(45deg, #1ba4e4, #dc2a06);
+  background: linear-gradient(45deg, #44780c, #3bb523);
   color: white;
-  // padding: 5px 10px;
-  margin-top: 20px;
-  margin-right: 8px;
+  padding: 10px 15px;
   font-size: 14px;
   font-weight: bold;
   border: none;
@@ -264,7 +271,7 @@
 }
 
 .button:hover {
-  background: linear-gradient(45deg, #025c86, #8f1901);
+  background: linear-gradient(45deg, #2caa0a, #11b61f);
   transform: translateY(-3px);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
@@ -289,6 +296,17 @@ html {
 }
 
 /* Back Button */
+/* Color variables */
+:root {
+  --color-light: #a7d7b7;
+  --color-medium-light: #6c9d7a;
+  --color-medium-dark: #4b816f;
+  --color-dark: #2d5c5a;
+  --color-darker: #1f3b3d;
+  --color-accent: #00bcd4; /* Added accent color */
+}
+
+/* Back Button Container */
 .back-button-container {
   position: absolute;
   bottom: 20px;
@@ -296,9 +314,10 @@ html {
   text-align: center;
 }
 
+/* Button Styles */
 .button {
   display: inline-block;
-  background-color: var(--color-medium-dark);
+  background-color: var(--color-accent); /* Using accent color */
   color: white;
   padding: 12px 20px;
   border-radius: 5px;
@@ -309,171 +328,9 @@ html {
   transition: background-color 0.4s ease-in-out;
 }
 
-/* General Body and Container Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-.show-background-container {
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  padding: 40px 0;
-  color: white;
-}
-
-.musician-container {
-  position: relative;
-  /* To ensure the content is above the background */
-  z-index: 1;
-}
-
-/* Header styling */
-.header-container {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.animated-header {
-  font-size: 2.5rem;
-  color: #fff;
-  /* White text for better contrast against the background */
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-}
-
-/* Musician details section */
-.musician-details-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  margin: 40px auto;
-  max-width: 900px;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 2;
-  /* Ensures content stays above the background */
-}
-
-/* Musician Image styling */
-.musician-image {
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px;
-  height: fit-content;
-  border-radius: 16px;
-  overflow: hidden;
-  padding-right: 65px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
-  animation: floatImage 3s ease-in-out infinite;
-}
-
-.musician-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-/* Floating Effect for Musician Image */
-@keyframes floatImage {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* Musician Info Styling */
-.musician-info {
-  flex: 2;
-  top: 20px;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  margin: auto;
-}
-
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
-  /* Slight transparency to see background */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-  // animation: danceText 4s ease-in-out infinite;
-}
-
-/* Bio text dancing animation */
-// @keyframes danceText {
-
-//   0%,
-//   100% {
-//     transform: translateX(0);
-//   }
-
-//   25% {
-//     transform: translateX(5px);
-//   }
-
-//   50% {
-//     transform: translateX(-5px);
-//   }
-
-//   75% {
-//     transform: translateX(5px);
-//   }
-// }
-
-/* Musician Info - Bio Text */
-.musician-info h2 {
-  margin-top: 0;
-  font-size: 2.5rem;
-}
-
-.musician-info p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-/* General Styles for Text */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  color: #333;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 400px;
-}
-
-/* Back Button Styling */
-.back-button-container {
-  position: fixed;
-  /* Use fixed positioning instead of absolute */
-  bottom: 20px;
-  /* Distance from the bottom of the page */
-  left: 50%;
-  transform: translateX(-50%);
-  /* Center the button horizontally */
-  width: auto;
-  /* Adjust width as needed */
-  text-align: center;
-  z-index: 10;
-  /* Ensure it's above other elements */
+/* Button Hover Effects */
+.button:hover {
+  background-color: var(--color-medium-dark); /* On hover, change to medium-dark */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
