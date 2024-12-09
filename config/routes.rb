@@ -17,9 +17,10 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:index, :create]
   end
 
-  resources :forums, only: [:index, :show, :create, :new] do
+  resources :forums do
     resources :posts, only: [:create, :index]
   end
+
 
 
   resources :instruments, only: [:index, :show, :create]

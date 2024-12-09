@@ -1,14 +1,24 @@
-.background-container {
-  position: relative;
-  min-height: 100vh; /* Make sure it covers the entire screen */
-  background-image: url('https://images.unsplash.com/photo-1685195154261-c8167ca7f88c?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image URL */
-  background-size: cover; /* Ensure the image covers the entire container */
-  background-position: center; /* Center the image */
-  color: white; /* Text color */
-  animation: moveBackground 3s ease-in-out forwards; /* Smooth background movement animation */
+/* Color variables */
+:root {
+  --color-light: #a7d7b7;
+  --color-medium-light: #6c9d7a;
+  --color-medium-dark: #4b816f;
+  --color-dark: #2d5c5a;
+  --color-darker: #1f3b3d;
 }
 
-/* Parallax background effect on scroll */
+/* Background Container */
+.background-container {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1685195154261-c8167ca7f88c?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  animation: moveBackground 3s ease-in-out forwards;
+}
+
+/* Parallax background effect */
 @keyframes moveBackground {
   0% {
     background-position: 0 0;
@@ -18,20 +28,9 @@
   }
 }
 
-.index-background-container {
-  position: relative;
-  min-height: 100vh; /* Make sure it covers the entire screen */
-  background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image URL */
-  background-size: cover; /* Ensure the image covers the entire container */
-  background-position: center; /* Center the image */
-  color: white; /* Text color */
-  /* Smooth background movement animation */
-}
-
-/* Glassmorphism effect on cards with background image */
+/* Card Styles */
 .card {
-
-  background-size: cover; /* Ensure the background image covers the whole card */
+  background-size: cover;
   position: relative;
   max-width: 250px;
   height: 350px;
@@ -42,28 +41,28 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 7.5px;
-  transition: all 0.7s ease-in-out; /* Smoother transition for all movements */
+  transition: all 0.7s ease-in-out;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Slight white border for separation */
-  backdrop-filter: blur(10px); /* Apply blur effect to the background */
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-
-  filter: grayscale(100%); /* Initially make the image black and white */
-  transition: filter 0.4s ease, transform 0.4s ease; /* Smooth transition for filter and transform */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
 }
 
-/* Hover effect for cards with scaling */
+/* Card Hover Effects */
 .card:hover {
-  filter: grayscale(0%); /* Remove grayscale filter */
-  transform: scale(1.1) rotate(5deg); /* Slight scaling and rotation */
+  filter: grayscale(0%);
+  transform: scale(1.1) rotate(5deg);
   border-radius: 15px;
 }
 
-/* Subtle floating effect on cards */
+/* Floating effect */
 .card:hover {
-  animation: float 1s ease-in-out infinite; /* Floating animation on hover */
+  animation: float 1s ease-in-out infinite;
 }
 
+/* Floating keyframes */
 @keyframes float {
   0% {
     transform: translateY(0);
@@ -82,10 +81,11 @@
   position: relative;
   width: max-content;
   font-weight: bold;
-  transition: all 0.7s ease-in-out; /* Smoother transition for header */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow to header text */
+  transition: all 0.7s ease-in-out;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
+/* Card Header After Animation */
 .cardHeader::after {
   content: "";
   width: calc(100% + 1rem);
@@ -98,136 +98,91 @@
   opacity: 0;
 }
 
-/* Details - Initially hidden */
+/* Details Section */
 .details {
   z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 5px;
   transform: translateY(95%);
-  opacity: 0; /* Hide text initially */
-  transition: all 0.7s ease-in-out; /* Smoother transition for details */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow to details text */
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* On hover, show the details */
 .card:hover .details {
   transform: translateY(0%);
-  opacity: 1; /* Reveal text */
-  transition-delay: 0.6s; /* Slight delay for the details appearance */
+  opacity: 1;
+  transition-delay: 0.6s;
 }
 
-/* Hover effects on text */
 .card:hover .cardHeader {
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Stronger shadow when hovered */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 .card:hover .details {
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Stronger shadow when hovered */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
-/* Button */
+/* Button Styles */
 .button {
-  background-color: aqua;
+  background-color: var(--color-light);
   color: black;
   padding: 2.5px 5px;
   width: max-content;
   border-radius: 2.5px;
-  transition: all 0.4s ease-in-out; /* Smoother button transition */
+  transition: all 0.4s ease-in-out;
 }
 
-/* Floating button effect */
 .button:hover {
   background-color: #ff5722;
-  transform: translateY(-3px); /* Slight float effect */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Smoother shadow */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Center the header */
+/* Header Styling */
 .header-container {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: fadeIn 2.5s ease-in-out; /* Smooth fade-in animation for header */
+  animation: fadeIn 2.5s ease-in-out;
 }
 
-/* Animated and bold h1 */
+/* Glowing Header */
 .animated-header {
   font-size: 3rem;
   font-weight: bold;
   color: #030d19;
   text-transform: uppercase;
-  animation: fadeIn 3s ease-in-out, glowingColors 7s infinite alternate; /* Smooth glowing animation */
+  animation: fadeIn 3s ease-in-out, glowingColors 7s infinite alternate;
   position: relative;
   margin-top: 72px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Subtle glow around text */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-/* Keyframes for the fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Keyframes for the multi-colored glowing effect */
+/* Glowing Colors Animation */
 @keyframes glowingColors {
   0% {
-    text-shadow: 0 0 10px rgba(255, 0, 0, 1), 0 0 20px rgba(255, 0, 0, 0.8); /* Red */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 1), 0 0 20px rgba(255, 0, 0, 0.8);
   }
   25% {
-    text-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 255, 0, 0.8); /* Green */
+    text-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 255, 0, 0.8);
   }
   50% {
-    text-shadow: 0 0 10px rgba(0, 0, 255, 1), 0 0 20px rgba(0, 0, 255, 0.8); /* Blue */
+    text-shadow: 0 0 10px rgba(0, 0, 255, 1), 0 0 20px rgba(0, 0, 255, 0.8);
   }
   75% {
-    text-shadow: 0 0 10px rgba(255, 255, 0, 1), 0 0 20px rgba(255, 255, 0, 0.8); /* Yellow */
+    text-shadow: 0 0 10px rgba(255, 255, 0, 1), 0 0 20px rgba(255, 255, 0, 0.8);
   }
   100% {
-    text-shadow: 0 0 10px rgba(255, 0, 255, 1), 0 0 20px rgba(255, 0, 255, 0.8); /* Magenta */
+    text-shadow: 0 0 10px rgba(255, 0, 255, 1), 0 0 20px rgba(255, 0, 255, 0.8);
   }
 }
 
-/* Optional: Add a glowing effect on hover */
-.animated-header:hover {
-  text-shadow: 0 0 10px rgba(4, 21, 43, 0.8), 0 0 20px rgba(2, 12, 24, 0.6);
-  color: #240b03;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Button Styles */
-.button {
-  background: linear-gradient(45deg, #ff6a00, #ee0979);
-  color: white;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s ease-in-out; /* Smoother button transition */
-  display: inline-block;
-  text-decoration: none;
-}
-
-.button:hover {
-  background: linear-gradient(45deg, #ee0979, #ff6a00);
-  transform: translateY(-3px);
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Scroll effect */
+/* Scroll Effect */
 html {
-  scroll-behavior: smooth; /* Smooth scroll effect on anchor links */
+  scroll-behavior: smooth;
 }
 
 /* Musician Details */
@@ -246,14 +201,14 @@ html {
 /* Back Button */
 .back-button-container {
   position: absolute;
-  bottom: 20px; /* Pushes the button to the bottom of the container */
+  bottom: 20px;
   width: 100%;
   text-align: center;
 }
 
 .button {
   display: inline-block;
-  background-color: #00bcd4;
+  background-color: var(--color-medium-dark);
   color: white;
   padding: 12px 20px;
   border-radius: 5px;
@@ -261,11 +216,10 @@ html {
   text-decoration: none;
   margin-top: 20px;
   text-align: center;
-  transition: background-color 0.4s ease-in-out; /* Smoother background-color transition */
+  transition: background-color 0.4s ease-in-out;
 }
 
-
-/* General body and container styles */
+/* General Body and Container Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -276,44 +230,18 @@ body {
 .show-background-container {
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;  /* Fix background while scrolling */
+  background-attachment: fixed;
   min-height: 100vh;
   padding: 40px 0;
-  color: white; /* Ensures the text stands out on top of the background */
+  color: white;
 }
 
 .musician-container {
-  position: relative; /* To ensure the content is above the background */
+  position: relative;
   z-index: 1;
 }
 
-/* Header styling */
-.header-container {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.animated-header {
-  font-size: 2.5rem;
-  color: #fff; /* White text for better contrast against the background */
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-}
-
-/* Musician details section */
-.musician-details-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  margin: 40px auto;
-  max-width: 900px;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 2; /* Ensures content stays above the background */
-}
-
-/* Musician Image styling */
+/* Musician Image Styling */
 .musician-image {
   flex: 1;
   min-width: 300px;
@@ -331,7 +259,7 @@ body {
   object-fit: cover;
 }
 
-/* Floating effect for the musician image */
+/* Floating Effect for Musician Image */
 @keyframes floatImage {
   0% {
     transform: translateY(0);
@@ -344,81 +272,31 @@ body {
   }
 }
 
-/* Musician Info styling */
+/* Musician Info Styling */
 .musician-info {
   flex: 2;
-  min-width: 300px;
+  top: 20px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 600px;
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency to see background */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-  animation: danceText 4s ease-in-out infinite;
+  margin: auto;
 }
 
-/* Bio text dancing animation */
-@keyframes danceText {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(5px);
-  }
-  50% {
-    transform: translateX(-5px);
-  }
-  75% {
-    transform: translateX(5px);
-  }
-}
-
-/* Musician Info - Bio Text */
 .musician-info h2 {
-  margin-bottom: 16px;
-  font-size: 1.6rem;
-  color: #333;
+  margin-top: 0;
+  font-size: 2.5rem;
 }
 
 .musician-info p {
+  font-size: 1.2rem;
   line-height: 1.6;
-  color: #333;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 400px;
-  display: -webkit-box;
-  -webkit-line-clamp: 10;
-  -webkit-box-orient: vertical;
 }
 
-/* Back Button Styling */
-.back-button-container {
-  position: fixed; /* Use fixed positioning instead of absolute */
-  bottom: 20px; /* Distance from the bottom of the page */
-  left: 50%;
-  transform: translateX(-50%); /* Center the button horizontally */
-  width: auto; /* Adjust width as needed */
-  text-align: center;
-  z-index: 10; /* Ensure it's above other elements */
+/* General Styles for Text */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
-
-
-.button {
-  padding: 12px 24px;
-  background-color: #007BFF;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 1rem;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05); /* Button grows a little on hover */
-}
-
-

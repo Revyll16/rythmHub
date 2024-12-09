@@ -2,6 +2,7 @@
 <%= simple_form_for(@musician) do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
+<%= f.input :instruments, as: :check_boxes, collection: Instrument.all, input_html: { multiple: true }, label_method: :name, value_method: :id %>
   <%= f.input :bio %>
   <%= f.input :image_url %>
   <%= f.submit %>

@@ -173,7 +173,7 @@
 
 /* Floating button effect */
 .button:hover {
-  background-color: #ff5722;
+  background-color: #1bb41e;
   transform: translateY(-3px);
   /* Slight float effect */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
@@ -254,7 +254,7 @@
 
 /* Button Styles */
 .button {
-  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  background: linear-gradient(45deg, #44780c, #3bb523);
   color: white;
   padding: 10px 15px;
   font-size: 14px;
@@ -271,7 +271,7 @@
 }
 
 .button:hover {
-  background: linear-gradient(45deg, #ee0979, #ff6a00);
+  background: linear-gradient(45deg, #2caa0a, #11b61f);
   transform: translateY(-3px);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
@@ -296,17 +296,28 @@ html {
 }
 
 /* Back Button */
+/* Color variables */
+:root {
+  --color-light: #a7d7b7;
+  --color-medium-light: #6c9d7a;
+  --color-medium-dark: #4b816f;
+  --color-dark: #2d5c5a;
+  --color-darker: #1f3b3d;
+  --color-accent: #00bcd4; /* Added accent color */
+}
+
+/* Back Button Container */
 .back-button-container {
   position: absolute;
   bottom: 20px;
-  /* Pushes the button to the bottom of the container */
   width: 100%;
   text-align: center;
 }
 
+/* Button Styles */
 .button {
   display: inline-block;
-  background-color: #00bcd4;
+  background-color: var(--color-accent); /* Using accent color */
   color: white;
   padding: 12px 20px;
   border-radius: 5px;
@@ -315,5 +326,11 @@ html {
   margin-top: 20px;
   text-align: center;
   transition: background-color 0.4s ease-in-out;
-  /* Smoother background-color transition */
+}
+
+/* Button Hover Effects */
+.button:hover {
+  background-color: var(--color-medium-dark); /* On hover, change to medium-dark */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }

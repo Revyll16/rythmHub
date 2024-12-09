@@ -32,8 +32,8 @@
       end
     end
 
-
     def edit
+        redirect_to forum_path(@forum), alert: 'You are not authorized to edit this forum.' unless @forum.musician == current_user.musician
     end
 
 
@@ -47,9 +47,17 @@
 
 
     def destroy
-      @forum.destroy
-      redirect_to forums_url, notice: 'Forum was successfully destroyed.'
+      if @forum.musician == current_user.musician
+        @forum.posts.destroy_all
+        @forum.destroy
+        redirect_to forums_url, notice: 'Forum and its posts were successfully deleted.'
+        # redirect_to forums_url, notice: 'Forum was successfully deleted.'
+      else
+        redirect_to forums_url, alert: 'You are not authorized to delete this forum.😌'
+      end
     end
+
+
 
 
 
