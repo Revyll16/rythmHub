@@ -58,6 +58,7 @@ class MusiciansController < ApplicationController
 
     if @musician.save
       redirect_to @musician, notice: 'Musician was successfully created.'
+
     else
       render :new # If there are validation errors or failure
     end

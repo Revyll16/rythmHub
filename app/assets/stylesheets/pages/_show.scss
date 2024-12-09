@@ -7,6 +7,13 @@
   --color-darker: #1f3b3d;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
 /* Background Container */
 .background-container {
   position: relative;
@@ -32,6 +39,7 @@
 /* Card Styles */
 .card {
   background-size: cover;
+  
 .index-background-container {
   position: relative;
   min-height: 100vh;
@@ -130,8 +138,7 @@
   position: absolute;
   opacity: 0;
 }
-
-/* Details Section */
+  
 .details {
   z-index: 2;
   display: flex;
@@ -182,7 +189,6 @@
   animation: fadeIn 2.5s ease-in-out;
 }
 
-/* Glowing Header */
 .animated-header {
   font-size: 3rem;
   font-weight: bold;
@@ -296,6 +302,7 @@ html {
   text-align: center;
 }
 
+
 .button {
   display: inline-block;
   background-color: var(--color-medium-dark);
@@ -381,7 +388,6 @@ body {
   border-radius: 20px;
 }
 
-/* Floating Effect for Musician Image */
 @keyframes floatImage {
   0% {
     transform: translateY(0);
@@ -402,23 +408,19 @@ body {
   top: 20px;
   z-index: 10;
   background: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 600px;
   margin: auto;
-}
-
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
-  /* Slight transparency to see background */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
   overflow: hidden;
   position: relative;
-  // animation: danceText 4s ease-in-out infinite;
+ 
 }
+
 
 /* Bio text dancing animation */
 // @keyframes danceText {

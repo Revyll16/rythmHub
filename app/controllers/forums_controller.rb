@@ -32,6 +32,7 @@
       end
     end
 
+
     def edit
         redirect_to forum_path(@forum), alert: 'You are not authorized to edit this forum.' unless @forum.musician == current_user.musician
     end
