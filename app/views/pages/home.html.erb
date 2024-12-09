@@ -7,7 +7,7 @@
   <div class="carousel-inner carousel-height">
     <div class="carousel-item active" data-bs-interval="5000">
       <%= image_tag "carousel6.jpg", class:"d-block custom-carousel w-100" %>
-      <div class="carousel-caption caption-height d-none d-md-block">
+      <div class="carousel-caption caption-height d-none d-sm-block">
         <div class="bg-custom">
           <h2 class="h2-carousel">First slide label</h2>
           <p class="p-carousel">Some representative placeholder content for the first slide.</p>
@@ -17,7 +17,7 @@
     </div>
     <div class="carousel-item" data-bs-interval="6000">
       <%= image_tag "carousel1.jpg", class:"d-block custom-carousel w-100" %>
-      <div class="carousel-caption caption-height d-none d-md-block">
+      <div class="carousel-caption caption-height d-none d-sm-block">
         <div class="bg-custom">
           <h2 class="h2-carousel">Second slide label</h2>
           <p class="p-carousel">Some representative placeholder content for the second slide.</p>
@@ -27,10 +27,9 @@
     </div>
     <div class="carousel-item" data-bs-interval="5500">
       <%= image_tag "carousel8.jpg", class:"d-block custom-carousel w-100" %>
-      <div class="carousel-caption caption-height d-none d-md-block">
+      <div class="carousel-caption caption-height d-none d-sm-block">
         <div class="bg-custom">
           <h2 class="h2-carousel">Third slide label</h2>
-          <p class="p-carousel">Some representative placeholder content for the third slide.</p>
           <p class="p-carousel">Some representative placeholder content</p>
           <%= link_to "Show more", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px;" %>
         </div>
@@ -38,14 +37,14 @@
     </div>
   </div>
   <%# THE CODE BELOW IS THE Prev & Next BUTTON OF THE CAROUSEL THAT WAS COMMENT  %>
-  <%# <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </button> %>
+  </button>
 </div>
 <div class="container-fluid">
   <div class="row my-5">
@@ -101,28 +100,23 @@
     </div>
   </div>
 </div>
-
 <!--Emoji Navbar first -->
-<%# <a class="navbar bg-primary sticky-top emoji" href="#emoji" role="button" data-toggle="collapse"></a> %>
-
+<%# <a class="navbar bg-primary emoji" href="#emoji" role="button" data-toggle="collapse"></a> %>
 <!-- FIXED BACKGROUND -->
 <div class="fixed-background">
-  <div class="row text-light py-5">
+  <div class="row text-light text-light py-5">
     <div class="col-12 text-center">
       <h1>Advance to the Next Level</h1>
       <h3 class="py-4">...See what's in the other side</h3>
-      <%= link_to "Click me", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px;" %>
+      <%= link_to "Players", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px;" %>
     </div>
   </div>
   <div class="fixed-wrap">
     <div class="fixed"></div>
   </div>
 </div>
-
 <%# <a class="navbar bg-primary emoji" href="#emoji" role="button" data-toggle="collapse"><i class="fas fa-home"></i></a> %>
 <!--Emoji Navbar Second -->
-
-
 <!-- START THE FEATURETTES -->
 <div class="container-fluid">
   <hr class="featurette-divider">

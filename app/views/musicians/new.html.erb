@@ -2,6 +2,7 @@
 <%= simple_form_for(@musician) do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
+<%= f.input :instruments, as: :check_boxes, collection: Instrument.all, input_html: { multiple: true }, label_method: :name, value_method: :id %>
   <%= f.input :bio %>
   <%= f.input :image_url %>
 
@@ -10,3 +11,4 @@
     <%= link_to "Back to Musicians", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #28A745; padding: 8px 16px; border-radius: 4px;" %>
   </div>
 <% end %>
+

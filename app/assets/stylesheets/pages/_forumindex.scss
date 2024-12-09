@@ -1,0 +1,98 @@
+/* Color variables */
+:root {
+  --color-light: #a7d7b7;
+  --color-medium-light: #6c9d7a;
+  --color-medium-dark: #4b816f;
+  --color-dark: #2d5c5a;
+  --color-darker: #1f3b3d;
+  --color-accent: #00bcd4; /* Added accent color */
+  --color-banner-start: #6e7e85; /* For banner gradient */
+  --color-banner-end: #3a4e5b; /* For banner gradient */
+  --color-button: #FF6F61; /* For button */
+  --color-button-hover: #FF3E2E; /* For button hover */
+  --color-text-light: #ffffff; /* Light text color */
+  --color-text-dark: #555555; /* Dark text color */
+}
+
+/* For Banners */
+.banner {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-banner-start), var(--color-banner-end)); /* Using palette for gradient */
+  color: var(--color-text-light); /* White text */
+  padding: 60px 20px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.banner:hover {
+  transform: translateY(-10px);
+}
+
+.banner h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* For Join Forum Button */
+.button {
+  text-decoration: none;
+  color: var(--color-text-light); /* White text */
+  background-color: var(--color-button); /* Using the new button color */
+  padding: 14px 28px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 1.2em;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--color-button-hover); /* Button hover effect with new color */
+}
+
+/* For No Forum Message */
+p {
+  font-size: 1.5em;
+  color: var(--color-text-dark); /* Darker text color */
+}
+
+body {
+  background-image: url('https://images.pexels.com/photos/8198625/pexels-photo-8198625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header-container {
+  text-align: center;
+  padding-top: 20px; /* Space from the top of the page */
+}
+
+.banners-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  flex-grow: 1; /* Allows the banners to take remaining space */
+  padding: 20px;
+  width: 100%; /* Ensure banners fill the width of the container */
+}
+
+.inddex-background-container {
+  height: 100vh; /* Full viewport height */
+  background-image: url('your-image.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
