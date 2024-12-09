@@ -1,34 +1,56 @@
-// Specific CSS for your home-page
+/* Color variables */
+:root {
+  --color-light: #a7d7b7;
+  --color-medium-light: #6c9d7a;
+  --color-medium-dark: #4b816f;
+  --color-dark: #2d5c5a;
+  --color-darker: #1f3b3d;
+  --color-accent: #00bcd4; /* Added accent color */
+  --color-banner-start: #6e7e85; /* For banner gradient */
+  --color-banner-end: #3a4e5b; /* For banner gradient */
+  --color-button: #FF6F61; /* For button */
+  --color-button-hover: #FF3E2E; /* For button hover */
+  --color-text-light: #ffffff; /* Light text color */
+  --color-text-dark: #555555; /* Dark text color */
+  --color-bg: #e3e9f3; /* Background color */
+  --color-overlay: rgba(0, 0, 0, 0.4); /* Background overlay color */
+  --color-dark-text: #000000; /* Dark text for certain areas */
+}
 
-// add a class to the whole carousel to lımıt the heıght
+/* Specific CSS for your home-page */
+
+/* Limit height of carousel */
 .carousel-height {
   height: 55vh;
 }
 
+/* Custom background overlay for captions */
 .bg-custom {
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
+  background-color: var(--color-overlay); /* Using palette for overlay color */
+  color: var(--color-text-light); /* Light text */
   border-radius: 1rem;
   padding: 20px;
   width: fit-content;
   margin: 0 auto;
 }
 
+/* Caption positioning */
 .caption-height {
   position: absolute;
-  top: 15vh;
+  top: 20vh;
 }
 
 .p-carousel {
-  color: azure;
+  color: var(--color-text-light); /* Light text */
   font-weight: lighter;
 }
 
 .h2-carousel {
-  color: azure;
+  color: var(--color-text-light); /* Light text */
   font-weight: bolder;
 }
 
+/* Carousel styles */
 .carousel {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
   width: 100%;
@@ -38,6 +60,7 @@
   max-height: 38rem !important;
 }
 
+/* Container styles */
 .container {
   position: relative;
   display: flex;
@@ -45,7 +68,7 @@
   justify-content: center;
   width: 100vw;
   height: 70vh;
-  background-color: #e3e9f3;
+  background-color: var(--color-bg); /* Using color palette for background */
   margin-top: 80px;
 }
 
@@ -55,7 +78,7 @@
   margin-right: 0px !important;
 }
 
-// fixed-background
+/* Fixed background styling */
 .fixed {
   background-image: url('card3.jpg');
   width: 100%;
@@ -69,6 +92,7 @@
   background-repeat: no-repeat;
 }
 
+/* Fixed background container */
 .fixed-background {
   height: 55vh;
   padding: 10rem 0;
@@ -78,6 +102,7 @@
   box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 15px 1px;
 }
 
+/* Fixed background wrap */
 .fixed-wrap {
   clip: rect(0, auto, auto, 0);
   position: absolute;
@@ -86,6 +111,15 @@
   width: 100%;
   height: 100%;
   z-index: -999 !important;
+}
+
+.text-light {
+  position: absolute;
+  align-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .col-lg-4 {
@@ -102,11 +136,12 @@ h2 {
   font-weight: 400;
 }
 
+/* Featurette divider */
 .featurette-divider {
   margin: 5rem 0;
 }
 
-
+/* Featurette heading */
 .featurette-heading {
   font-weight: 200;
   line-height: 2;
@@ -130,6 +165,7 @@ h2 {
   }
 }
 
+/* Background clip styling */
 .background-clip {
   position: absolute;
   right: 0;
@@ -137,6 +173,7 @@ h2 {
   z-index: -1;
 }
 
+/* Container-fluid specific styles */
 .container-fluid-1 {
   width: 100%;
   height: 90vh;
@@ -156,7 +193,7 @@ h2 {
   p,
   h2,
   h1 {
-    font-size: 1, 5rem;
+    font-size: 1.5rem; /* Corrected comma to period */
   }
 }
 
@@ -169,11 +206,26 @@ h2 {
   p,
   h2,
   h1 {
-    font-size: 0, 5rem;
+    font-size: 0.5rem; /* Corrected comma to period */
   }
 }
 
+/* Row background styling */
 .row-background {
   box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .5);
-  background-color: rgb(3, 3, 3);
+  background-color: var(--color-dark-text); /* Dark background color */
+}
+
+// CSS FOR THE FORMS EDIT & CREATE MUSİCİANS
+
+.container-fluid-form {
+  width: 80%;
+  height: 80vh;
+  padding: 100px;
+  margin: auto;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // margin-bottom: 50px;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 15px 1px;
 }
