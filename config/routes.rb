@@ -14,17 +14,13 @@ Rails.application.routes.draw do
   end
 
   resources :compositions, only: [:index, :show] do
-    resources :feedbacks, only: [:index, :create, :new]
+    resources :feedbacks, only: [:index, :create]
   end
 
   resources :forums do
     resources :posts, only: [:create, :index]
   end
 
-
-  resources :compositions do
-    resources :feedbacks, only: [:create]
-  end
 
 
   resources :instruments, only: [:index, :show, :create]
