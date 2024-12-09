@@ -254,9 +254,7 @@
 
 /* Button Styles */
 .button {
-  
   background: linear-gradient(45deg, #44780c, #3bb523);
-
   color: white;
   padding: 10px 15px;
   font-size: 14px;
@@ -273,9 +271,7 @@
 }
 
 .button:hover {
-
   background: linear-gradient(45deg, #2caa0a, #11b61f);
-
   transform: translateY(-3px);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }

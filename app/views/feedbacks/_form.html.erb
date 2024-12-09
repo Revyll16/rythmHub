@@ -1,6 +1,0 @@
-<%= simple_form_for [@composition, Feedback.new],
-  html: {
-         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
-  <%= f.input :content, label: "Your Feedback", as: :text, input_html: { rows: 3 } %>
-  <%= f.submit "Post Feedback", class: "btn btn-primary" %>
-<% end %>
