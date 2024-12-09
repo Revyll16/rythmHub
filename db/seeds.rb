@@ -91,7 +91,7 @@ musicians.each do |musician|
   # Create a user for the musician
   user = User.create!(
     email: "#{musician[:name].downcase.gsub(' ', '.')}@example.com",
-    password: "password123"
+    password: "password"
   )
 
   # Create the musician and associate with the user
@@ -127,19 +127,19 @@ puts "#{Instrument.count} instruments seeded"
 
 # Seed Compositions
 compositions = [
-  { title: "Symphony No. 5", video_url: "https://example.com/symphony_5", description: "A famous symphony by Beethoven." },
-  { title: "Imagine", video_url: "https://example.com/symphony_5", description: "A classic song by John Lennon." },
   { title: "No Woman, No Cry", video_url: "https://example.com/no_woman_no_cry", description: "A reggae anthem by Bob Marley." },
+  { title: "What a Wonderful World", video_url: "https://example.com/wonderful_world", description: "A soulful song by Louis Armstrong." },
   { title: "What’s Love Got to Do with It", video_url: "https://example.com/whats_love", description: "A hit song by Tina Turner." },
   { title: "Jailhouse Rock", video_url: "https://example.com/jailhouse_rock", description: "A rock song by Elvis Presley." },
-  { title: "Clair de Lune", video_url: "https://example.com/clair_de_lune", description: "A beautiful piano piece by Claude Debussy." },
-  { title: "Eine kleine Nachtmusik", video_url: "https://example.com/eine_kleine", description: "A popular serenade by Mozart." },
-  { title: "What a Wonderful World", video_url: "https://example.com/wonderful_world", description: "A soulful song by Louis Armstrong." }
+  { title: "Symphony No. 5", video_url: "https://example.com/symphony_5", description: "A famous symphony by Beethoven." },
+  { title: "Eine kleine Nachtmusik", video_url: "https://example.com/eine_kleine", description: "A popular serenade by Mozart." }
 ]
 
 # Associate compositions with musicians
-compositions.each_with_index do |composition, index|
-  Musician.all.sample.compositions.create!(composition)
+musicians = Musician.all
+
+compositions.each_with_index do |comp, index|
+  musicians[index].compositions.create!(comp)
 end
 puts "#{Composition.count} compositions seeded"
 

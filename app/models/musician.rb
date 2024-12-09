@@ -9,4 +9,17 @@ class Musician < ApplicationRecord
   def img_url
     image_url
   end
+
+  include PgSearch::Model
+  multisearchable against: [:name, :bio]
+
+  pg_search_scope :global_search,
+  against: [ :name, :bio ],
+  associated_against: {
+    user: [ :email ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end

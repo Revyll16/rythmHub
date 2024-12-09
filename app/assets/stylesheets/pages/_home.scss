@@ -37,7 +37,7 @@
 /* Caption positioning */
 .caption-height {
   position: absolute;
-  top: 15vh;
+  top: 20vh;
 }
 
 .p-carousel {
@@ -113,7 +113,15 @@
   z-index: -999 !important;
 }
 
-/* Column styling */
+.text-light {
+  position: absolute;
+  align-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
@@ -208,3 +216,16 @@ h2 {
   background-color: var(--color-dark-text); /* Dark background color */
 }
 
+// CSS FOR THE FORMS EDIT & CREATE MUSİCİANS
+
+.container-fluid-form {
+  width: 80%;
+  height: 80vh;
+  padding: 100px;
+  margin: auto;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // margin-bottom: 50px;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 15px 1px;
+}
