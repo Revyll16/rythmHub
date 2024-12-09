@@ -1,43 +1,53 @@
-<div class="full-background">
-  <div class="show-background-container" style="background-image: url('<%= @musician.image_url %>'); background-size: cover; background-position: center; background-attachment: fixed;">
-    <div class="musician-container">
-      <!-- Header -->
-      <div class="header-container">
-        <h1 class="animated-header"><%= @musician.name %></h1>
+<div class="show-background-container" style="background-image: url('<%= @musician.image_url %>'); background-size: cover; background-position: center; background-attachment: fixed;">
+  <div class="musician-container">
+    <!-- Header -->
+    <div class="header-container">
+      <h1 class="animated-header"><%= @musician.name %></h1>
+    </div>
+    <!-- Musician Details Section -->
+    <div class="musician-details-container" style="display: flex; flex-wrap: wrap; gap: 32px; margin: 40px auto; max-width: 900px; justify-content: center; align-items: flex-start;">
+      <!-- Musician Image -->
+      <div class="musician-image" style="flex: 1; min-width: 300px; max-width: 400px; border-radius: 16px; overflow: hidden; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+        <img src="<%= @musician.image_url %>" alt="<%= @musician.name %>" style="width: 100%; height: auto; object-fit: cover;">
       </div>
       <!-- Musician Details -->
       <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
         <h2 style="margin-bottom: 16px;">About <%= @musician.name %></h2>
         <p style="line-height: 1.6; color: #333; overflow: hidden; text-overflow: ellipsis; max-height: 250px; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;"><%= @musician.bio %></p>
         <hr style="margin: 24px 0; border: 1px solid rgba(0, 0, 0, 0.1);">
-
-        <!-- Instruments Played Section -->
-        <div class="musician-instruments">
-          <h3 style="color: #000;">Instrument(s) Played:</h3> <!-- Set header color to black -->
-          <% if @musician.instruments.any? %>
-            <ul style="list-style-type: none; padding: 0;">
-              <% @musician.instruments.each do |instrument| %>
-                <li style="font-size: 1rem; color: #000; margin-bottom: 8px;"><%= instrument.name %></li> <!-- Set list items color to black -->
-              <% end %>
-            </ul>
-          <% else %>
-            <p style="font-style: italic; color: #777;">No instruments listed.</p>
-          <% end %>
-        </div>
-
         <div class="musician-address">
           <p style="font-style: italic; color: #555;">Address: <%= @musician.address %></p>
         </div>
-
         <div style="text-align: center; margin-top: 40px;">
           <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
         </div>
       </div>
     </div>
-    <!-- Back Button (Fixed at the Bottom) -->
-    <div class="back-button-container">
-    <br>
 
+    <div class="text-decoration: none; button">
+      <% @musician.compositions.each do |composition| %>
+        <%= link_to composition do %>
+          <%= composition.title %> - <%= composition.description %>
+
+        <% end %>
+      <% end %>
     </div>
-  </div>
-</div>
+
+<%# if statement, to only show form if current_user.musicians.last == @musican %>
+
+
+<% if current_user.musician == @musician %>
+  <h2>Upload a New Composition</h2>
+  <%= simple_form_for [@musician, @composition] do |form| %>
+
+      <%= form.input :title %>
+
+      <%= form.input :description %>
+
+
+      <%= form.input :file, as: :file %>
+      <%= form.submit %>
+
+
+  <% end %>
+<% end %>
