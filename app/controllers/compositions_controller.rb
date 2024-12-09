@@ -5,6 +5,7 @@ class CompositionsController < ApplicationController
 
   def show
     @composition = Composition.find(params[:id])
+    @feedbacks = @composition.feedbacks
   end
 
   def new
@@ -39,6 +40,20 @@ class CompositionsController < ApplicationController
     redirect_to compositions_url, notice: 'Composition was successfully destroyed.'
   end
 
+  def create_feedback
+    @composition = Composition.find(params[:composition_id])
+    @feedback = Feedback.new
+
+    if @feedback.save
+      redirect_to @composition, notice: 'Feedback was successfully added.'
+    else
+      # Reload feedbacks to show errors and keep the user on the same page
+      @feedbacks = @composition.feedbacks
+      flash.now[:alert] = 'Failed to add feedback.'
+      render :show, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_composition
@@ -46,6 +61,6 @@ class CompositionsController < ApplicationController
   end
 
   def composition_params
-    params.require(:composition).permit(:title, :file, :description) 
+    params.require(:composition).permit(:title, :file, :description)
   end
 end
