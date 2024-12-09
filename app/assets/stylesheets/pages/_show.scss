@@ -39,7 +39,7 @@ body {
 /* Card Styles */
 .card {
   background-size: cover;
-  
+
 .index-background-container {
   position: relative;
   min-height: 100vh;
@@ -53,6 +53,7 @@ body {
   color: white;
   /* Text color */
   /* Smooth background movement animation */
+}
 }
 
 /* Glassmorphism effect on cards with background image */
@@ -70,7 +71,7 @@ body {
   justify-content: flex-end;
   gap: 7.5px;
   transition: all 0.7s ease-in-out;
- 
+
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   filter: grayscale(100%);
@@ -138,7 +139,7 @@ body {
   position: absolute;
   opacity: 0;
 }
-  
+
 .details {
   z-index: 2;
   display: flex;
@@ -418,7 +419,7 @@ body {
   min-width: 300px;
   overflow: hidden;
   position: relative;
- 
+
 }
 
 
