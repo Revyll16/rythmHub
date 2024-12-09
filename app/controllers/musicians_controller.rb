@@ -5,7 +5,18 @@ class MusiciansController < ApplicationController
   before_action :set_musician, only: [:show]
 
   def index
-    @musicians = Musician.all
+    @musicians = Musician.geocoded
+
+    # The `geocoded` scope filters only musicians with coordinates
+    @markers = @musicians.geocoded.map do |musician|
+      {
+        lat: musician.latitude,
+        lng: musician.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {musician: musician}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
+
     if params[:query].present?
       sql_subquery = <<~SQL
       musicians.name @@ :query

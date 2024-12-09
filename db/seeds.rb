@@ -26,71 +26,138 @@ User.destroy_all
 Musician.destroy_all
 
 # List of musicians with associated attributes
+# db/seeds.rb
+
 musicians = [
   {
-    name: "John Doe",
-
-    bio: "John Doe is a multi-instrumentalist known for his eclectic style that blends various genres, from classical to jazz, rock, and electronic. His musical journey began at an early age when he first picked up a guitar at the age of seven. Over the years, John honed his skills on a variety of instruments, including piano, drums, and violin.",
-    image_url: "https://th.bing.com/th/id/OIP.LuE7kwG2B8SunikDvzhgVQHaE8?rs=1&pid=ImgDetMain",
-    address: "123 Harmony Lane, Music City"
+    name: "Yo-Yo Ma",
+    bio: "Yo-Yo Ma is a world-renowned French-born American cellist, known for his extraordinary technique and rich tone. He is one of the most famous and influential cellists of our time.",
+    image_url: "https://media.wnyc.org/i/1200/630/80/nprproxy/438581988",
+    instrument_name: "Cello",
+    address: "Paris, France"
   },
   {
-    name: "Jane Smith",
-
-    bio: "Jane Smith is a classically trained pianist with a passion for composition and a deep understanding of music theory. From a young age, she was recognized for her exceptional talent, earning a scholarship to one of the most prestigious music conservatories in the world. Jane’s early influences were composers like Chopin, Debussy, and Rachmaninoff, whose works she studied meticulously.",
-
-    image_url: "https://th.bing.com/th/id/R.d35ff56255afd9012eb7319d478c6e62?rik=zWoURL%2b9N3faHA&riu=http%3a%2f%2felissagayle.ebersold.org%2fblog%2fwp-content%2fuploads%2f2019%2f04%2f190412_MoriahFormica_ElissaEbersold_ConcertPhotography-lg-12.jpg&ehk=AO%2bQf%2bXrAF58qzjbRGi6lC4WE%2bHuuYRbuUTRYzpE%2b5A%3d&risl=&pid=ImgRaw&r=0",
-    address: "456 Sonata Street, Piano Town"
+    name: "Andrés Segovia",
+    bio: "Andrés Segovia was a Spanish classical guitarist and one of the most important guitarists of the 20th century, renowned for his virtuosity and for expanding the guitar's repertoire.",
+    image_url: "https://i.ytimg.com/vi/LDsNLvOvwmI/maxresdefault.jpg",
+    instrument_name: "Classical Guitar",
+    address: "Linares, Spain"
   },
   {
-    name: "Bob Marley",
-
-    bio: "Bob Marley is a reggae legend, blending soul and rhythm to create some of the most iconic songs in music history. Born in Jamaica, Bob’s early life was shaped by the sounds of traditional Jamaican music, but it was the influence of R&B and soul that made his music universally loved. His breakthrough came in the 1970s with the formation of the band, The Wailers, whose mix of reggae, rock, and soul was revolutionary.",
-
-    image_url: "https://i0.wp.com/africhroyale.com/wp-content/uploads/2020/08/bob-marley.jpg?fit=1200,1200&ssl=1",
-    address: "1 Love Ave, Kingston, Jamaica"
+    name: "Clint Black",
+    bio: "Clint Black is an American country music singer, songwriter, musician, and record producer. He is known for his contributions to the country music genre and hits like 'A Better Man'.",
+    image_url: "https://avatars.yandex.net/get-music-content/2357076/942b0731.a.10225239-1/m1000x1000?webp=false",
+    instrument_name: "Guitar",
+    address: "Long Branch, New Jersey, USA"
   },
   {
-    name: "Louis Armstrong",
-
-    bio: "Louis Armstrong, one of the most iconic figures in jazz history, is renowned for his unique trumpet playing and his deep, gravelly voice. Born in New Orleans, he grew up in poverty but found solace in music, playing in local brass bands before making his way to Chicago. It was there that he became a leading figure in the birth of jazz, revolutionizing the genre with his improvisational skills and musical creativity.",
-
-    image_url: "https://wallpapers.com/images/hd/american-musician-and-vocalist-louis-armstrong-7qe7z9c4160env44.jpg",
-    address: "789 Jazz Blvd, New Orleans, LA"
+    name: "Herbie Hancock",
+    bio: "Herbie Hancock is an American jazz pianist, keyboardist, composer, and bandleader. He is widely considered one of the most influential musicians in the jazz genre.",
+    image_url: "https://api.hub.jhu.edu/factory/sites/default/files/styles/soft_crop_1300/public/Herbie_Hancock_%28ZMF_2017%29_IMGP9601.jpeg",
+    instrument_name: "Piano",
+    address: "Chicago, Illinois, USA"
+  },
+  {
+    name: "Vladimir Horowitz",
+    bio: "Vladimir Horowitz was a Russian-American classical pianist, often regarded as one of the greatest pianists of all time.",
+    image_url: "https://cdn1.ozone.ru/multimedia/1020054727.jpg",
+    instrument_name: "Piano",
+    address: "Kiev, Ukraine"
+  },
+  {
+    name: "John Bonham",
+    bio: "John Bonham was an English drummer, best known as a member of the rock band Led Zeppelin. He is widely regarded as one of the greatest drummers in the history of rock music.",
+    image_url: "https://i.pinimg.com/originals/40/65/1e/40651ee9635a4ed0c1132bd315caf1f8.jpg",
+    instrument_name: "Drums",
+    address: "Birmingham, England"
+  },
+  {
+    name: "Keith Richards",
+    bio: "Keith Richards is an English musician, singer, and songwriter, best known as the guitarist for the rock band The Rolling Stones.",
+    image_url: "https://i.pinimg.com/originals/22/7e/a3/227ea3f8af4c330251a5213ef5f23090.jpg",
+    instrument_name: "Guitar",
+    address: "Dartford, England"
+  },
+  {
+    name: "Jaco Pastorius",
+    bio: "Jaco Pastorius was an American jazz bassist, known for his virtuosic and innovative approach to bass guitar, which revolutionized the role of the instrument in jazz.",
+    image_url: "https://samcult.ru/wp-content/uploads/2019/09/3705552-e1569080166673.jpg",
+    instrument_name: "Bass Guitar",
+    address: "Norristown, Pennsylvania, USA"
+  },
+  {
+    name: "Paco de Lucía",
+    bio: "Paco de Lucía was a Spanish flamenco guitarist, composer, and producer, widely regarded as one of the greatest guitarists in the world.",
+    image_url: "https://i.pinimg.com/originals/61/7a/5f/617a5f9f821c692b0d23ab80245d7010.jpg",
+    instrument_name: "Flamenco Guitar",
+    address: "Algeciras, Spain"
+  },
+  {
+    name: "Muddy Waters",
+    bio: "Muddy Waters was an American blues guitarist, singer, and songwriter, who is often called the 'father of modern Chicago blues'.",
+    image_url: "https://avatars.dzeninfra.ru/get-zen_doc/133957/pub_616d007b45dde444159b0a0a_616f07228178a932b5fa1e59/scale_1200",
+    instrument_name: "Electric Guitar",
+    address: "Rolling Fork, Mississippi, USA"
   },
   {
     name: "Tina Turner",
-
-    bio: "Tina Turner is an iconic singer known for her powerful voice and stage presence, making her one of the most influential artists in music history. Born Anna Mae Bullock in Nutbush, Tennessee, Tina started her career as a backing vocalist before joining Ike Turner’s band. Her breakthrough came when she and Ike formed the duo 'Ike & Tina Turner,' which earned her a reputation for her electrifying performances and fierce vocals.",
-    image_url: "https://th.bing.com/th/id/OIP.RC5YfZUdffs0GPYUWox7ywHaK0?rs=1&pid=ImgDetMain",
-
-    address: "321 Rock Road, Nutbush, TN"
+    bio: "Tina Turner is an American-born Swiss singer, songwriter, and actress. She is widely known for her powerful vocals and energetic performances.",
+    image_url: "https://www.whartoncenter.com/assets/img/tina-photo-1-6c09baeb5f.jpg",
+    instrument_name: "Vocals",
+    address: "Nutbush, Tennessee, USA"
   },
   {
-    name: "Elvis Presley",
-
-    bio: "Elvis Presley, often referred to as the 'King of Rock and Roll,' revolutionized the music industry and changed the cultural landscape of the 20th century. Born in Tupelo, Mississippi, Elvis grew up in a modest household but was always surrounded by music, which influenced his love for gospel, blues, and country. His breakthrough came in 1956 with his first single 'Heartbreak Hotel,' and he soon became a cultural icon.",
-
-    image_url: "https://media.gq-magazine.co.uk/photos/5d1396393bedf20055db67b3/master/w_1366%2cc_limit/Elvis-12-GQ-16Aug17_getty_b.jpg",
-    address: "Graceland, Memphis, TN"
+    name: "Louis Armstrong",
+    bio: "Louis Armstrong was an American jazz trumpeter, composer, and vocalist, who was one of the most influential figures in the development of jazz music.",
+    image_url: "https://cdn.ananasposter.ru/image/cache/catalog/poster/pos23/25/69219-1000x830.jpg",
+    instrument_name: "Trumpet",
+    address: "New Orleans, Louisiana, USA"
   },
   {
-    name: "Beethoven",
-
-    bio: "Ludwig van Beethoven, born in 1770 in Bonn, Germany, is regarded as one of the greatest composers in the history of Western music. His works revolutionized classical music, bridging the gap between the Classical and Romantic periods. Beethoven’s early music was influenced by his predecessors, such as Haydn and Mozart, but his later compositions defied traditional structures and norms.",
-
-    image_url: "https://th.bing.com/th/id/OIP.WjKXjy86_u4WVnobHo-IYQAAAA?rs=1&pid=ImgDetMain",
-    address: "12 Symphony Lane, Bonn, Germany"
+    name: "Billie Holiday",
+    bio: "Billie Holiday was an American jazz and swing music singer, known for her deeply emotional voice and her unique phrasing.",
+    image_url: "https://i.pinimg.com/736x/b8/06/7b/b8067b884b5eea49e549b00f010022d1.jpg",
+    instrument_name: "Vocals",
+    address: "Philadelphia, Pennsylvania, USA"
   },
   {
-    name: "Mozart",
-
-    bio: "Wolfgang Amadeus Mozart, born in 1756 in Salzburg, Austria, was one of the most prolific and influential composers of the Classical era. His musical genius was apparent from a young age, and he began composing music at the age of five. Mozart composed over 600 works, including symphonies, operas, chamber music, and choral compositions, many of which are considered masterpieces.",
-
-    image_url: "https://tmms.co.uk/wp-content/uploads/2023/01/imgpsh_fullsize_anim-5.png",
-    address: "34 Sonata Square, Salzburg, Austria"
+    name: "Celia Cruz",
+    bio: "Celia Cruz was a Cuban singer known as the 'Queen of Salsa'. She was one of the most influential figures in Latin music during the 20th century.",
+    image_url: "https://m.media-amazon.com/images/M/MV5BOTU3NmZmZDItYzUwYy00MWExLTlhY2QtZjhmNDE0ZGQ5YzhiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
+    instrument_name: "Vocals",
+    address: "Havana, Cuba"
+  },
+  {
+    name: "Charlie Parker",
+    bio: "Charlie Parker was an American jazz saxophonist and composer, who was a leading figure in the development of bebop, one of the most influential jazz movements.",
+    image_url: "https://www.operaphila.org/media/1952/yardbird_024.jpg",
+    instrument_name: "Alto Saxophone",
+    address: "Kansas City, Missouri, USA"
+  },
+  {
+    name: "B.B. King",
+    bio: "B.B. King was an American blues singer, electric guitarist, and songwriter. He is widely considered one of the most important and influential blues musicians of all time.",
+    image_url: "https://imageio.forbes.com/specials-images/imageserve/b232c3b558f54b6792880b8026daf26c/0x0.jpg?format=jpg&amp;width=1200",
+    instrument_name: "Electric Guitar",
+    address: "Indianola, Mississippi, USA"
+  },
+  {
+    name: "Nina Simone",
+    bio: "Nina Simone was an American singer, songwriter, and pianist, known for her deep, soulful voice and her work in jazz, blues, and civil rights activism.",
+    image_url: "https://nypost.com/wp-content/uploads/sites/2/2021/06/nina-simone-kamla-harris-index.jpg?quality=75&amp;strip=all&amp;w=1024",
+    instrument_name: "Piano",
+    address: "Tryon, North Carolina, USA"
+  },
+  {
+    name: "James Brown",
+    bio: "James Brown was an American singer, songwriter, and dancer, known as the 'Godfather of Soul'. He was one of the most influential figures in the history of music.",
+    image_url: "https://i.ytimg.com/vi/qe0RsmxEZec/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgTShDMA8=&amp;rs=AOn4CLCyWqskHGZSMeQVLkZJ0C_gQJGXQg",
+    instrument_name: "Vocals",
+    address: "Barnwell, South Carolina, USA"
   }
 ]
+
+
 
 # Create users and assign each to a musician
 musicians.each do |musician|
