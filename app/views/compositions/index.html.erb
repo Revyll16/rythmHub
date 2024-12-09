@@ -1,23 +1,20 @@
-
-<% @compositions.each do |composition| %>
-<h1><%= composition.title %></h1>
-<p><%= composition.description %></p>
-
-
-<% if composition.file.attached? %>
-  <% case composition.file.blob.content_type %>
-  <% when /^image\// %>
-    <%= cl_image_tag composition.file.key, quality: 'auto', fetch_format: 'auto' %>
-  <% when /^video\// %>
-    <%= cl_video_tag composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
-  <% when /^audio\// %>
-    <%= cl_video_tag composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
-
+<div class="container-fluid">
+  <% @compositions.each do |composition| %>
+  <h1><%= composition.title %></h1>
+  <p><%= composition.description %></p>
+  <% if composition.file.attached? %>
+    <% case composition.file.blob.content_type %>
+    <% when /^image\// %>
+      <%= cl_image_tag composition.file.key, quality: 'auto', fetch_format: 'auto' %>
+    <% when /^video\// %>
+      <%= cl_video_tag composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
+    <% when /^audio\// %>
+      <%= cl_video_tag composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
+    <% else %>
+      <p>Unsupported file type.</p>
+    <% end %>
   <% else %>
-    <p>Unsupported file type.</p>
+    <p>No file uploaded.</p>
   <% end %>
-<% else %>
-  <p>No file uploaded.</p>
 <% end %>
-
-<% end %>
+</div>

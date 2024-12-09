@@ -1,14 +1,20 @@
 class MusiciansController < ApplicationController
-    
+
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   before_action :set_musician, only: [:show]
-  
-   has_many :compositions, dependent: :destroy
-    # Other associations and model logic
-  
+
   def index
     @musicians = Musician.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+      musicians.name @@ :query
+      OR musicians.bio @@ :query
+      OR musicians.address @@ :query
+      OR users.email @@ :query
+    SQL
+    @musicians = @musicians.joins(:user).where(sql_subquery, query: params[:query])
+    end
   end
 
   def show

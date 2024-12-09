@@ -1,6 +1,5 @@
 // Specific CSS for your home-page
 
-
 // add a class to the whole carousel to lımıt the heıght
 .carousel-height {
   height: 55vh;
@@ -89,6 +88,15 @@
   z-index: -999 !important;
 }
 
+.text-light {
+  position: absolute;
+  align-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
@@ -131,12 +139,7 @@ h2 {
   }
 }
 
-.background-clip {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
+// CSS FOR THE FORMS EDIT & CREATE MUSİCİANS
 
 .container-fluid-form {
   width: 80%;
@@ -148,35 +151,4 @@ h2 {
   // justify-content: center;
   // margin-bottom: 50px;
   box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 15px 1px;
-}
-
-@media (min-aspect-ratio:16/9) {
-  .background-clip {
-    width: 32rem;
-    height: 90%;
-  }
-
-  p,
-  h2,
-  h1 {
-    font-size: 1, 5rem;
-  }
-}
-
-@media (max-aspect-ratio:16/4) {
-  .background-clip {
-    width: 32rem;
-    height: 90%;
-  }
-
-  p,
-  h2,
-  h1 {
-    font-size: 0, 5rem;
-  }
-}
-
-.row-background {
-  box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .5);
-  background-color: rgb(3, 3, 3);
 }
