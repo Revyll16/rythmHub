@@ -41,12 +41,29 @@ class MusiciansController < ApplicationController
   def edit
     @musician = Musician.find(params[:id])
     @compositions = @musician.compositions
+
+
   end
 
   def update
     @musician = Musician.find(params[:id])
-    @musician.update(musician_params)
-    redirect_to musician_path(@musician)
+    @musician.update!(musician_params)
+
+    instrument_ids = params[:musician][:instruments]
+    # Create or find instruments and associate them with the musician
+    instrument_ids.each do |id|
+      if id != ""
+        instrument = Instrument.find_or_create_by(id: id.to_i)
+        @musician.instruments << instrument
+      end
+    end
+
+    if @musician.save!
+      redirect_to @musician
+    else
+      render :edit, status: :unprocessable_entity
+    end
+
   end
 
   def new
@@ -84,7 +101,7 @@ class MusiciansController < ApplicationController
   end
 
   def musician_params
-    params.require(:musician).permit(:name, :bio, :image_url, :address)
+    params.require(:musician).permit(:name, :bio, :image, :address)
   end
 
 end
