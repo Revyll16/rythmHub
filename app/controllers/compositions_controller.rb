@@ -15,7 +15,7 @@ class CompositionsController < ApplicationController
 
   def create
     @composition = Composition.new(composition_params)
-    @composition.musician = current_user.musicians.first
+    @composition.musician = current_user.musician
     if @composition.save
       redirect_to @composition, notice: 'Composition was successfully created.'
     else

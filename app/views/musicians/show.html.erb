@@ -10,18 +10,21 @@
       <div class="musician-image" style="flex: 1; min-width: 300px; max-width: 400px; border-radius: 16px; overflow: hidden; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
         <img src="<%= @musician.image_url %>" alt="<%= @musician.name %>" style="width: 100%; height: auto; object-fit: cover;">
       </div>
-      <!-- Musician Details -->
-      <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
-        <h2 style="margin-bottom: 16px;">About <%= @musician.name %></h2>
-        <p style="line-height: 1.6; color: #333; overflow: hidden; text-overflow: ellipsis; max-height: 250px; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;"><%= @musician.bio %></p>
-        <hr style="margin: 24px 0; border: 1px solid rgba(0, 0, 0, 0.1);">
-        <div class="musician-address">
-          <p style="font-style: italic; color: #555;">Address: <%= @musician.address %></p>
-        </div>
-        <div style="text-align: center; margin-top: 40px;">
-          <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
-          <%= link_to "Edit Musician",  edit_musician_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
-          <%= link_to "Compositions",  compositions_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
+      
+
+        <!-- Musician Details -->
+        <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
+          <h2 style="margin-bottom: 16px;">About <%= @musician.name %></h2>
+          <p style="line-height: 1.6; color: #333; overflow: hidden; text-overflow: ellipsis; max-height: 250px; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;"><%= @musician.bio %></p>
+          <hr style="margin: 24px 0; border: 1px solid rgba(0, 0, 0, 0.1);">
+          <div class="musician-address">
+            <p style="font-style: italic; color: #555;">Address: <%= @musician.address %></p>
+          </div>
+          <div style="text-align: center; margin-top: 40px;">
+            <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
+            <%= link_to "Edit Musician",  edit_musician_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
+            <%= link_to "Compositions",  compositions_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
+          </div>
         </div>
       </div>
     </div>
