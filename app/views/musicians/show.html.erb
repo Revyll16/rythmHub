@@ -1,4 +1,5 @@
-<div class="show-background-container" style="background-image: url('<%= @musician.image_url %>'); background-size: cover; background-position: center; background-attachment: fixed;">
+<div class="show-background-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @musician.image.key, height: 300, crop: :fill %>');>
+  filter: blur(px);">
   <div class="musician-container">
     <!-- Header -->
     <div class="header-container">
@@ -7,10 +8,11 @@
     <!-- Musician Details Section -->
     <div class="musician-details-container" style="display: flex; flex-wrap: wrap; gap: 32px; margin: 40px auto; max-width: 900px; justify-content: center; align-items: flex-start;">
       <!-- Musician Image -->
-      <div class="musician-image" style="flex: 1; min-width: 300px; max-width: 400px; border-radius: 16px; overflow: hidden; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-        <img src="<%= @musician.image_url %>" alt="<%= @musician.name %>" style="width: 100%; height: auto; object-fit: cover;">
+      <div class="musician-image" style="flex: 1; min-width: 100px; max-width: 400px; border-radius: 16px; overflow: hidden; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+        <%= cl_image_tag @musician.image.key %>
+
       </div>
-      
+
 
         <!-- Musician Details -->
         <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
@@ -23,7 +25,7 @@
           <div style="text-align: center; margin-top: 40px;">
             <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
             <%= link_to "Edit Musician",  edit_musician_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
-            <%= link_to "Compositions",  compositions_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
+            
           </div>
         </div>
       </div>
@@ -52,10 +54,11 @@
       <% end %>
     </div>
 
+
 <%# if statement, to only show form if current_user.musicians.last == @musican %>
 
 
-<% if current_user.musician == @musician %>
+<%  if current_user && current_user.musician == @musician %>
   <h2>Upload a New Composition</h2>
   <%= simple_form_for [@musician, @composition] do |form| %>
 

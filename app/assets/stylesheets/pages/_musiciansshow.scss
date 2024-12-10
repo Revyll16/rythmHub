@@ -1,0 +1,15 @@
+.show-background-container {
+  position: relative;
+}
+
+.show-background-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('<%= cl_image_path @musician.image.key, height: 300, crop: :fill %>');
+  filter: blur(100px);
+  z-index: -1; /* Places the blurred background behind the content */
+}

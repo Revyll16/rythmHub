@@ -8,7 +8,7 @@
     <br>
     <div class="cards-container" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
       <% @musicians.each do |musician| %>
-        <div class="card m-4" style="width: 300px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); background-image: url('<%= musician.image_url %>');">
+        <div class="card m-4" style="width: 300px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); background-image: url('<%= cl_image_path musician.image.key %>');">
           <div class="card-image" style="height: 200px; overflow: hidden;">
           </div>
           <div class="details" style="padding: 16px;">
@@ -36,5 +36,5 @@
         </div>
       </div>
     </div>
-  
+
   </div>
