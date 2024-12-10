@@ -2,13 +2,14 @@ class Musician < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  
+
   belongs_to :user
   has_many :compositions, dependent: :destroy
   has_and_belongs_to_many :instruments
   has_many :feedbacks
+  has_one_attached :image
 
-  validates :image_url, format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]), message: "must be a valid URL" }, allow_blank: true
+  # validates :image_url, format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]), message: "must be a valid URL" }, allow_blank: true
   validates :address, presence: true
 
   def img_url

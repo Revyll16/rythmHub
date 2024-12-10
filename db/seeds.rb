@@ -9,6 +9,8 @@
 #   end
 # Seed Users
 # Seed Musicians
+require "open-uri"
+
 
 puts "clearing the database"
 
@@ -208,14 +210,17 @@ musicians.each do |musician|
     password: "password"
   )
 
+  file = URI.parse(musician[:image_url]).open
   # Create the musician and associate with the user
-  Musician.create!(
+  new_musician = Musician.new(
     name: musician[:name],
     bio: musician[:bio],
-    image_url: musician[:image_url],
+
     address: musician[:address],
     user_id: user.id
   )
+  new_musician.image.attach(io: file, filename: "#{user.id}.png", content_type: "image/png")
+  new_musician.save!
 end
 
 puts "Created #{User.count} users and #{Musician.count} musicians."

@@ -5,7 +5,7 @@
     <%= f.input :address, input_html: { class: 'w-50' } %>
     <%= f.input :instruments, as: :check_boxes, collection: Instrument.all, input_html: { multiple: true, }, label_method: :name, value_method: :id %>
     <%= f.input :bio, input_html: { class: 'w-50' } %>
-    <%= f.input :image_url, input_html: { class: 'w-50' } %>
+    <%= f.input :image, as: :file %>
 
     <div class="button-container" style="display: flex; justify-content: flex-start; gap: 10px; margin-top: 20px;">
       <%= f.button :submit, class: "button", style: "text-decoration: none; color: white; background-color: #28A745; padding: 8px 16px; border-radius: 4px;" %>

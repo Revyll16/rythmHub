@@ -1,11 +1,12 @@
-<div class="container-fluid-form m-4">
+<br><br>
+<div class="edit m-4">
   <h1>Edit Musician</h1>
   <%= simple_form_for(@musician) do |f| %>
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :bio %>
     <%= f.input :instruments, as: :check_boxes, collection: Instrument.all, input_html: { multiple: true, }, label_method: :name, value_method: :id %>
-    <%= f.input :image_url %>
+    <%= f.input :image, as: :file %>
     <%= f.submit%>
 
     <%= link_to "Cancel", musician_path, class: "button", style: "text-decoration: none; color: white; background-color: #007BFF; padding: 8px 16px; border-radius: 4px" %>
