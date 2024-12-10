@@ -14,3 +14,15 @@ $headers-font: "Dancing Script", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// @font-face {
+//   font-family: "Font Name";
+//   src: asset-url('FontFile.eot'); /* For IE9 Compat Modes */
+//   src: asset-url('FontFile.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        asset-url('FontFile.woff') format('woff'), /* Modern Browsers */
+//        asset-url('FontFile.ttf') format('truetype'); /* Safari, Android, iOS */
+// }
+
+// body {
+//     font-family: "Font Name", sans-serif; /* Apply the custom font */
+// }
