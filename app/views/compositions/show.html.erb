@@ -22,14 +22,14 @@
     <p>No file uploaded.</p>
   <% end %>
 
-  <div>
+  <div id="feedbacks">
     <%@feedbacks.each do |feedback|  %>
-    <%= feedback.content %>
+    <%= render "feedbacks/feedback", feedback: feedback %>
     <% end %>
   </div>
 
   <div>
-    <%= simple_form_for([@composition, Feedback.new]) do |f| %>
+    <%= simple_form_for [@composition, Feedback.new] do |f| %>
       <%= f.input :content, label: "Your Feedback", as: :text, input_html: { rows: 3 } %>
       <%= f.submit "Post Feedback", class: "btn btn-primary" %>
     <% end %>

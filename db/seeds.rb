@@ -22,8 +22,8 @@ User.destroy_all
 # db/seeds.rb
 
 # Clear the database to avoid duplicates
-User.destroy_all
-Musician.destroy_all
+
+
 
 # List of musicians with associated attributes
 # db/seeds.rb
@@ -100,20 +100,6 @@ musicians = [
     address: "Rolling Fork, Mississippi, USA"
   },
   {
-    name: "Tina Turner",
-    bio: "Tina Turner is an American-born Swiss singer, songwriter, and actress. She is widely known for her powerful vocals and energetic performances.",
-    image_url: "https://www.whartoncenter.com/assets/img/tina-photo-1-6c09baeb5f.jpg",
-    instruments: "Vocals",
-    address: "Nutbush, Tennessee, USA"
-  },
-  {
-    name: "Louis Armstrong",
-    bio: "Louis Armstrong was an American jazz trumpeter, composer, and vocalist, who was one of the most influential figures in the development of jazz music.",
-    image_url: "https://cdn.ananasposter.ru/image/cache/catalog/poster/pos23/25/69219-1000x830.jpg",
-    instruments: "Trumpet",
-    address: "New Orleans, Louisiana, USA"
-  },
-  {
     name: "Billie Holiday",
     bio: "Billie Holiday was an American jazz and swing music singer, known for her deeply emotional voice and her unique phrasing.",
     image_url: "https://i.pinimg.com/736x/b8/06/7b/b8067b884b5eea49e549b00f010022d1.jpg",
@@ -155,6 +141,7 @@ musicians = [
     instruments: "Vocals",
     address: "Barnwell, South Carolina, USA"
    },
+   {
     name: "John Doe",
     bio: "John Doe is a multi-instrumentalist known for his eclectic style that blends various genres, from classical to jazz, rock, and electronic. His musical journey began at an early age when he first picked up a guitar at the age of seven. Over the years, John honed his skills on a variety of instruments, including piano, drums, and violin.",
     image_url: "https://th.bing.com/th/id/OIP.LuE7kwG2B8SunikDvzhgVQHaE8?rs=1&pid=ImgDetMain",
@@ -248,7 +235,11 @@ instruments = [
 
 # Associate instruments with musicians
 instruments.each_with_index do |instrument, index|
-  Musician.all.sample.instruments.create!(instrument)
+  musician = Musician.all.sample
+  instrument = Instrument.new(instrument)
+  instrument.musician = musician
+  instrument.save!
+
 end
 puts "#{Instrument.count} instruments seeded"
 
