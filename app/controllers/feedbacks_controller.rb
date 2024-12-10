@@ -2,7 +2,7 @@ class FeedbacksController < ApplicationController
   def create
     @composition = Composition.find(params[:composition_id])
     @feedback = @composition.feedbacks.build(feedback_params)
-    @feedback.musician = current_user.musicians.last
+    @feedback.musician = current_user.musician
 
     if @feedback.save
       respond_to do |format|
