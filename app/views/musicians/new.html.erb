@@ -1,11 +1,15 @@
-<div class="container-fluid-form">
-  <h1>Create New Musician</h1>
+<div class="new m-4">
+  <h1>Create A New Musician</h1>
   <%= simple_form_for(@musician) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :bio %>
-    <%= f.input :image_url %>
-    <%= f.submit %>
-    <%= link_to 'Cancel', musicians_path,  class:"button" %>
+    <%= f.input :name, input_html: { class: 'w-50' } %>
+    <%= f.input :address, input_html: { class: 'w-50' } %>
+    <%= f.input :instruments, as: :check_boxes, collection: Instrument.all, input_html: { multiple: true, }, label_method: :name, value_method: :id %>
+    <%= f.input :bio, input_html: { class: 'w-50' } %>
+    <%= f.input :image_url, input_html: { class: 'w-50' } %>
+
+    <div class="button-container" style="display: flex; justify-content: flex-start; gap: 10px; margin-top: 20px;">
+      <%= f.button :submit, class: "button", style: "text-decoration: none; color: white; background-color: #28A745; padding: 8px 16px; border-radius: 4px;" %>
+      <%= link_to "Back to Musicians", musicians_path, class: "button", style: "text-decoration: none; color: white; background-color: #28A745; padding: 8px 16px; border-radius: 4px;" %>
+    </div>
   <% end %>
 </div>

@@ -30,12 +30,13 @@ class MusiciansController < ApplicationController
 
   def show
     @musician = Musician.find(params[:id])
+    @compositions = @musician.compositions
+    @composition = Composition.new
   end
 
   def new
     @musician = Musician.new
   end
-
 
   def edit
     @musician = Musician.find(params[:id])
@@ -55,14 +56,26 @@ class MusiciansController < ApplicationController
 
   def create
     @musician = Musician.new(musician_params)
-    @musician.user = current_user
+    @musician.user = current_user # Assuming each musician is linked to a user
+
+    # Handling instruments (assuming instruments come as a comma-separated string)
+    instrument_ids = params[:musician][:instruments]
+    # Create or find instruments and associate them with the musician
+    instrument_ids.each do |id|
+      if id != ""
+        instrument = Instrument.find_or_create_by(id: id.to_i)
+        @musician.instruments << instrument
+      end
+    end
+
     if @musician.save
       redirect_to @musician, notice: 'Musician was successfully created.'
 
     else
-      render :new
+      render :new # If there are validation errors or failure
     end
   end
+
 
   private
 
@@ -71,6 +84,7 @@ class MusiciansController < ApplicationController
   end
 
   def musician_params
-    params.require(:musician).permit(:name, :bio, :address, :image_url)
+    params.require(:musician).permit(:name, :bio, :image_url, :address)
   end
+
 end
