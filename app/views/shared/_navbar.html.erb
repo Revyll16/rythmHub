@@ -30,14 +30,17 @@
           <li class="nav-item">
             <% if current_user.musician %>
             <%= link_to "My Profile", musician_path(current_user.musician.id), class: "nav-link" %>
-            <% else %>
-            <%= link_to "Create Profile", new_musician_path  %>
             <% end %>
 
           <li class="nav-item active">
           <%= link_to "Forums", forums_path, class: "nav-link" %>
           </li>
 
+          <li class="nav-items" >
+            <% unless current_user && current_user.musician %>
+                <%= link_to "Register as a musician", new_musician_path, class: "nav-link"%>
+              <% end %>
+          </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
