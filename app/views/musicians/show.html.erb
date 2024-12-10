@@ -30,28 +30,27 @@
         </div>
       </div>
     </div>
-
-        <!-- Instruments Played Section -->
-        <div class="musician-instruments">
-          <h3 style="color: #000;">Instrument(s) Played:</h3> <!-- Set header color to black -->
-          <% if @musician.instruments.any? %>
-            <ul style="list-style-type: none; padding: 0;">
-              <% @musician.instruments.each do |instrument| %>
-                <li style="font-size: 1rem; color: #000; margin-bottom: 8px;"><%= instrument.name %></li> <!-- Set list items color to black -->
-              <% end %>
-            </ul>
-          <% else %>
-            <p style="font-style: italic; color: #777;">No instruments listed.</p>
-          <% end %>
-        </div>
-
-    <div class="text-decoration: none; button">
-      <% @musician.compositions.each do |composition| %>
-        <%= link_to composition do %>
-          <%= composition.title %> - <%= composition.description %>
-
+  </div>
+  <!-- Instruments Played Section -->
+  <div class="musician-instruments">
+    <h3 style="color: #000;">Instrument(s) Played:</h3>
+ <!-- Set header color to black -->
+    <% if @musician.instruments.any? %>
+      <ul style="list-style-type: none; padding: 0;">
+        <% @musician.instruments.each do |instrument| %>
+          <li style="font-size: 1rem; color: #000; margin-bottom: 8px;"><%= instrument.name %></li>
         <% end %>
+      </ul>
+    <% else %>
+      <p style="font-style: italic; color: #777;">No instruments listed.</p>
+    <% end %>
+  </div>
+  <div class="text-decoration: none; button">
+    <% @musician.compositions.each do |composition| %>
+      <%= link_to composition do %>
+        <%= composition.title %> - <%= composition.description %>
       <% end %>
+
     </div>
 
 
@@ -62,14 +61,11 @@
   <h2>Upload a New Composition</h2>
   <%= simple_form_for [@musician, @composition] do |form| %>
 
+
       <%= form.input :title %>
-
       <%= form.input :description %>
-
-
       <%= form.input :file, as: :file %>
       <%= form.submit %>
-
-
+    <% end %>
   <% end %>
-<% end %>
+</div>
