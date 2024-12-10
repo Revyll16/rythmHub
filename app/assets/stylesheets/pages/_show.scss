@@ -72,54 +72,43 @@ body {
 .card {
   background-size: cover;
 
-.index-background-container {
-  position: relative;
-  min-height: 350vh;
-  /* Make sure it covers the entire screen */
-  background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  /* Background image URL */
-  background-size: cover;
-  /* Ensure the image covers the entire container */
-  background-position: center;
-  /* Center the image */
-  color: white;
-  /* Text color */
-  /* Smooth background movement animation */
-}
+  .index-background-container {
+    position: relative;
+    min-height: 350vh;
+    background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
 }
 
 /* Glassmorphism effect on cards with background image */
 .card {
-  background-size: cover;
-  /* Ensure the background image covers the whole card */
+  background-size:contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
   position: relative;
   max-width: 250px;
   height: 350px;
   border-radius: 10px;
-  padding: 1rem;
+  // padding: 1rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 7.5px;
   transition: all 0.7s ease-in-out;
-
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   filter: grayscale(100%);
   transition: filter 0.4s ease, transform 0.4s ease;
-  /* Smoother transition for all movements */
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  /* Slight white border for separation */
   backdrop-filter: blur(10px);
-  /* Apply blur effect to the background */
   -webkit-backdrop-filter: blur(10px);
-  /* For Safari */
   filter: grayscale(100%);
-  /* Initially make the image black and white */
   transition: filter 0.4s ease, transform 0.4s ease;
-  /* Smooth transition for filter and transform */
 }
 
 /* Card Hover Effects */
@@ -179,14 +168,14 @@ body {
   gap: 5px;
   transform: translateY(95%);
   opacity: 0;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .card:hover .details {
   transform: translateY(0%);
   opacity: 1;
-  transition-delay: 0.6s;
+  transition-delay: 0.1s;
 }
 
 .card:hover .cardHeader {
@@ -403,12 +392,12 @@ body {
 /* Musician Image styling */
 .musician-image {
   flex: 1;
-  min-width: 300px;
-  max-width: 400px;
-  height: fit-content;
+  min-width: 400px;
+  max-width: 500px;
+  height:max-content;
   border-radius: 16px;
   overflow: hidden;
-  padding-right: 2px;
+  padding: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   animation: floatImage 3s ease-in-out infinite;

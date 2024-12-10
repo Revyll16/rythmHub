@@ -1,11 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon glass-navbar">
   <div class="container-fluid">
-
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="navtitle">
       <h2><%= link_to "RythmHub", root_path, class: "nav-link" %></h2>
     </div>
@@ -20,7 +17,6 @@
       <% end %>
     </div>
     <!-- Title with animated words -->
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -29,15 +25,13 @@
           </li>
           <li class="nav-item">
             <% if current_user.musician %>
-            <%= link_to "My Profile", musician_path(current_user.musician.id), class: "nav-link" %>
+              <%= link_to "My Profile", musician_path(current_user.musician.id), class: "nav-link" %>
             <% end %>
-
-          <li class="nav-item active">
-          <%= link_to "Forums", forums_path, class: "nav-link" %>
-          </li>
-
-          <li class="nav-items" >
-            <% unless current_user && current_user.musician %>
+            <li class="nav-item active">
+              <%= link_to "Forums", forums_path, class: "nav-link" %>
+            </li>
+            <li class="nav-items" >
+              <% unless current_user && current_user.musician %>
                 <%= link_to "Register as a musician", new_musician_path, class: "nav-link"%>
               <% end %>
           </li>
@@ -62,4 +56,3 @@
       </ul>
     </div>
   </div>
-</div>
