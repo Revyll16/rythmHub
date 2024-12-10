@@ -19,6 +19,39 @@
         <h2 style="margin-bottom: 16px;">About <%= @musician.name %></h2>
         <p style="line-height: 1.6; color: #333; overflow: hidden; text-overflow: ellipsis; max-height: 250px; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;"><%= @musician.bio %></p>
         <hr style="margin: 24px 0; border: 1px solid rgba(0, 0, 0, 0.1);">
+        <!-- Instruments Played Section -->
+  <div class="musician-instruments">
+    <h3 style="color: #000;">Instrument(s) Played:</h3>
+ <!-- Set header color to black -->
+    <% if @musician.instruments.any? %>
+      <ul style="list-style-type: none; padding: 0;">
+        <% @musician.instruments.each do |instrument| %>
+          <li style="font-size: 1rem; color: #000; margin-bottom: 8px;"><%= instrument.name %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p style="font-style: italic; color: #777;">No instruments listed.</p>
+    <% end %>
+  </div>
+  <div class="text-decoration: none; button">
+    <% @musician.compositions.each do |composition| %>
+      <%= link_to composition do %>
+        <%= composition.title %> - <%= composition.description %>
+      <% end %>
+    <% end %>
+  </div>
+  <%# if statement, to only show form if current_user.musicians.last == @musican %>
+  <% if current_user && current_user.musician == @musician %>
+    <h2>Upload a New Composition</h2>
+    <%= simple_form_for [@musician, @composition] do |form| %>
+      <%= form.input :title %>
+      <%= form.input :description %>
+      <%= form.input :file, as: :file %>
+      <%= form.submit %>
+    <% end %>
+  <% end %>
+        <hr style="margin: 24px 0; border: 1px solid rgba(0, 0, 0, 0.1);">
+        
         <div class="musician-address">
           <p style="font-style: italic; color: #555;">Address: <%= @musician.address %></p>
         </div>
