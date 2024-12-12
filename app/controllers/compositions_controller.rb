@@ -6,6 +6,7 @@ class CompositionsController < ApplicationController
   def show
     @composition = Composition.find(params[:id])
     @feedbacks = @composition.feedbacks
+  
   end
 
   def new
@@ -61,6 +62,6 @@ class CompositionsController < ApplicationController
   end
 
   def composition_params
-    params.require(:composition).permit(:title, :file, :description, :tutorial)
+    params.require(:composition).permit(:title, :file, :description, :tutorial, instrument_ids: [])
   end
 end

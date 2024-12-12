@@ -63,6 +63,9 @@
               <%= f.input :description %>
               <%= f.input :file, as: :file %>
               <%= f.input :tutorial, as: :boolean, label: "Is this a tutorial?", required: false %>
+              <h3>Select Instruments</h3>
+              <%= f.input :instrument_ids, as: :check_boxes, collection: Instrument.all, label_method: :name, value_method: :id, required: false %>
+
               <div style="margin: auto;">
 
 

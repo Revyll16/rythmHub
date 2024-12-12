@@ -11,6 +11,17 @@
     <p>🚫Tutorial</p>
   <% end %>
 
+   <% if @composition.instruments.any? %>
+    <h3>Instruments Used:</h3>
+    <ul>
+      <% @composition.instruments.each do |instrument| %>
+        <li><%= instrument.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>🚫Instruments</p>
+  <% end %>
+
   <% if @composition.file.attached? %>
     <% case @composition.file.blob.content_type %>
     <% when /^image\// %>
