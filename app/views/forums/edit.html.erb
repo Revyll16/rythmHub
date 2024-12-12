@@ -1,13 +1,15 @@
+<%= turbo_frame_tag :forum_posts do %>
 <div class="container">
 <%= simple_form_for @forum do |f| %>
   <div class="form-group">
     <%= f.input :title, label: "Title" %>
   </div>
 
- 
+
 
   <div class="form-group">
     <%= f.submit "Update Forum", class: "btn btn-primary" %>
   </div>
 <% end %>
 </div>
+<%end%>

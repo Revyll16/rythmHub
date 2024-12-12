@@ -10,8 +10,8 @@ class CompositionsController < ApplicationController
   end
 
   def new
-    @musician = Musician.find(current_user.musicians.last.id)
-    @composition = Composition.new
+    @musician = current_user.musician # If it's a one-to-one relationship
+  @composition = Composition.new
   end
 
   def create

@@ -191,36 +191,7 @@
 }
 
 /* Simplified Animated and Bold h1 */
-.animated-header {
-  font-size: 2.5rem; /* Slightly smaller size */
-  font-weight: bold;
-  color: #030d19;
-  text-transform: uppercase;
-  animation: fadeIn 2s ease-in-out; /* Removed multi-colored glowing animation for simplicity */
-  position: relative;
-  margin-top: 72px;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); /* Subtle glow */
-}
 
-/* Keyframes for the fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Optional: Add a subtle glow effect on hover */
-.animated-header:hover {
-  text-shadow: 0 0 6px rgba(255, 0, 0, 0.6); /* Simple red glow */
-  color: #240b03;
-  transition: all 0.3s ease-in-out;
-}
 
 
 /* Button Styles */
@@ -294,7 +265,7 @@ html {
   border-radius: 5px;
   font-size: 1rem;
   text-decoration: none;
-  margin-top: 20px;
+  
   text-align: center;
   transition: background-color 0.4s ease-in-out;
 }

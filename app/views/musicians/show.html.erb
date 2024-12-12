@@ -1,16 +1,15 @@
 <div class="show-background-container">
   <div class="musician-container">
     <div class="header-container" style="text-align: center; margin-bottom: 40px;">
-      <h1 class="animated-header" style="font-size: 2.5rem; font-weight: 700; color: #333;">
-        <%= @musician.name %>
-      </h1>
     </div>
-    <div class="musician-details-container" style="display: flex; flex-wrap: wrap; gap: 32px; margin: 40px auto; max-width: 900px; justify-content: center; align-items: flex-start;">
-      <div class="musician-image" style="flex: 1; min-width: 100px; max-width: 400px; border-radius: 16px; overflow: hidden;">
+    <div class="musician-details-container" style="display: flex; flex-wrap: wrap; gap: 32px; margin: 16px auto; max-width: 900px; justify-content: center; align-items: flex-start;">
+      <div class="musician-image" style="flex: 1; min-width: 100px; max-width: 400px; overflow: hidden;">
         <%= cl_image_tag @musician.image.key %>
       </div>
-      <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; overflow: hidden; background: rgba(255, 255, 255, 0.8);">
-        <h2 style="margin-bottom: 16px;">About <%= @musician.name %></h2>
+      <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; overflow: hidden;">
+        <h1 class="animated-header" style="font-size: 2.5rem; font-weight: 700; color: #333;">
+          <%= @musician.name %>
+        </h1>
         <p style="line-height: 1.6; color: #333; overflow: hidden; text-overflow: ellipsis; max-height: 250px; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">
           <%= @musician.bio %>
         </p>
@@ -30,16 +29,17 @@
         <div class="musician-address">
           <p style="font-style: italic; color: #555;">Address: <%= @musician.address %></p>
         </div>
-        <div style="text-align: center; margin-top: 40px;">
-          <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;" %>
-        </div>
+
         <% if @musician.forum %>
           <div style="text-align: center; margin-top: 40px;">
             <%= link_to "Visit '#{@musician.forum.title}' a forum created by #{@musician.name}", forum_path(@musician.forum), class: "button", style: "padding: 12px 24px; background-color: #FF6F61; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;" %>
           </div>
         <% else %>
-          <p>No forum available for this musician.</p>
+          <p style="color: black;">No forum(s) available for this musician.</p>
         <% end %>
+        <div style="text-align: center; margin-top: 40px;">
+          <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;" %>
+        </div>
       </div>
     </div>
     <div class="musician-compositions" style="margin-top: 40px; padding: 20px; background-color: #f9f9f9; border-radius: 12px; max-width: 900px; margin-left: auto; margin-right: auto;">
@@ -57,20 +57,8 @@
         <% end %>
         <% if current_user == @musician.user %>
           <div style="margin: auto; margin-top: 40px; color: black;">
-            <h1>Create A New Composition</h1>
-            <%= simple_form_for [@musician, @composition] do |f| %>
-              <%= f.input :title %>
-              <%= f.input :description %>
-              <%= f.input :file, as: :file %>
-              <%= f.input :tutorial, as: :boolean, label: "Is this a tutorial?", required: false %>
-              <h3>Select Instruments</h3>
-              <%= f.input :instrument_ids, as: :check_boxes, collection: Instrument.all, label_method: :name, value_method: :id, required: false %>
-
-              <div style="margin: auto;">
-
-
-              <%= f.submit "Create Composition", class: "button", style: "padding: 12px 24px; background-color: #FF6F61; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;" %>
-            <% end %>
+            <h1></h1>
+            <%= link_to 'Create A New Composition', new_musician_composition_path(@musician), class: 'button' %>
           </div>
         <% end %>
       </div>

@@ -5,7 +5,7 @@
   <!-- Main Video Section -->
   <div class="main-video-container">
     <% if @composition.video_url.present? %>
-      <iframe width="1280" height="720" src="https://www.youtube.com/embed/N8Ove_3PGN0" title="<%=@composition.title%>" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="900" height="500" src="https://www.youtube.com/embed/N8Ove_3PGN0" title="<%=@composition.title%>" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <%#= video_tag(@composition.video_url, controls: true, class: 'main-video-player') %>
 
     <% else %>
@@ -33,7 +33,8 @@
         <% end %>
       </div>
       <div>
-        <%= simple_form_for [@composition, Feedback.new] do |f| %>
+        <%= simple_form_for [@composition, Feedback.new], html: {
+         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
           <%= f.input :content, label: "Your Feedback", as: :text, input_html: { rows: 3 }, class: "w-10" %>
           <%= f.submit "Post Feedback", class: "button" %>
         <% end %>
