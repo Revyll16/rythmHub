@@ -6,7 +6,7 @@ class CompositionsController < ApplicationController
   def show
     @composition = Composition.find(params[:id])
     @feedbacks = @composition.feedbacks
-  
+    @compositions = Composition.all
   end
 
   def new

@@ -2,7 +2,7 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-# Example:
+# youtube:
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
@@ -142,8 +142,8 @@ musicians = [
     image_url: "https://i.ytimg.com/vi/qe0RsmxEZec/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgTShDMA8=&amp;rs=AOn4CLCyWqskHGZSMeQVLkZJ0C_gQJGXQg",
     instruments: "Vocals",
     address: "Barnwell, South Carolina, USA"
-   },
-   {
+  },
+  {
     name: "John Doe",
     bio: "John Doe is a multi-instrumentalist known for his eclectic style that blends various genres, from classical to jazz, rock, and electronic. His musical journey began at an early age when he first picked up a guitar at the age of seven. Over the years, John honed his skills on a variety of instruments, including piano, drums, and violin.",
     image_url: "https://th.bing.com/th/id/OIP.LuE7kwG2B8SunikDvzhgVQHaE8?rs=1&pid=ImgDetMain",
@@ -206,7 +206,7 @@ musicians = [
 musicians.each do |musician|
   # Create a user for the musician
   user = User.create!(
-    email: "#{musician[:name].downcase.gsub(' ', '.')}@example.com",
+    email: "#{musician[:name].downcase.gsub(' ', '.')}@youtube.com",
     password: "password"
   )
 
@@ -250,13 +250,29 @@ puts "#{Instrument.count} instruments seeded"
 
 # Seed Compositions
 compositions = [
-  { title: "No Woman, No Cry", video_url: "https://example.com/no_woman_no_cry", description: "A reggae anthem by Bob Marley." },
-  { title: "What a Wonderful World", video_url: "https://example.com/wonderful_world", description: "A soulful song by Louis Armstrong." },
-  { title: "What’s Love Got to Do with It", video_url: "https://example.com/whats_love", description: "A hit song by Tina Turner." },
-  { title: "Jailhouse Rock", video_url: "https://example.com/jailhouse_rock", description: "A rock song by Elvis Presley." },
-  { title: "Symphony No. 5", video_url: "https://example.com/symphony_5", description: "A famous symphony by Beethoven." },
-  { title: "Eine kleine Nachtmusik", video_url: "https://example.com/eine_kleine", description: "A popular serenade by Mozart." }
+  { title: "Beginner Piano Lesson 1", video_url: "https://www.youtube.com/watch?v=vphWgqbF-AM", description: "Learn the basics of playing the piano." },
+  { title: "How to Play Guitar Chords (Beginner Tutorial)", video_url: "https://www.youtube.com/watch?v=K7emizwYroo", description: "Master the basic chords for guitar." },
+  { title: "Drum Lessons for Beginners", video_url: "https://www.youtube.com/watch?v=4W-M58J9r2w", description: "A step-by-step guide to drumming for beginners." },
+  { title: "Learn to Play the Violin in 1 Hour", video_url: "https://www.youtube.com/watch?v=_N5I0yV8fNk", description: "A crash course in violin playing." },
+  { title: "Saxophone Tutorial for Beginners", video_url: "https://www.youtube.com/watch?v=omIxh28VJeY", description: "Start your journey to playing the saxophone." },
+  { title: "Flute Basics for Beginners", video_url: "https://www.youtube.com/watch?v=UFKx34kMhM0", description: "Learn the basics of playing the flute." },
+  { title: "How to Play Bass Guitar for Beginners", video_url: "https://www.youtube.com/watch?v=fxn-w07r01k", description: "An introduction to bass guitar techniques." },
+  { title: "Cello Basics: Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=2AGlg8uEmi8", description: "Get started with cello playing." },
+  { title: "Ukulele for Absolute Beginners", video_url: "https://www.youtube.com/watch?v=knCM2JHfFjw", description: "Learn to play the ukulele in this beginner tutorial." },
+  { title: "How to Play Trumpet (Beginner Tutorial)", video_url: "https://www.youtube.com/watch?v=1CXR9S2ebyc", description: "A simple guide to playing the trumpet." },
+  { title: "Learn the Basics of Harmonica", video_url: "https://www.youtube.com/watch?v=ZjWcgq2rItE", description: "Step-by-step harmonica tutorial for beginners." },
+  { title: "Clarinet Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=rsf2_VCSwi8", description: "Learn to play the clarinet from scratch." },
+  { title: "Percussion Instruments Basics", video_url: "https://www.youtube.com/watch?v=_fw15-bL5zo", description: "An introduction to various percussion instruments." },
+  { title: "Banjo Basics for Beginners", video_url: "https://www.youtube.com/watch?v=7CefYN7lZoY", description: "Start learning the banjo with this beginner tutorial." },
+  { title: "How to Play Mandolin for Beginners", video_url: "https://www.youtube.com/watch?v=FBLtZL5nhRw", description: "A simple guide to playing the mandolin." },
+  { title: "Trombone Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=52DpFLks2Qg", description: "Learn the fundamentals of trombone playing." },
+  { title: "Learn to Play the Oboe", video_url: "https://www.youtube.com/watch?v=MFngddfptlc", description: "Beginner's guide to playing the oboe." },
+  { title: "Accordion Tutorial for Beginners", video_url: "https://www.youtube.com/watch?v=4a3NuWN-vlY", description: "Learn to play the accordion with this beginner video." },
+  { title: "Djembe Drumming Basics", video_url: "https://www.youtube.com/watch?v=KzLZP0QzPCg", description: "Start drumming with this djembe tutorial." },
+  { title: "Beginner Lessons on Recorder", video_url: "https://www.youtube.com/watch?v=DbK9JzvMycQ", description: "Learn to play the recorder in simple steps." }
 ]
+
+
 
 # Associate compositions with musicians
 musicians = Musician.all
