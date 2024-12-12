@@ -15,13 +15,24 @@
   <div style="text-align: center; padding-top: 30px;">
     <% if @forums.present? %>
       <% @forums.each do |forum| %>
-        <div style="margin: 20px 0; padding: 20px; background-color: #f9f9f9; border-radius: 8px; color: #333;">
-          <h2 style="font-size: 2.5em; font-weight: bold; color: #333;">
-            <%= forum.title %>
-          </h2>
-          <p style="font-size: 1.2em; margin-bottom: 15px; color: #555;">
-            Associated Musician: <%= forum.musician&.name || "No associated musician" %>
-          </p>
+
+        <div class="banner m-4"
+             style="background-image: url('<%= forum.image_url %>'); background-size: cover; background-position: center;
+                    padding: 60px 20px; border-radius: 16px; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+                    transition: transform 0.3s ease-in-out; color: white; position: relative;">
+         <div class="banner-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); border-radius: 16px;">
+</div>
+
+          <div class="banner-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;
+                                            position: relative; z-index: 1;">
+            <h2 style="font-size: 2.5em; font-weight: bold; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);">
+              <%= forum.title %>
+            </h2>
+            <p style="color: white; font-size: 1.2em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">
+              Associated Musician: <%= forum.musician&.name || "No associated musician" %>
+            </p>
+
 
           <%= link_to "Join Forum", forum_path(forum), class: "button", style: "text-decoration: none; color: white; background-color: #FF6F61; padding: 14px 28px; border-radius: 8px;" %>
         </div>
