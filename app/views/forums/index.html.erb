@@ -1,44 +1,43 @@
-<div class="index-container" style="height: 100vh; padding: 0;">
+<div class="forums">
+<div class="index-container">
 
   <!-- Create Forum Button -->
-  <div style="position: absolute; top: 60px; right: 20px;">
+  <div class="text-center">
     <%= link_to "Create A New Forum", new_forum_path, class: "button",
-        style: "text-decoration: none; color: white; background-color: #28a745; padding: 20px 30px; border-radius: 8px;" %>
+        style: "text-decoration: none; color: white; background-color: #28a745; padding: 10px 15px; border-radius: 8px; position: absolute; right: 20px; top: 85px;" %>
   </div>
 
   <!-- Header -->
-  <div style="text-align: center; padding-top: 100px;">
-    <h1 style="color: #333; font-size: 3em;">Forums</h1>
-  </div>
+
 
   <!-- Forum Listings -->
-  <div style="text-align: center; padding-top: 30px;">
+
     <% if @forums.present? %>
       <% @forums.each do |forum| %>
 
-        <div class="banner m-4"
-             style="background-image: url('<%= forum.image_url %>'); background-size: cover; background-position: center;
-                    padding: 60px 20px; border-radius: 16px; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-                    transition: transform 0.3s ease-in-out; color: white; position: relative;">
-         <div class="banner-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); border-radius: 16px;">
-</div>
+            <%= link_to  forum_path(forum),data: { turbo_frame: :forum_posts, turbo_action: :advance } , class: "button-forum" do %>
+        <div class="banner m-4">
+
 
           <div class="banner-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;
                                             position: relative; z-index: 1;">
-            <h2 style="font-size: 2.5em; font-weight: bold; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);">
+            <h2 style="font-size: 1em; font-weight: bold; color: #333;">
               <%= forum.title %>
             </h2>
-            <p style="color: white; font-size: 1.2em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">
-              Associated Musician: <%= forum.musician&.name || "No associated musician" %>
-            </p>
 
 
-          <%= link_to "Join Forum", forum_path(forum), class: "button", style: "text-decoration: none; color: white; background-color: #FF6F61; padding: 14px 28px; border-radius: 8px;" %>
+          </div>
         </div>
+        <%end%>
       <% end %>
     <% else %>
       <p style="font-size: 1.5em; color: #555;">No forums available. Please check back later!</p>
     <% end %>
   </div>
+
+<div class="forum-show">
+<%= turbo_frame_tag :forum_posts do %>
+<div class="forum-landing"><p>select a forum to join a conversation</p></div>
+<%end%>
+</div>
 </div>
