@@ -190,18 +190,16 @@
   /* Smooth fade-in animation for header */
 }
 
-/* Animated and bold h1 */
+/* Simplified Animated and Bold h1 */
 .animated-header {
-  font-size: 3rem;
+  font-size: 2.5rem; /* Slightly smaller size */
   font-weight: bold;
   color: #030d19;
   text-transform: uppercase;
-  animation: fadeIn 3s ease-in-out, glowingColors 7s infinite alternate;
-  /* Smooth glowing animation */
+  animation: fadeIn 2s ease-in-out; /* Removed multi-colored glowing animation for simplicity */
   position: relative;
   margin-top: 72px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  /* Subtle glow around text */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); /* Subtle glow */
 }
 
 /* Keyframes for the fade-in animation */
@@ -217,40 +215,13 @@
   }
 }
 
-/* Keyframes for the multi-colored glowing effect */
-@keyframes glowingColors {
-  0% {
-    text-shadow: 0 0 10px rgba(255, 0, 0, 1), 0 0 20px rgba(255, 0, 0, 0.8);
-    /* Red */
-  }
-
-  25% {
-    text-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 255, 0, 0.8);
-    /* Green */
-  }
-
-  50% {
-    text-shadow: 0 0 10px rgba(0, 0, 255, 1), 0 0 20px rgba(0, 0, 255, 0.8);
-    /* Blue */
-  }
-
-  75% {
-    text-shadow: 0 0 10px rgba(255, 255, 0, 1), 0 0 20px rgba(255, 255, 0, 0.8);
-    /* Yellow */
-  }
-
-  100% {
-    text-shadow: 0 0 10px rgba(255, 0, 255, 1), 0 0 20px rgba(255, 0, 255, 0.8);
-    /* Magenta */
-  }
-}
-
-/* Optional: Add a glowing effect on hover */
+/* Optional: Add a subtle glow effect on hover */
 .animated-header:hover {
-  text-shadow: 0 0 10px rgba(4, 21, 43, 0.8), 0 0 20px rgba(2, 12, 24, 0.6);
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.6); /* Simple red glow */
   color: #240b03;
   transition: all 0.3s ease-in-out;
 }
+
 
 /* Button Styles */
 .button {
@@ -334,4 +305,3 @@ html {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
-

@@ -62,6 +62,6 @@ class CompositionsController < ApplicationController
   end
 
   def composition_params
-    params.require(:composition).permit(:title, :file, :description)
+    params.require(:composition).permit(:title, :file, :description, :tutorial, instrument_ids: [])
   end
 end

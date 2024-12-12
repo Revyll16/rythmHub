@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_09_094028) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_11_161459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_09_094028) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "composition_instruments", force: :cascade do |t|
+    t.bigint "composition_id", null: false
+    t.bigint "instrument_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["composition_id"], name: "index_composition_instruments_on_composition_id"
+    t.index ["instrument_id"], name: "index_composition_instruments_on_instrument_id"
+  end
+
   create_table "compositions", force: :cascade do |t|
     t.string "title"
     t.string "video_url"
@@ -49,6 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_09_094028) do
     t.bigint "musician_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "tutorial"
     t.index ["musician_id"], name: "index_compositions_on_musician_id"
   end
 
@@ -103,9 +113,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_09_094028) do
     t.string "image_url"
     t.string "address"
     t.bigint "user_id", null: false
-    t.string "instruments"
     t.float "latitude"
     t.float "longitude"
+    t.string "instruments"
     t.index ["user_id"], name: "index_musicians_on_user_id"
   end
 
@@ -142,6 +152,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_09_094028) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "composition_instruments", "compositions"
+  add_foreign_key "composition_instruments", "instruments"
   add_foreign_key "compositions", "musicians", on_delete: :cascade
   add_foreign_key "feedbacks", "compositions"
   add_foreign_key "feedbacks", "musicians"

@@ -4,5 +4,7 @@ class Instrument < ApplicationRecord
 
   include PgSearch::Model
   multisearchable against: [:name, :description]
+  has_many :composition_instruments, dependent: :destroy
+has_many :compositions, through: :composition_instruments
 
 end

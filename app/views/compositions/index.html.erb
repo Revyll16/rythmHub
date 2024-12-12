@@ -10,8 +10,17 @@
           <%= video_tag(composition.video_url, controls: true, class: 'video-player') %>
           <p class="video-title"><%= composition.title %></p>
           <p class="video-meta">By <%= composition.musician.name %> | <%= time_ago_in_words(composition.created_at) %> ago</p>
-        </div>
-      <% end %>
-    <% end %>
+       </div>
+     <% end %>
+  <% end %>
   </div>
+<div class="container-fluid">
+  <% @compositions.each do |composition| %>
+    <h1><%= composition.title %></h1>
+    <p><%= composition.description %></p>
+    <% if composition.tutorial %>
+      <p><strong>Tutorial🎓</strong></p>
+    <% else %>
+      <p>🚫Not A Tutorial</p>
+    <% end %>
 </div>
