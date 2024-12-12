@@ -250,26 +250,26 @@ puts "#{Instrument.count} instruments seeded"
 
 # Seed Compositions
 compositions = [
-  { title: "Beginner Piano Lesson 1", video_url: "https://www.youtube.com/watch?v=vphWgqbF-AM", description: "Learn the basics of playing the piano." },
-  { title: "How to Play Guitar Chords (Beginner Tutorial)", video_url: "https://www.youtube.com/watch?v=K7emizwYroo", description: "Master the basic chords for guitar." },
-  { title: "Drum Lessons for Beginners", video_url: "https://www.youtube.com/watch?v=4W-M58J9r2w", description: "A step-by-step guide to drumming for beginners." },
-  { title: "Learn to Play the Violin in 1 Hour", video_url: "https://www.youtube.com/watch?v=_N5I0yV8fNk", description: "A crash course in violin playing." },
-  { title: "Saxophone Tutorial for Beginners", video_url: "https://www.youtube.com/watch?v=omIxh28VJeY", description: "Start your journey to playing the saxophone." },
-  { title: "Flute Basics for Beginners", video_url: "https://www.youtube.com/watch?v=UFKx34kMhM0", description: "Learn the basics of playing the flute." },
-  { title: "How to Play Bass Guitar for Beginners", video_url: "https://www.youtube.com/watch?v=fxn-w07r01k", description: "An introduction to bass guitar techniques." },
-  { title: "Cello Basics: Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=2AGlg8uEmi8", description: "Get started with cello playing." },
-  { title: "Ukulele for Absolute Beginners", video_url: "https://www.youtube.com/watch?v=knCM2JHfFjw", description: "Learn to play the ukulele in this beginner tutorial." },
-  { title: "How to Play Trumpet (Beginner Tutorial)", video_url: "https://www.youtube.com/watch?v=1CXR9S2ebyc", description: "A simple guide to playing the trumpet." },
-  { title: "Learn the Basics of Harmonica", video_url: "https://www.youtube.com/watch?v=ZjWcgq2rItE", description: "Step-by-step harmonica tutorial for beginners." },
-  { title: "Clarinet Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=rsf2_VCSwi8", description: "Learn to play the clarinet from scratch." },
-  { title: "Percussion Instruments Basics", video_url: "https://www.youtube.com/watch?v=_fw15-bL5zo", description: "An introduction to various percussion instruments." },
-  { title: "Banjo Basics for Beginners", video_url: "https://www.youtube.com/watch?v=7CefYN7lZoY", description: "Start learning the banjo with this beginner tutorial." },
-  { title: "How to Play Mandolin for Beginners", video_url: "https://www.youtube.com/watch?v=FBLtZL5nhRw", description: "A simple guide to playing the mandolin." },
-  { title: "Trombone Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=52DpFLks2Qg", description: "Learn the fundamentals of trombone playing." },
-  { title: "Learn to Play the Oboe", video_url: "https://www.youtube.com/watch?v=MFngddfptlc", description: "Beginner's guide to playing the oboe." },
-  { title: "Accordion Tutorial for Beginners", video_url: "https://www.youtube.com/watch?v=4a3NuWN-vlY", description: "Learn to play the accordion with this beginner video." },
-  { title: "Djembe Drumming Basics", video_url: "https://www.youtube.com/watch?v=KzLZP0QzPCg", description: "Start drumming with this djembe tutorial." },
-  { title: "Beginner Lessons on Recorder", video_url: "https://www.youtube.com/watch?v=DbK9JzvMycQ", description: "Learn to play the recorder in simple steps." }
+  { title: "Beginner Piano Lesson 1", video_url: "https://www.youtube.com/watch?v=827jmswqnEA", description: "Learn the basics of playing the piano." },
+  { title: "How to Play Guitar Chords (Beginner Tutorial)", video_url: "https://www.youtube.com/watch?v=d52MZJw-hIE&t=77s", description: "Master the basic chords for guitar." },
+  { title: "Drum Lessons for Beginners", video_url: "https://www.youtube.com/watch?v=et9hU7QMDYU", description: "A step-by-step guide to drumming for beginners." },
+  { title: "Learn to Play the Violin", video_url: "https://www.youtube.com/watch?v=6Q2IP5K29gY", description: "A crash course in violin playing." },
+  { title: "Saxophone Tutorial for Beginners", video_url: "https://www.youtube.com/watch?v=ky716yPvrKE", description: "Start your journey to playing the saxophone." },
+  { title: "Flute Basics for Beginners", video_url: "https://www.youtube.com/watch?v=Jn8fQ-ZmvBE", description: "Learn the basics of playing the flute." },
+  { title: "How to Play Bass Guitar for Beginners", video_url: "https://www.youtube.com/watch?v=y_p4cSklyik", description: "An introduction to bass guitar techniques." },
+  { title: "Cello Basics: Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=MDYGUZTu2x0", description: "Get started with cello playing." },
+  { title: "Ukulele for Absolute Beginners", video_url: "https://www.youtube.com/watch?v=5bTE5fbxDsc", description: "Learn to play the ukulele in this beginner tutorial." },
+  { title: "How to Play Trumpet (Beginner Tutorial)", video_url: "https://www.youtube.com/watch?v=FFJ4FGlW5Zo", description: "A simple guide to playing the trumpet." },
+  { title: "Learn the Basics of Harmonica", video_url: "https://www.youtube.com/watch?v=cDV_qckR0tc", description: "Step-by-step harmonica tutorial for beginners." },
+  { title: "Clarinet Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=Izf5sGMI1CY&list=PL06seol1EtFdQcYRN7tXnep5shRKg8drH", description: "Learn to play the clarinet from scratch." },
+  { title: "Percussion Instruments Basics", video_url: "https://www.youtube.com/watch?v=5AdDacff0Nw", description: "An introduction to various percussion instruments." },
+  { title: "Banjo Basics for Beginners", video_url: "https://www.youtube.com/watch?v=fn4YhHdhhUU", description: "Start learning the banjo with this beginner tutorial." },
+  { title: "How to Play Mandolin for Beginners", video_url: "https://www.youtube.com/watch?v=DvDDGN1h36s", description: "A simple guide to playing the mandolin." },
+  { title: "Trombone Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=Ymt3UbVPBm4", description: "Learn the fundamentals of trombone playing." },
+  { title: "Learn to Play the Oboe", video_url: "https://www.youtube.com/watch?v=uCTo04Q_MvE", description: "Beginner's guide to playing the oboe." },
+  { title: "Accordion Tutorial for Beginners", video_url: "https://www.youtube.com/watch?v=cvssDTDDgOU", description: "Learn to play the accordion with this beginner video." },
+  { title: "Djembe Drumming Basics", video_url: "https://www.youtube.com/watch?v=n65_ZOh7jag", description: "Start drumming with this djembe tutorial." },
+  { title: "Beginner Lessons on Recorder", video_url: "https://www.youtube.com/watch?v=9KZbADc2I8g", description: "Learn to play the recorder in simple steps." }
 ]
 
 
