@@ -1,71 +1,79 @@
-<div class="show-background-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @musician.image.key, height: 300, crop: :fill %>');>
-  filter: blur(px);">
+<div class="show-background-container">
   <div class="musician-container">
-    <!-- Header -->
-    <div class="header-container">
-      <h1 class="animated-header"><%= @musician.name %></h1>
+    <div class="header-container" style="text-align: center; margin-bottom: 40px;">
+      <h1 class="animated-header" style="font-size: 2.5rem; font-weight: 700; color: #333;">
+        <%= @musician.name %>
+      </h1>
     </div>
-    <!-- Musician Details Section -->
     <div class="musician-details-container" style="display: flex; flex-wrap: wrap; gap: 32px; margin: 40px auto; max-width: 900px; justify-content: center; align-items: flex-start;">
-      <!-- Musician Image -->
-      <div class="musician-image" style="flex: 1; min-width: 100px; max-width: 400px; border-radius: 16px; overflow: hidden; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+      <div class="musician-image" style="flex: 1; min-width: 100px; max-width: 400px; border-radius: 16px; overflow: hidden;">
         <%= cl_image_tag @musician.image.key %>
-
       </div>
-
-
-        <!-- Musician Details -->
-        <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
-          <h2 style="margin-bottom: 16px;">About <%= @musician.name %></h2>
-          <p style="line-height: 1.6; color: #333; overflow: hidden; text-overflow: ellipsis; max-height: 250px; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;"><%= @musician.bio %></p>
-          <hr style="margin: 24px 0; border: 1px solid rgba(0, 0, 0, 0.1);">
-          <div class="musician-address">
-            <p style="font-style: italic; color: #555;">Address: <%= @musician.address %></p>
-          </div>
-          <div style="text-align: center; margin-top: 40px;">
-            <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
-            <%= link_to "Edit Musician",  edit_musician_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem;" %>
-            
-          </div>
+      <div class="musician-info glassmorphism" style="flex: 2; min-width: 300px; max-width: 600px; padding: 24px; border-radius: 16px; overflow: hidden; background: rgba(255, 255, 255, 0.8);">
+        <h2 style="margin-bottom: 16px;">About <%= @musician.name %></h2>
+        <p style="line-height: 1.6; color: #333; overflow: hidden; text-overflow: ellipsis; max-height: 250px; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">
+          <%= @musician.bio %>
+        </p>
+        <hr style="margin: 24px 0; border: 1px solid rgba(0, 0, 0, 0.1);">
+        <div class="musician-instruments">
+          <h3 style="color: #000;">Instrument(s) Played:</h3>
+          <% if @musician.instruments.any? %>
+            <ul style="list-style-type: none; padding: 0;">
+              <% @musician.instruments.each do |instrument| %>
+                <li style="font-size: 1rem; color: #000; margin-bottom: 8px;"><%= instrument.name %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p style="font-style: italic; color: #777;">No instruments listed.</p>
+          <% end %>
         </div>
+        <div class="musician-address">
+          <p style="font-style: italic; color: #555;">Address: <%= @musician.address %></p>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+          <%= link_to "Back to Musicians List", musicians_path, class: "button", style: "padding: 12px 24px; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;" %>
+        </div>
+        <% if @musician.forum %>
+          <div style="text-align: center; margin-top: 40px;">
+            <%= link_to "Visit '#{@musician.forum.title}' a forum created by #{@musician.name}", forum_path(@musician.forum), class: "button", style: "padding: 12px 24px; background-color: #FF6F61; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;" %>
+          </div>
+        <% else %>
+          <p>No forum available for this musician.</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="musician-compositions" style="margin-top: 40px; padding: 20px; background-color: #f9f9f9; border-radius: 12px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <h2 style="font-size: 1.75rem; color: #333; text-align: center;">Compositions by <%= @musician.name %></h2>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <% @musician.compositions.each do |composition| %>
+          <div style="padding: 16px; background-color: #fff; border-radius: 8px; transition: transform 0.3s;">
+            <%= link_to composition do %>
+              <h3 style="color: #007BFF; font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; transition: color 0.3s;">
+                <%= composition.title %>
+              </h3>
+              <p style="color: #555; font-size: 1rem;"> <%= composition.description %> </p>
+            <% end %>
+          </div>
+        <% end %>
+        <% if current_user == @musician.user %>
+          <div style="margin: auto; margin-top: 40px; color: black;">
+            <h1>Create A New Composition</h1>
+            <%= simple_form_for [@musician, @composition] do |f| %>
+              <%= f.input :title %>
+              <%= f.input :description %>
+              <%= f.input :file, as: :file %>
+              <%= f.input :tutorial, as: :boolean, label: "Is this a tutorial?", required: false %>
+              <h3>Select Instruments</h3>
+              <%= f.input :instrument_ids, as: :check_boxes, collection: Instrument.all, label_method: :name, value_method: :id, required: false %>
+
+              <div style="margin: auto;">
+
+
+              <%= f.submit "Create Composition", class: "button", style: "padding: 12px 24px; background-color: #FF6F61; color: white; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;" %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-  <!-- Instruments Played Section -->
-  <div class="musician-instruments">
-    <h3 style="color: #000;">Instrument(s) Played:</h3>
- <!-- Set header color to black -->
-    <% if @musician.instruments.any? %>
-      <ul style="list-style-type: none; padding: 0;">
-        <% @musician.instruments.each do |instrument| %>
-          <li style="font-size: 1rem; color: #000; margin-bottom: 8px;"><%= instrument.name %></li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p style="font-style: italic; color: #777;">No instruments listed.</p>
-    <% end %>
-  </div>
-  <div class="text-decoration: none; button">
-    <% @musician.compositions.each do |composition| %>
-      <%= link_to composition do %>
-        <%= composition.title %> - <%= composition.description %>
-      <% end %>
-
-    </div>
-
-
-<%# if statement, to only show form if current_user.musicians.last == @musican %>
-
-
-<%  if current_user && current_user.musician == @musician %>
-  <h2>Upload a New Composition</h2>
-  <%= simple_form_for [@musician, @composition] do |form| %>
-
-
-      <%= form.input :title %>
-      <%= form.input :description %>
-      <%= form.input :file, as: :file %>
-      <%= form.submit %>
-    <% end %>
-  <% end %>
 </div>

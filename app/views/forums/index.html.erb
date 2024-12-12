@@ -1,19 +1,21 @@
-<div class="index-background-container"
-     style="background-image: url('https://wallpapertag.com/wallpaper/full/1/a/1/350829-widescreen-website-background-1920x1080-windows-xp.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed; height: 100vh; padding: 0;">
-  <div class="create-forum-button" style="position: absolute; top: 20px; right: 20px;">
+<div class="index-container" style="height: 100vh; padding: 0;">
+
+  <!-- Create Forum Button -->
+  <div style="position: absolute; top: 60px; right: 20px;">
     <%= link_to "Create A New Forum", new_forum_path, class: "button",
-        style: "text-decoration: none; color: white; background-color: #28a745; padding: 30px 30px; margin-top: 70px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1em;" %>
+        style: "text-decoration: none; color: white; background-color: #28a745; padding: 20px 30px; border-radius: 8px;" %>
   </div>
 
-  <div class="header-container" style="text-align: center; padding-top: 20px;">
-    <br>
-    <h1 class="animated-header" style="color: white; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Forums</h1>
+  <!-- Header -->
+  <div style="text-align: center; padding-top: 100px;">
+    <h1 style="color: #333; font-size: 3em;">Forums</h1>
   </div>
 
-  <div class="banners-container" style="display: flex; flex-direction: column; gap: 16px; justify-content: center; padding-top: 30px;">
+  <!-- Forum Listings -->
+  <div style="text-align: center; padding-top: 30px;">
     <% if @forums.present? %>
       <% @forums.each do |forum| %>
+
         <div class="banner m-4"
              style="background-image: url('<%= forum.image_url %>'); background-size: cover; background-position: center;
                     padding: 60px 20px; border-radius: 16px; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
@@ -24,19 +26,19 @@
 
           <div class="banner-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;
                                             position: relative; z-index: 1;">
-            <h2 style="font-size: 2.5em; font-weight: bold; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+            <h2 style="font-size: 2.5em; font-weight: bold; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);">
               <%= forum.title %>
             </h2>
-            <p style="font-size: 1.2em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">
+            <p style="color: white; font-size: 1.2em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">
               Associated Musician: <%= forum.musician&.name || "No associated musician" %>
             </p>
 
-            <%= link_to "Join Forum", forum_path(forum), class: "button", style: "text-decoration: none; color: white; background-color: #FF6F61; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; transition: background-color 0.3s ease-in-out;" %>
-          </div>
+
+          <%= link_to "Join Forum", forum_path(forum), class: "button", style: "text-decoration: none; color: white; background-color: #FF6F61; padding: 14px 28px; border-radius: 8px;" %>
         </div>
       <% end %>
     <% else %>
-      <p style="font-size: 1.5em; color: #fff; text-align: center;">No forums available. Please check back later!</p>
+      <p style="font-size: 1.5em; color: #555;">No forums available. Please check back later!</p>
     <% end %>
   </div>
 </div>

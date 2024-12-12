@@ -4,6 +4,8 @@ class MusiciansController < ApplicationController
 
   before_action :set_musician, only: [:show]
 
+  before_action :authorize_musician, only: [:edit, :update]
+
   def index
     @musicians = Musician.geocoded
 
@@ -29,6 +31,7 @@ class MusiciansController < ApplicationController
   end
 
   def show
+    
     @musician = Musician.find(params[:id])
     @compositions = @musician.compositions
     @composition = Composition.new
@@ -70,6 +73,14 @@ class MusiciansController < ApplicationController
     @musician = Musician.new
 
   end
+
+  def authorize_musician
+    @musician = Musician.find(params[:id])
+    unless @musician.user == current_user
+      redirect_to musician_path(@musician), alert: "You are not authorized to edit this musician."
+    end
+  end
+
 
   def create
     @musician = Musician.new(musician_params)

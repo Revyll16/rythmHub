@@ -11,7 +11,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  // background-color: #f4f4f4;
+  background-color: #f4f4f4;
 }
 
 // fixed-background MapBox
@@ -72,54 +72,43 @@ body {
 .card {
   background-size: cover;
 
-.index-background-container {
-  position: relative;
-  min-height: 350vh;
-  /* Make sure it covers the entire screen */
-  background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  /* Background image URL */
-  background-size: cover;
-  /* Ensure the image covers the entire container */
-  background-position: center;
-  /* Center the image */
-  color: white;
-  /* Text color */
-  /* Smooth background movement animation */
-}
+  .index-background-container {
+    position: relative;
+    min-height: 350vh;
+    background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
 }
 
 /* Glassmorphism effect on cards with background image */
 .card {
-  background-size: cover;
-  /* Ensure the background image covers the whole card */
+  background-size:contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
   position: relative;
   max-width: 250px;
   height: 350px;
   border-radius: 10px;
-  padding: 1rem;
+  // padding: 1rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 7.5px;
   transition: all 0.7s ease-in-out;
-
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   filter: grayscale(100%);
   transition: filter 0.4s ease, transform 0.4s ease;
-  /* Smoother transition for all movements */
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  /* Slight white border for separation */
   backdrop-filter: blur(10px);
-  /* Apply blur effect to the background */
   -webkit-backdrop-filter: blur(10px);
-  /* For Safari */
   filter: grayscale(100%);
-  /* Initially make the image black and white */
   transition: filter 0.4s ease, transform 0.4s ease;
-  /* Smooth transition for filter and transform */
 }
 
 /* Card Hover Effects */
@@ -179,14 +168,14 @@ body {
   gap: 5px;
   transform: translateY(95%);
   opacity: 0;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .card:hover .details {
   transform: translateY(0%);
   opacity: 1;
-  transition-delay: 0.6s;
+  transition-delay: 0.1s;
 }
 
 .card:hover .cardHeader {
@@ -222,17 +211,16 @@ body {
   animation: fadeIn 2.5s ease-in-out;
 }
 
+/* Simplified Animated and Bold h1 */
 .animated-header {
-  font-size: 3rem;
+  font-size: 2.5rem; /* Slightly smaller size */
   font-weight: bold;
   color: #030d19;
   text-transform: uppercase;
-  animation: fadeIn 3s ease-in-out, glowingColors 7s infinite alternate;
-  /* Smooth glowing animation */
+  animation: fadeIn 1s ease-in-out; /* Removed multi-colored glowing animation for simplicity */
   position: relative;
   margin-top: 72px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  /* Subtle glow around text */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); /* Subtle glow */
 }
 
 /* Keyframes for the fade-in animation */
@@ -248,39 +236,13 @@ body {
   }
 }
 
-/* Keyframes for the multi-colored glowing effect */
-@keyframes glowingColors {
-  0% {
-    text-shadow: 0 0 10px rgba(255, 0, 0, 1), 0 0 20px rgba(255, 0, 0, 0.8);
-    /* Red */
-  }
-
-  25% {
-    text-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 255, 0, 0.8);
-  }
-
-  50% {
-    text-shadow: 0 0 10px rgba(0, 0, 255, 1), 0 0 20px rgba(0, 0, 255, 0.8);
-    /* Blue */
-  }
-
-  75% {
-    text-shadow: 0 0 10px rgba(255, 255, 0, 1), 0 0 20px rgba(255, 255, 0, 0.8);
-    /* Yellow */
-  }
-
-  100% {
-    text-shadow: 0 0 10px rgba(255, 0, 255, 1), 0 0 20px rgba(255, 0, 255, 0.8);
-    /* Magenta */
-  }
-}
-
-/* Optional: Add a glowing effect on hover */
+/* Optional: Add a subtle glow effect on hover */
 .animated-header:hover {
-  text-shadow: 0 0 10px rgba(9, 42, 86, 0.8), 0 0 20px rgba(5, 40, 84, 0.6);
-  color: #0bb6e5;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.6); /* Simple red glow */
+  color: #240b03;
   transition: all 0.3s ease-in-out;
 }
+
 
 /* Button Styles */
 .button {
@@ -349,14 +311,6 @@ html {
   transition: background-color 0.4s ease-in-out;
 }
 
-/* General Body and Container Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
 .show-background-container {
   background-size: cover;
   background-position: center;
@@ -403,12 +357,12 @@ body {
 /* Musician Image styling */
 .musician-image {
   flex: 1;
-  min-width: 300px;
-  max-width: 400px;
-  height: fit-content;
+  min-width: 400px;
+  max-width: 500px;
+  height:max-content;
   border-radius: 16px;
   overflow: hidden;
-  padding-right: 2px;
+  padding: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   animation: floatImage 3s ease-in-out infinite;
@@ -454,28 +408,6 @@ body {
 
 }
 
-
-/* Bio text dancing animation */
-// @keyframes danceText {
-
-//   0%,
-//   100% {
-//     transform: translateX(0);
-//   }
-
-//   25% {
-//     transform: translateX(5px);
-//   }
-
-//   50% {
-//     transform: translateX(-5px);
-//   }
-
-//   75% {
-//     transform: translateX(5px);
-//   }
-// }
-
 /* Musician Info - Bio Text */
 .musician-info h2 {
   margin-top: 0;
@@ -491,7 +423,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  color: #333;
   overflow: hidden;
   text-overflow: ellipsis;
   max-height: 400px;
@@ -511,4 +442,139 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   z-index: 10;
   /* Ensure it's above other elements */
+}
+
+// -------------------------------------------------------------------------------------------------------------------
+
+// COMPOSITION SHOW SCSS CODE
+.video-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+
+  .main-video-container {
+    grid-column: 1 / 2;
+
+    .main-video-player {
+      width: 100%;
+      max-height: 800px;
+      border-radius: 8px;
+    }
+
+    .main-video-info {
+      margin-top: 10px;
+
+      .video-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+
+      .video-meta {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }
+
+  .sidebar {
+    grid-column: 2 / 3;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+
+    .video-show{
+      width: 500px;
+    }
+
+    .card-show{
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .related-videos {
+      list-style: none;
+      padding: 0;
+
+      .related-video {
+        display: flex;
+        margin-bottom: 10px;
+
+        .related-video-thumbnail {
+          width: 120px;
+          height: 80px;
+          margin-right: 10px;
+          border-radius: 4px;
+        }
+
+        .related-video-info {
+          .related-video-title {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .related-video-meta {
+            font-size: 12px;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+
+  .description {
+    grid-column: 1 / 2;
+    margin-top: 20px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+  }
+
+  .feedback-section {
+    grid-column: 1 / 2;
+    margin-top: 20px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #feedbacks {
+      margin-bottom: 10px;
+    }
+
+    form {
+      textarea {
+        width: 100%;
+        border-radius: 4px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}
+// --------------------------------------------------------------------------------------
+.video-card-link {
+  border: 1px solid rgba(145, 145, 145, 0);
+  text-decoration: none; /* Removes underline from link text */
+  color: inherit;        /* Ensures text color doesn't change */
+  display: block;        /* Ensures the link covers the whole div */
+  transition: background-color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

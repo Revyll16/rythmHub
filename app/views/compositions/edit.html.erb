@@ -3,5 +3,6 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :file, as: :file %>
+  <%= f.input :tutorial, as: :boolean, label: "Is this a tutorial?", required: false %>
   <%= f.submit %>
 <% end %>
