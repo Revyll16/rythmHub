@@ -12,3 +12,57 @@
 .button:hover {
   background-color: #FF3E2E;
 }
+
+.forum-show-container{
+  margin: 0 auto;
+  margin-top: 65px;
+  width: 80%;
+}
+
+.avatar{
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.banner{
+  width: 20vw;
+}
+
+.forums{
+  display:flex
+}
+
+.forum-show{
+  margin-top: 65px;
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+.index-container{
+  height: calc(100vh - 65px);
+  width: fit-content;
+  overflow-y: scroll;
+  margin-top: 65px;
+  padding-top: 20px;
+}
+
+.button-forum{
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+}
+
+.forum-landing{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    font-size: 2rem;
+
+  }
+}

@@ -1,79 +1,114 @@
-<div class="forum-show-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+<div class="forums">
+<div class="index-container">
+
+  <!-- Create Forum Button -->
+  <!-- Create Forum Button -->
+  <div class="text-center">
+    <%= link_to "Create A New Forum", new_forum_path, class: "button",
+        style: "text-decoration: none; color: white; background-color: #28a745; padding: 10px 15px; border-radius: 8px; position: absolute; right: 20px; top: 85px;" %>
+  </div>
+
+  <!-- Header -->
+
+
+  <!-- Forum Listings -->
+
+    <% if @forums.present? %>
+      <% @forums.each do |forum| %>
+
+            <%= link_to  forum_path(forum),data: { turbo_frame: :forum_posts, turbo_action: :advance } , class: "button-forum" do %>
+        <div class="banner m-4">
+
+
+          <div class="banner-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;
+                                            position: relative; z-index: 1;">
+            <h2 style="font-size: 1em; font-weight: bold; color: #333;">
+              <%= forum.title %>
+            </h2>
+
+
+          </div>
+        </div>
+        <%end%>
+      <% end %>
+    <% else %>
+      <p style="font-size: 1.5em; color: #555;">No forums available. Please check back later!</p>
+    <% end %>
+  </div>
+  <div class="forum-show">
+<%= turbo_frame_tag :forum_posts do %>
+<div class="forum-show-container" style="max-width: 1200px; padding: 20px;">
 
   <!-- Forum Header Section -->
-  <div class="header-container" style="text-align: center; margin-bottom: 30px;">
-    <h1 class="animated-header" style="font-size: 3em; font-weight: bold; color: #333; margin-bottom: 15px;">
+  <div class="forum-header-container" style="text-align: center; margin-bottom: 40px;">
+    <h1 style="font-size: 2.8em; font-weight: bold; color: #333; margin-bottom: 15px;">
       <%= @forum.title %>
     </h1>
     <p style="font-size: 1.2em; color: #777;">Welcome to the forum for <%= @forum.title %>. Join discussions or start your own thread!</p>
+    <div class="d-flex align-items-center justify-content-end">
+    <p style="font-size: 0.8em; color: #555; margin-bottom: 0px;">Created by: <%= @forum.musician&.name || "No associated musician"%></p>
+    <%= link_to musician_path(@forum.musician), data:{turbo:false} do %>
+    <%= cl_image_tag @forum.musician.image.key, class:"avatar" %>
+    <%end%>
   </div>
-
+  </div>
   <!-- Forum Details Section -->
-  <div class="forum-details" style="padding: 40px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
-    <h2 style="font-size: 2.5em; color: #333; margin-bottom: 15px;">About This Forum</h2>
-    <p style="font-size: 1.2em; color: #555; margin-bottom: 15px;">Created by: <%= @forum.musician&.name || "No associated musician" %></p>
-
-  </div>
+  <%# <div class="forum-details" style="padding: 30px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+    <h2 style="font-size: 2.2em; color: #333; margin-bottom: 15px;">About This Forum</h2>
+  <%# </div>  %>
 
   <!-- Forum Discussion Section -->
   <div class="forum-discussions" style="margin-top: 40px;">
-    <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px;">Forum Discussions</h2>
+    <%# <h2 style="font-size: 2.2em; color: #333; margin-bottom: 20px;">Forum Discussions</h2> %>
 
     <!-- List of Posts -->
     <% if @forum.posts.any? %>
-      <div class="discussion-list" id="posts" style="display: flex; flex-direction: column; gap: 20px;">
+      <div class="discussion-list" style="display: flex; flex-direction: column; gap: 30px;" id="posts">
         <% @forum.posts.each do |post| %>
-           <%= render "posts/post", post: post %>
+          <%= render "posts/post", post: post %>
         <% end %>
       </div>
     <% else %>
       <p style="font-size: 1.2em; color: #555;">No discussions yet. Be the first to start a discussion!</p>
     <% end %>
 
-<%= simple_form_for [@forum, @post], html: { autocomplete: 'off' } do |f| %>
-  <div class="input-group mb-1 w-50">
-    <div class="form-floating my-5">
-      <%= f.input :content, label: false, wrapper: false, input_html: { id: "post-content", placeholder: "Type your message" } %>
-    <%= f.submit "send", class: "btn btn-primary my-3" %>
-    </div>
-  </div>
-<% end %>
-
-    <!-- Add Discussion Button -->
-    <div class="add-discussion-button" style="text-align: center; margin-top: 40px;">
-
+    <!-- New Post Form -->
+    <div class="new-post-form" style="margin-top: 40px;">
+      <%= simple_form_for [@forum, @post],  html: {autocomplete: "on",
+         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
+        <div style="margin-bottom: 20px;">
+          <%= f.input :content, label: false, placeholder: "Type your message", input_html: { class: "form-control", style: "width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1.1em;" } %>
+        </div>
+        <div style="text-align: center;">
+          <%= f.submit "Send", class: "button", style: "background-color: #28a745; color: white; padding: 10px 20px; border-radius: 8px; font-size: 1.1em;" %>
+        </div>
+      <% end %>
     </div>
   </div>
 
   <!-- Back to Forums Button -->
- <div style="margin-top: 10px;"></div> <!-- Spacer to push content above -->
-
-<div style="position: relative; bottom: 0; width: 100%; background-color: #f9f9f9; text-align: center; padding: 20px; box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);">
-  <!-- Back to Forums Button -->
-  <%= link_to "Back to Forums", forums_path,
-              class: "button",
-              style: "text-decoration: none; color: white; background-color: #FF6F61; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; margin: 0 10px;" %>
-<!-- Display the delete button only if the current user is the forum creator -->
-  <% if current_user && current_user == @forum.musician.user %>
-    <!-- Delete Button -->
-    <form action="<%= forum_path(@forum) %>" method="post" style="display: inline; margin: 0;">
-      <input type="hidden" name="_method" value="delete">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <button type="submit"
-              class="button"
-              style="text-decoration: none; color: white; background-color: #E74C3C; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; margin: 0 10px;"
-              onclick="return confirm('Are you sure you want to delete this forum?😔')">
-        Delete Forum
-      </button>
-    </form>
-  <% end %>
 
 
-  <!-- Edit Forum Button -->
-  <% if @forum.musician == current_user.musician %>
-    <%= link_to "Edit Forum", edit_forum_path(@forum),
-                class: "button",
-                style: "text-decoration: none; color: white; background-color: #F39C12; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; margin: 0 10px;" %>
-  <% end %>
+  <!-- Display Delete and Edit Buttons only for the creator of the forum -->
+  <div style="margin-top: 30px; text-align: center;">
+    <% if current_user && current_user == @forum.musician.user %>
+      <!-- Delete Button -->
+      <form action="<%= forum_path(@forum) %>" method="post" style="display: inline; margin: 0;" data-turbo-frame="_top">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <button type="submit" class="button" style="background-color: #e74c3c; color: white; padding: 14px 28px; border-radius: 8px; font-size: 1.2em;" onclick="return confirm('Are you sure you want to delete this forum?😔')">
+          Delete Forum
+        </button>
+      </form>
+    <% end %>
+
+    <% if @forum.musician == current_user.musician %>
+      <!-- Edit Forum Button -->
+      <%= link_to "Edit Forum", edit_forum_path(@forum), class: "button", style: "text-decoration: none; color: white; background-color: #F39C12; padding: 14px 28px; border-radius: 8px; font-size: 1.2em;" %>
+    <% end %>
+  </div>
+
+</div>
+<%end%>
 </div>
 </div>
