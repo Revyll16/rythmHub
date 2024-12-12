@@ -11,7 +11,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  // background-color: #f4f4f4;
+  background-color: #f4f4f4;
 }
 
 // fixed-background MapBox
@@ -338,14 +338,6 @@ html {
   transition: background-color 0.4s ease-in-out;
 }
 
-/* General Body and Container Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
 .show-background-container {
   background-size: cover;
   background-position: center;
@@ -443,28 +435,6 @@ body {
 
 }
 
-
-/* Bio text dancing animation */
-// @keyframes danceText {
-
-//   0%,
-//   100% {
-//     transform: translateX(0);
-//   }
-
-//   25% {
-//     transform: translateX(5px);
-//   }
-
-//   50% {
-//     transform: translateX(-5px);
-//   }
-
-//   75% {
-//     transform: translateX(5px);
-//   }
-// }
-
 /* Musician Info - Bio Text */
 .musician-info h2 {
   margin-top: 0;
@@ -500,4 +470,139 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   z-index: 10;
   /* Ensure it's above other elements */
+}
+
+// -------------------------------------------------------------------------------------------------------------------
+
+// COMPOSITION SHOW SCSS CODE
+.video-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+
+  .main-video-container {
+    grid-column: 1 / 2;
+
+    .main-video-player {
+      width: 100%;
+      max-height: 800px;
+      border-radius: 8px;
+    }
+
+    .main-video-info {
+      margin-top: 10px;
+
+      .video-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+
+      .video-meta {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }
+
+  .sidebar {
+    grid-column: 2 / 3;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+
+    .video-show{
+      width: 500px;
+    }
+
+    .card-show{
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .related-videos {
+      list-style: none;
+      padding: 0;
+
+      .related-video {
+        display: flex;
+        margin-bottom: 10px;
+
+        .related-video-thumbnail {
+          width: 120px;
+          height: 80px;
+          margin-right: 10px;
+          border-radius: 4px;
+        }
+
+        .related-video-info {
+          .related-video-title {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .related-video-meta {
+            font-size: 12px;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+
+  .description {
+    grid-column: 1 / 2;
+    margin-top: 20px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+  }
+
+  .feedback-section {
+    grid-column: 1 / 2;
+    margin-top: 20px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #feedbacks {
+      margin-bottom: 10px;
+    }
+
+    form {
+      textarea {
+        width: 100%;
+        border-radius: 4px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}
+// --------------------------------------------------------------------------------------
+.video-card-link {
+  border: 1px solid rgba(145, 145, 145, 0);
+  text-decoration: none; /* Removes underline from link text */
+  color: inherit;        /* Ensures text color doesn't change */
+  display: block;        /* Ensures the link covers the whole div */
+  transition: background-color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

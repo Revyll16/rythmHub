@@ -1,21 +1,17 @@
-<br><br><br>
-<div class="container-fluid">
-  <% @compositions.each do |composition| %>
-  <h1><%= composition.title %></h1>
-  <p><%= composition.description %></p>
-  <% if composition.file.attached? %>
-    <% case composition.file.blob.content_type %>
-    <% when /^image\// %>
-      <%= cl_image_tag composition.file.key, quality: 'auto', fetch_format: 'auto' %>
-    <% when /^video\// %>
-      <%= cl_video_tag composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
-    <% when /^audio\// %>
-      <%= cl_video_tag composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
-    <% else %>
-      <p>Unsupported file type.</p>
+<br>
+<br>
+<br>
+<div class="content">
+  <h1>Explore Compositions</h1>
+  <div class="video-grid">
+    <% @compositions.each do |composition| %>
+      <%= link_to composition_path(composition), class: "video-card-link" do %>
+        <div class="video-info">
+          <%= video_tag(composition.video_url, controls: true, class: 'video-player') %>
+          <p class="video-title"><%= composition.title %></p>
+          <p class="video-meta">By <%= composition.musician.name %> | <%= time_ago_in_words(composition.created_at) %> ago</p>
+        </div>
+      <% end %>
     <% end %>
-  <% else %>
-    <p>No file uploaded.</p>
-  <% end %>
-<% end %>
+  </div>
 </div>
