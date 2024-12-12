@@ -1,35 +1,16 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# youtube:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-# Seed Users
-# Seed Musicians
 require "open-uri"
 
-
 puts "clearing the database"
-
 Post.destroy_all
 Forum.destroy_all
 Instrument.destroy_all
 Feedback.destroy_all
+CompositionInstrument.destroy_all if defined?(CompositionInstrument)
 Composition.destroy_all
 Musician.destroy_all
 User.destroy_all
-# db/seeds.rb
-
-# Clear the database to avoid duplicates
-
-
 
 # List of musicians with associated attributes
-# db/seeds.rb
-
 musicians = [
   {
     name: "Yo-Yo Ma",
@@ -117,114 +98,110 @@ musicians = [
   },
   {
     name: "Charlie Parker",
-    bio: "Charlie Parker was an American jazz saxophonist and composer, who was a leading figure in the development of bebop, one of the most influential jazz movements.",
+    bio: "Charlie Parker was an American jazz saxophonist and composer, who was a leading figure in the development of bebop.",
     image_url: "https://www.operaphila.org/media/1952/yardbird_024.jpg",
     instruments: "Alto Saxophone",
     address: "Kansas City, Missouri, USA"
   },
   {
     name: "B.B. King",
-    bio: "B.B. King was an American blues singer, electric guitarist, and songwriter. He is widely considered one of the most important and influential blues musicians of all time.",
-    image_url: "https://imageio.forbes.com/specials-images/imageserve/b232c3b558f54b6792880b8026daf26c/0x0.jpg?format=jpg&amp;width=1200",
+    bio: "B.B. King was an American blues singer, electric guitarist, and songwriter, considered one of the most important blues musicians.",
+    image_url: "https://imageio.forbes.com/specials-images/imageserve/b232c3b558f54b6792880b8026daf26c/0x0.jpg?format=jpg&width=1200",
     instruments: "Electric Guitar",
     address: "Indianola, Mississippi, USA"
   },
   {
     name: "Nina Simone",
-    bio: "Nina Simone was an American singer, songwriter, and pianist, known for her deep, soulful voice and her work in jazz, blues, and civil rights activism.",
-    image_url: "https://nypost.com/wp-content/uploads/sites/2/2021/06/nina-simone-kamla-harris-index.jpg?quality=75&amp;strip=all&amp;w=1024",
+    bio: "Nina Simone was an American singer, songwriter, and pianist, known for her deep voice and influence in jazz and blues.",
+    image_url: "https://nypost.com/wp-content/uploads/sites/2/2021/06/nina-simone-kamla-harris-index.jpg?quality=75&strip=all&w=1024",
     instruments: "Piano",
     address: "Tryon, North Carolina, USA"
   },
   {
     name: "James Brown",
-    bio: "James Brown was an American singer, songwriter, and dancer, known as the 'Godfather of Soul'. He was one of the most influential figures in the history of music.",
-    image_url: "https://i.ytimg.com/vi/qe0RsmxEZec/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgTShDMA8=&amp;rs=AOn4CLCyWqskHGZSMeQVLkZJ0C_gQJGXQg",
+    bio: "James Brown was an American singer and songwriter, known as the 'Godfather of Soul'.",
+    image_url: "https://i.ytimg.com/vi/qe0RsmxEZec/maxresdefault.jpg",
     instruments: "Vocals",
     address: "Barnwell, South Carolina, USA"
   },
   {
     name: "John Doe",
-    bio: "John Doe is a multi-instrumentalist known for his eclectic style that blends various genres, from classical to jazz, rock, and electronic. His musical journey began at an early age when he first picked up a guitar at the age of seven. Over the years, John honed his skills on a variety of instruments, including piano, drums, and violin.",
+    bio: "John Doe is a multi-instrumentalist blending various genres. He plays guitar, piano, drums, and violin.",
     image_url: "https://th.bing.com/th/id/OIP.LuE7kwG2B8SunikDvzhgVQHaE8?rs=1&pid=ImgDetMain",
     address: "123 Harmony Lane, Music City",
     instruments: ["Guitar", "Piano", "Drums", "Violin"]
   },
   {
     name: "Jane Smith",
-    bio: "Jane Smith is a classically trained pianist with a passion for composition and a deep understanding of music theory. From a young age, she was recognized for her exceptional talent, earning a scholarship to one of the most prestigious music conservatories in the world. Jane’s early influences were composers like Chopin, Debussy, and Rachmaninoff, whose works she studied meticulously.",
-    image_url: "https://th.bing.com/th/id/R.d35ff56255afd9012eb7319d478c6e62?rik=zWoURL%2b9N3faHA&riu=http%3a%2f%2felissagayle.ebersold.org%2fblog%2fwp-content%2fuploads%2f2019%2f04%2f190412_MoriahFormica_ElissaEbersold_ConcertPhotography-lg-12.jpg&ehk=AO%2bQf%2bXrAF58qzjbRGi6lC4WE%2bHuuYRbuUTRYzpE%2b5A%3d&risl=&pid=ImgRaw&r=0",
+    bio: "Jane Smith is a classically trained pianist with a deep understanding of music theory.",
+    image_url: "https://theconcertdatabase.com/sites/theconcertdatabase.com/files/jd.jpg",
     address: "456 Sonata Street, Piano Town",
     instruments: ["Piano"]
   },
   {
     name: "Bob Marley",
-    bio: "Bob Marley is a reggae legend, blending soul and rhythm to create some of the most iconic songs in music history. Born in Jamaica, Bob’s early life was shaped by the sounds of traditional Jamaican music, but it was the influence of R&B and soul that made his music universally loved. His breakthrough came in the 1970s with the formation of the band, The Wailers, whose mix of reggae, rock, and soul was revolutionary.",
+    bio: "Bob Marley is a reggae legend, blending soul and rhythm in iconic songs.",
     image_url: "https://i0.wp.com/africhroyale.com/wp-content/uploads/2020/08/bob-marley.jpg?fit=1200,1200&ssl=1",
     address: "1 Love Ave, Kingston, Jamaica",
     instruments: ["Guitar", "Vocals"]
   },
   {
     name: "Louis Armstrong",
-    bio: "Louis Armstrong, one of the most iconic figures in jazz history, is renowned for his unique trumpet playing and his deep, gravelly voice. Born in New Orleans, he grew up in poverty but found solace in music, playing in local brass bands before making his way to Chicago. It was there that he became a leading figure in the birth of jazz, revolutionizing the genre with his improvisational skills and musical creativity.",
+    bio: "Louis Armstrong, iconic jazz figure, known for his trumpet and gravelly voice.",
     image_url: "https://wallpapers.com/images/hd/american-musician-and-vocalist-louis-armstrong-7qe7z9c4160env44.jpg",
     address: "789 Jazz Blvd, New Orleans, LA",
     instruments: ["Trumpet", "Vocals"]
   },
   {
     name: "Tina Turner",
-    bio: "Tina Turner is an iconic singer known for her powerful voice and stage presence, making her one of the most influential artists in music history. Born Anna Mae Bullock in Nutbush, Tennessee, Tina started her career as a backing vocalist before joining Ike Turner’s band. Her breakthrough came when she and Ike formed the duo 'Ike & Tina Turner,' which earned her a reputation for her electrifying performances and fierce vocals.",
+    bio: "Tina Turner, iconic singer known for her powerful voice and stage presence.",
     image_url: "https://th.bing.com/th/id/OIP.RC5YfZUdffs0GPYUWox7ywHaK0?rs=1&pid=ImgDetMain",
     address: "321 Rock Road, Nutbush, TN",
     instruments: ["Vocals"]
   },
   {
     name: "Elvis Presley",
-    bio: "Elvis Presley, often referred to as the 'King of Rock and Roll,' revolutionized the music industry and changed the cultural landscape of the 20th century. Born in Tupelo, Mississippi, Elvis grew up in a modest household but was always surrounded by music, which influenced his love for gospel, blues, and country. His breakthrough came in 1956 with his first single 'Heartbreak Hotel,' and he soon became a cultural icon.",
+    bio: "Elvis Presley, the 'King of Rock and Roll,' transformed the music industry.",
     image_url: "https://media.gq-magazine.co.uk/photos/5d1396393bedf20055db67b3/master/w_1366%2cc_limit/Elvis-12-GQ-16Aug17_getty_b.jpg",
     address: "Graceland, Memphis, TN",
     instruments: ["Guitar", "Vocals"]
   },
   {
     name: "Beethoven",
-    bio: "Ludwig van Beethoven, born in 1770 in Bonn, Germany, is regarded as one of the greatest composers in the history of Western music. His works revolutionized classical music, bridging the gap between the Classical and Romantic periods. Beethoven’s early music was influenced by his predecessors, such as Haydn and Mozart, but his later compositions defied traditional structures and norms.",
+    bio: "Ludwig van Beethoven, one of the greatest composers, bridging Classical and Romantic eras.",
     image_url: "https://th.bing.com/th/id/OIP.WjKXjy86_u4WVnobHo-IYQAAAA?rs=1&pid=ImgDetMain",
     address: "12 Symphony Lane, Bonn, Germany",
     instruments: ["Piano", "Orchestra"]
   },
   {
     name: "Mozart",
-    bio: "Wolfgang Amadeus Mozart, born in 1756 in Salzburg, Austria, was one of the most prolific and influential composers of the Classical era. His musical genius was apparent from a young age, and he began composing music at the age of five. Mozart composed over 600 works, including symphonies, operas, chamber music, and choral compositions, many of which are considered masterpieces.",
+    bio: "Wolfgang Amadeus Mozart, a prolific Classical composer, wrote over 600 works.",
     image_url: "https://tmms.co.uk/wp-content/uploads/2023/01/imgpsh_fullsize_anim-5.png",
     address: "34 Sonata Square, Salzburg, Austria",
     instruments: ["Piano", "Violin", "Orchestra"]
   }
 ]
 
-
 # Create users and assign each to a musician
-musicians.each do |musician|
+musicians.each do |m|
   # Create a user for the musician
   user = User.create!(
-    email: "#{musician[:name].downcase.gsub(' ', '.')}@youtube.com",
+    email: "#{m[:name].downcase.gsub(' ', '.')}@youtube.com",
     password: "password"
   )
-
-  file = URI.parse(musician[:image_url]).open
+  file = URI.parse(m[:image_url]).open
   # Create the musician and associate with the user
   new_musician = Musician.new(
-    name: musician[:name],
-    bio: musician[:bio],
-
-    address: musician[:address],
+    name: m[:name],
+    bio: m[:bio],
+    address: m[:address],
     user_id: user.id
   )
   new_musician.image.attach(io: file, filename: "#{user.id}.png", content_type: "image/png")
   new_musician.save!
+  p "#{new_musician.name} seeded"
 end
-
 puts "Created #{User.count} users and #{Musician.count} musicians."
-
 
 # Seed Instruments
 instruments = [
@@ -238,13 +215,11 @@ instruments = [
   { name: "Bass Guitar", description: "A stringed instrument typically played in rock and jazz bands." }
 ]
 
-# Associate instruments with musicians
-instruments.each_with_index do |instrument, index|
+instruments.each do |instrument_attrs|
   musician = Musician.all.sample
-  instrument = Instrument.new(instrument)
+  instrument = Instrument.new(instrument_attrs)
   instrument.musician = musician
   instrument.save!
-
 end
 puts "#{Instrument.count} instruments seeded"
 
@@ -261,7 +236,7 @@ compositions = [
   { title: "Ukulele for Absolute Beginners", video_url: "https://www.youtube.com/watch?v=5bTE5fbxDsc", description: "Learn to play the ukulele in this beginner tutorial." },
   { title: "How to Play Trumpet (Beginner Tutorial)", video_url: "https://www.youtube.com/watch?v=FFJ4FGlW5Zo", description: "A simple guide to playing the trumpet." },
   { title: "Learn the Basics of Harmonica", video_url: "https://www.youtube.com/watch?v=cDV_qckR0tc", description: "Step-by-step harmonica tutorial for beginners." },
-  { title: "Clarinet Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=Izf5sGMI1CY&list=PL06seol1EtFdQcYRN7tXnep5shRKg8drH", description: "Learn to play the clarinet from scratch." },
+  { title: "Clarinet Beginner Tutorial", video_url: "https://www.youtube.com/watch?v=Izf5sGMI1CY", description: "Learn to play the clarinet from scratch." },
   { title: "Percussion Instruments Basics", video_url: "https://www.youtube.com/watch?v=5AdDacff0Nw", description: "An introduction to various percussion instruments." },
   { title: "Banjo Basics for Beginners", video_url: "https://www.youtube.com/watch?v=fn4YhHdhhUU", description: "Start learning the banjo with this beginner tutorial." },
   { title: "How to Play Mandolin for Beginners", video_url: "https://www.youtube.com/watch?v=DvDDGN1h36s", description: "A simple guide to playing the mandolin." },
@@ -272,15 +247,20 @@ compositions = [
   { title: "Beginner Lessons on Recorder", video_url: "https://www.youtube.com/watch?v=9KZbADc2I8g", description: "Learn to play the recorder in simple steps." }
 ]
 
+all_musicians = Musician.all.to_a
+compositions.each_with_index do |comp_data, index|
+  musician = all_musicians[index % all_musicians.size] # cycle through musicians
+  comp = musician.compositions.create!(comp_data)
 
-
-# Associate compositions with musicians
-musicians = Musician.all
-
-compositions.each_with_index do |comp, index|
-  musicians[index].compositions.create!(comp)
+  # Randomly assign some instruments to this composition
+  # Let's say each composition gets between 1 to 3 instruments.
+  available_instruments = Instrument.all.to_a
+  chosen_instruments = available_instruments.sample(rand(1..3))
+  chosen_instruments.each do |instr|
+    comp.instruments << instr
+  end
 end
-puts "#{Composition.count} compositions seeded"
+puts "#{Composition.count} compositions seeded with instruments assigned."
 
 # Seed Forums
 forums = [
@@ -325,30 +305,46 @@ forums = [
     image_url: ""
   }
 ]
-
-
-
 forums.each do |forum|
   Forum.create!(forum)
 end
 puts "#{Forum.count} forums seeded"
 
-# Seed Posts
-posts = [
-  { content: "I love the improvisation in jazz!", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id },
-  { content: "Rock and roll forever!", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id },
-  { content: "Classical music is timeless!", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id },
-  { content: "Bob Marley is a true legend.", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  },
-  { content: "The piano is such an expressive instrument.", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  },
-  { content: "I prefer acoustic guitars over electric ones.", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  },
-  { content: "Composing music is both challenging and rewarding.", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  },
-  { content: "Nothing beats a live concert experience!", forum_id: Forum.all.sample.id, musician_id: Musician.all.sample.id  }
+# Seed many more realistic posts
+sample_post_contents = [
+  "I'm looking for tips on improving my vibrato technique on violin.",
+  "Anyone else here obsessed with old-school blues guitar riffs?",
+  "Just discovered the coolest saxophone solo in a classic jazz record!",
+  "What are your thoughts on using digital tools for composition?",
+  "I started learning piano last month, can anyone suggest beginner-friendly pieces?",
+  "Does anyone have advice on maintaining trumpet embouchure during long practice sessions?",
+  "I love reggae rhythms, they always lift my mood!",
+  "I'm struggling to record a clean acoustic guitar track, any mic recommendations?",
+  "Has anyone tried composing in unusual time signatures?",
+  "I'm fascinated by Beethoven's later works – the complexity is mind-blowing.",
+  "Rock and roll still lives strong in my heart!",
+  "Classical guitar or flamenco guitar – which style is harder to master?",
+  "I'm planning a live jam session in my city, who wants to join?",
+  "Nina Simone's voice just hits different, doesn't it?",
+  "I need advice on finding a good piano teacher in Chicago.",
+  "Any tips for a beginner drummer looking to improve footwork speed?",
+  "How do you incorporate electronic elements into jazz compositions tastefully?",
+  "I just learned the basics of ukulele, super fun instrument!",
+  "Flute players: how do you keep a consistent tone in higher registers?",
+  "I've been experimenting with the harmonica – underrated instrument!"
 ]
 
-posts.each do |post|
-  Post.create!(post)
+# Create a lot more posts
+50.times do
+  Post.create!(
+    content: sample_post_contents.sample,
+    forum: Forum.all.sample,
+    musician: Musician.all.sample
+  )
 end
+
 puts "#{Post.count} posts seeded"
+
 # Seed Feedbacks
 feedbacks = [
   { content: "Great melody!", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
@@ -358,14 +354,12 @@ feedbacks = [
   { content: "Elvis is still the king of rock!", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
   { content: "I love the harmony in this piece.", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
   { content: "Such a lively and upbeat composition!", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id  },
-  { content: "Louis Armstrong’s music has so much soul.", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id }
+  { content: "Louis Armstrong's music has so much soul.", musician_id: Musician.all.sample.id, composition_id: Composition.all.sample.id }
 ]
-
 feedbacks.each do |feedback|
   Feedback.create!(feedback)
 end
 puts "#{Feedback.count} feedbacks seeded"
 
 puts "------------------------------------------------------------------"
-
 puts "Database seeded successfully!"

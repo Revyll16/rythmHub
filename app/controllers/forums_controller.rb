@@ -13,6 +13,7 @@
 
     def show
       @post = Post.new
+      @forums = Forum.all
     end
 
 
