@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl' // Don't forget this!
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 export default class extends Controller {
   static values = {
@@ -9,8 +10,16 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
+    this.map = new mapboxgl.Map({
+      container: this.element,
+      style: "mapbox://styles/revyll16/cm40ye0zr00tp01sifsd374p1"
+    })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.map.addControl(new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl
+    }))
   }
 
   #addMarkersToMap() {
@@ -27,10 +36,6 @@ export default class extends Controller {
         .addTo(this.map)
     })
 
-    this.map = new mapboxgl.Map({
-      container: this.element,
-      style: "mapbox://styles/revyll16/cm40ye0zr00tp01sifsd374p1"
-    })
   }
 
   #fitMapToMarkers() {

@@ -27,6 +27,18 @@ body {
   background-repeat: no-repeat;
 }
 
+
+
+.musicians {
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+}
+
+.musicians::-webkit-scrollbar {
+  display: hidden;
+}
+
+
 .fixed-background-map {
   height: 55vh;
   padding: 10rem 0;
@@ -448,133 +460,119 @@ h1, h2, h3, h4, h5, h6 {
 
 // COMPOSITION SHOW SCSS CODE
 .video-page {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
   gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-
-  .main-video-container {
-    grid-column: 1 / 2;
-
-    .main-video-player {
-      width: 100%;
-      max-height: 800px;
-      border-radius: 8px;
-    }
-
-    .main-video-info {
-      margin-top: 10px;
-
-      .video-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin: 10px 0;
-      }
-
-      .video-meta {
-        font-size: 14px;
-        color: #666;
-      }
-    }
-  }
-
-  .sidebar {
-    grid-column: 2 / 3;
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 8px;
-
-    .video-show{
-      width: 500px;
-    }
-
-    .card-show{
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .related-videos {
-      list-style: none;
-      padding: 0;
-
-      .related-video {
-        display: flex;
-        margin-bottom: 10px;
-
-        .related-video-thumbnail {
-          width: 120px;
-          height: 80px;
-          margin-right: 10px;
-          border-radius: 4px;
-        }
-
-        .related-video-info {
-          .related-video-title {
-            font-size: 14px;
-            font-weight: bold;
-          }
-
-          .related-video-meta {
-            font-size: 12px;
-            color: #666;
-          }
-        }
-      }
-    }
-  }
-
-  .description {
-    grid-column: 1 / 2;
-    margin-top: 20px;
-
-    h2 {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    p {
-      font-size: 16px;
-      margin: 10px 0;
-    }
-  }
-
-  .feedback-section {
-    grid-column: 1 / 2;
-    margin-top: 20px;
-
-    h2 {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    #feedbacks {
-      margin-bottom: 10px;
-    }
-
-    form {
-      textarea {
-        width: 100%;
-        border-radius: 4px;
-        padding: 10px;
-        border: 1px solid #ccc;
-      }
-    }
-  }
 }
-// --------------------------------------------------------------------------------------
-.video-card-link {
-  border: 1px solid rgba(145, 145, 145, 0);
-  text-decoration: none; /* Removes underline from link text */
-  color: inherit;        /* Ensures text color doesn't change */
-  display: block;        /* Ensures the link covers the whole div */
-  transition: background-color 0.3s;
 
-  &:hover {
-    cursor: pointer;
-  }
+.main-video-container {
+  flex: 3;
+}
+
+.main-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #000;
+}
+
+.main-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-video-info {
+  margin-top: 15px;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+.feedback-section {
+  margin-top: 30px;
+}
+
+.sidebar {
+  padding: 10px;
+  width: 300px;
+  background-color: #fff;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.composition-videos-show {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.video-card-show {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: inherit;
+  gap: 10px;
+}
+
+.video-card-show:hover {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-video-show {
+  display: flex;
+  align-items: flex-start;
+}
+
+.thumbnail {
+  flex-shrink: 0;
+  width: 120px;
+  height: 90px;
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.video-info-show {
+  flex-grow: 1;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.video-title-show {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+  line-height: 1;
+}
+
+.video-meta-show {
+  font-size: 10px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.small-text-show {
+  font-size: 10px;
+  color: #777;
 }

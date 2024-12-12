@@ -5,20 +5,27 @@
   <h1>Explore Compositions</h1>
   <div class="video-grid">
     <% @compositions.each do |composition| %>
-      <%= link_to composition_path(composition), class: "video-card-link" do %>
+      <%= link_to composition_path(composition), class: "video-card" do %>
         <div class="video-info">
-          <iframe width="560" height="315" src=<%= composition.embed_video_url %> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <%# <%= video_tag(composition.video_url, controls: true, class: 'video-player') %>
+          <div class="video-container">
+            <iframe
+              src="<%= composition.embed_video_url %>"
+              title="YouTube video-player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
           <p class="video-title"><%= composition.title %></p>
           <p class="video-meta">By <%= composition.musician.name %> | <%= time_ago_in_words(composition.created_at) %> ago</p>
           <% if composition.tutorial %>
-            <p class="small-text">Tutorial:mortar_board:</p>
+            <p class="small-text">🚫Not A Tutorial</p>
           <% else %>
-            <p class="small-text">:no_entry_sign:Not A Tutorial</p>
+            <p class="small-text">Tutorial🎓</p>
           <% end %>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
-
