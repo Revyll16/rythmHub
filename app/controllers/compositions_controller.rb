@@ -18,7 +18,7 @@ class CompositionsController < ApplicationController
     @composition = Composition.new(composition_params)
     @composition.musician = current_user.musician
     if @composition.save
-      redirect_to @composition, notice: 'Composition was successfully created.'
+      redirect_to current_user.musician, notice: 'Composition was successfully created.'
     else
       render :new, status: :unprocessible_entity
     end

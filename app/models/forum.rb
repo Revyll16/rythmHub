@@ -4,6 +4,7 @@ class Forum < ApplicationRecord
   validates :image, presence: true, allow_blank: true
   validates :title, presence: true
   has_many :posts
+  has_many :musicians, through: :posts
   has_one_attached :image
 
 
