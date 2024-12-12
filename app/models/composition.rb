@@ -4,7 +4,7 @@ class Composition < ApplicationRecord
   has_one_attached :file
   has_many :feedbacks
   has_many :composition_instruments, dependent: :destroy
-  has_and_belongs_to_many :instruments
+  # has_and_belongs_to_many :instruments
   has_many :instruments, through: :composition_instruments
 
   # Extract and return the embed URL for the video

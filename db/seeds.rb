@@ -134,7 +134,7 @@ musicians = [
   {
     name: "Jane Smith",
     bio: "Jane Smith is a classically trained pianist with a deep understanding of music theory.",
-    image_url: "https://th.bing.com/th/id/R.d35ff56255afd9012eb7319d478c6e62",
+    image_url: "https://theconcertdatabase.com/sites/theconcertdatabase.com/files/jd.jpg",
     address: "456 Sonata Street, Piano Town",
     instruments: ["Piano"]
   },
@@ -199,6 +199,7 @@ musicians.each do |m|
   )
   new_musician.image.attach(io: file, filename: "#{user.id}.png", content_type: "image/png")
   new_musician.save!
+  p "#{new_musician.name} seeded"
 end
 puts "Created #{User.count} users and #{Musician.count} musicians."
 

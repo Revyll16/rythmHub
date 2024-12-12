@@ -54,10 +54,12 @@
         <%= link_to composition_path(composition), class: "video-card-show" do %>
           <div class="sidebar-video-show">
             <div class="thumbnail">
+            <% if composition.video_url %>
               <img
               src="https://img.youtube.com/vi/<%= composition.embed_video_url.split('/').last %>/hqdefault.jpg"
               alt="<%= composition.title %>"
               class="thumbnail-img" />
+              <% end %>
           </div>
           <div class="video-info-show">
             <p class="video-title-show"><%= composition.title %></p>
