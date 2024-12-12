@@ -113,9 +113,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_161459) do
     t.string "image_url"
     t.string "address"
     t.bigint "user_id", null: false
+    t.string "instruments"
     t.float "latitude"
     t.float "longitude"
-    t.string "instruments"
     t.index ["user_id"], name: "index_musicians_on_user_id"
   end
 
