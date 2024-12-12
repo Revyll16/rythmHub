@@ -2,7 +2,6 @@ class Musician < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
   belongs_to :user
   has_many :compositions, dependent: :destroy
   has_and_belongs_to_many :instruments
@@ -24,7 +23,8 @@ class Musician < ApplicationRecord
   pg_search_scope :global_search,
   against: [ :name, :bio ],
   associated_against: {
-    user: [ :email ]
+    composition: [ :instrument ],
+
   },
   using: {
     tsearch: { prefix: true }

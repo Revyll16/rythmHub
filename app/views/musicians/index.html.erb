@@ -1,6 +1,10 @@
-<br><br><br>
+<br>
+<br>
+<br>
 <div class="index-background-container">
   <div class="row justify-content-center">
+    <div class="col-8 musicians">
+
     <div class="header-container">
       <br>
       <h1 class="animated-header" style="color: black;">Musicians from all over the world</h1>
@@ -23,19 +27,22 @@
           </div>
         <% end %>
       <% end %>
-
     </div>
+    </div>
+    <div class="col-4">
+
     <!-- FIXED BACKGROUND MAP -->
-    <div class="fixed-background-map">
-      <div class="fixed-wrap-map">
-        <div class="fixed-map">
-          <div style="width: 50%; height: 1000px;"
+    <div class="">
+      <div class="">
+        <div class="map">
+          <div style="width: 100%; height: 1000px;"
             data-controller="map"
             data-map-markers-value="<%= @markers.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>
