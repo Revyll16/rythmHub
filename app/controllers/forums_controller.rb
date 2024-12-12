@@ -2,7 +2,7 @@
 
   class ForumsController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :create ]
-
+    before_action :authenticate_user!
     before_action :set_forum, only: [:show, :edit, :update, :destroy]
 
 
@@ -71,6 +71,6 @@
 
 
     def forum_params
-      params.require(:forum).permit(:title, :image_url, :musician_id)
+      params.require(:forum).permit(:title, :image, :musician_id)
     end
   end

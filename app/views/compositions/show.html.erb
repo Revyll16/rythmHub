@@ -1,38 +1,56 @@
-<div class="mx-5 border border-secondary-subtle mt-5">
-
-  <div class="container">
-    <h1><%= @composition.title %></h1>
-
-  </div>
-    <p><%= @composition.description %></p>
-
-  <% if @composition.file.attached? %>
-    <% case @composition.file.blob.content_type %>
-    <% when /^image\// %>
-      <%= cl_image_tag @composition.file.key, quality: 'auto', fetch_format: 'auto' %>
-    <% when /^video\// %>
-      <%= cl_video_tag @composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
-    <% when /^audio\// %>
-      <%= cl_video_tag @composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
+<br>
+<br>
+<br>
+<div class="video-page">
+  <!-- Main Video Section -->
+  <div class="main-video-container">
+    <% if @composition.video_url.present? %>
+      <iframe width="1280" height="720" src="https://www.youtube.com/embed/N8Ove_3PGN0" title="<%=@composition.title%>" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <%#= video_tag(@composition.video_url, controls: true, class: 'main-video-player') %>
 
     <% else %>
-      <p>Unsupported file type.</p>
+      <div class="no-video-placeholder">
+        <p>No video available for this composition.</p>
+      </div>
     <% end %>
-  <% else %>
-    <p>No file uploaded.</p>
-  <% end %>
-
-  <div id="feedbacks">
-    <%@feedbacks.each do |feedback|  %>
-    <%= render "feedbacks/feedback", feedback: feedback %>
-    <% end %>
+    <div class="main-video-info">
+      <h1 class="video-title"><%= @composition.title %></h1>
+      <p class="video-meta">
+        By <%= @composition.musician&.name || "Unknown Musician" %> | <%= time_ago_in_words(@composition.created_at) %> ago
+      </p>
+    </div>
+    <!-- Description Section -->
+    <div class="description">
+      <h2>Description</h2>
+      <p><%= @composition.description %></p>
+    </div>
+    <!-- Feedback Section -->
+    <div class="feedback-section">
+      <h2>Feedback</h2>
+      <div id="feedbacks">
+        <% @feedbacks.each do |feedback| %>
+          <%= render "feedbacks/feedback", feedback: feedback %>
+        <% end %>
+      </div>
+      <div>
+        <%= simple_form_for [@composition, Feedback.new] do |f| %>
+          <%= f.input :content, label: "Your Feedback", as: :text, input_html: { rows: 3 }, class: "w-10" %>
+          <%= f.submit "Post Feedback", class: "button" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <%= simple_form_for [@composition, Feedback.new] do |f| %>
-      <%= f.input :content, label: "Your Feedback", as: :text, input_html: { rows: 3 } %>
-      <%= f.submit "Post Feedback", class: "btn btn-primary" %>
-    <% end %>
+  <!--Sidebar Section-->
+  <div class="sidebar">
+    <ul class="composition-videos video-show">
+      <% @compositions.each do |composition| %>
+        <div class="video-card card-show">
+          <div class="video-info">
+            <%= link_to video_tag(composition.video_url, controls: true, class: 'video-player'), composition_path(composition)%>
+            <p class="video-title"><%= composition.title %></p>
+          </div>
+        </div>
+      <% end %>
+    </ul>
   </div>
-
 </div>

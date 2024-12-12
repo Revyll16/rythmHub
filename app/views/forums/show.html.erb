@@ -29,7 +29,7 @@
     <% else %>
       <p style="font-size: 1.2em; color: #555;">No discussions yet. Be the first to start a discussion!</p>
     <% end %>
-    
+
 <%= simple_form_for [@forum, @post], html: { autocomplete: 'off' } do |f| %>
   <div class="input-group mb-1 w-50">
     <div class="form-floating my-5">
@@ -46,25 +46,28 @@
   </div>
 
   <!-- Back to Forums Button -->
- <div style="margin-top: 40px;"></div> <!-- Spacer to push content above -->
+ <div style="margin-top: 10px;"></div> <!-- Spacer to push content above -->
 
 <div style="position: relative; bottom: 0; width: 100%; background-color: #f9f9f9; text-align: center; padding: 20px; box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);">
   <!-- Back to Forums Button -->
   <%= link_to "Back to Forums", forums_path,
               class: "button",
               style: "text-decoration: none; color: white; background-color: #FF6F61; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; margin: 0 10px;" %>
+<!-- Display the delete button only if the current user is the forum creator -->
+  <% if current_user && current_user == @forum.musician.user %>
+    <!-- Delete Button -->
+    <form action="<%= forum_path(@forum) %>" method="post" style="display: inline; margin: 0;">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button type="submit"
+              class="button"
+              style="text-decoration: none; color: white; background-color: #E74C3C; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; margin: 0 10px;"
+              onclick="return confirm('Are you sure you want to delete this forum?😔')">
+        Delete Forum
+      </button>
+    </form>
+  <% end %>
 
-  <!-- Delete Button -->
-  <form action="<%= forum_path(@forum) %>" method="post" style="display: inline; margin: 0;">
-    <input type="hidden" name="_method" value="delete">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <button type="submit"
-            class="button"
-            style="text-decoration: none; color: white; background-color: #E74C3C; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; margin: 0 10px;"
-            onclick="return confirm('Are you sure you want to delete this forum?😔')">
-      Delete Forum
-    </button>
-  </form>
 
   <!-- Edit Forum Button -->
   <% if @forum.musician == current_user.musician %>
@@ -72,4 +75,5 @@
                 class: "button",
                 style: "text-decoration: none; color: white; background-color: #F39C12; padding: 14px 28px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); font-size: 1.2em; margin: 0 10px;" %>
   <% end %>
+</div>
 </div>
