@@ -95,16 +95,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_161459) do
     t.bigint "instrument_id", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.bigint "user_id", null: false
-    t.bigint "forum_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["forum_id"], name: "index_messages_on_forum_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "musicians", force: :cascade do |t|
     t.string "name"
     t.text "bio"
@@ -113,9 +103,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_161459) do
     t.string "image_url"
     t.string "address"
     t.bigint "user_id", null: false
+    t.string "instruments"
     t.float "latitude"
     t.float "longitude"
-    t.string "instruments"
     t.index ["user_id"], name: "index_musicians_on_user_id"
   end
 
@@ -159,8 +149,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_161459) do
   add_foreign_key "feedbacks", "musicians"
   add_foreign_key "forums", "musicians"
   add_foreign_key "instruments", "musicians"
-  add_foreign_key "messages", "forums"
-  add_foreign_key "messages", "users"
   add_foreign_key "musicians", "users"
   add_foreign_key "posts", "forums"
   add_foreign_key "posts", "musicians"
