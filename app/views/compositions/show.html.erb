@@ -1,10 +1,26 @@
 <div class="mx-5 border border-secondary-subtle mt-5">
-
   <div class="container">
     <h1><%= @composition.title %></h1>
-
   </div>
-    <p><%= @composition.description %></p>
+
+  <p><%= @composition.description %></p>
+
+  <% if @composition.tutorial %>
+    <p><strong>Tutorial🎓</strong></p>
+  <% else %>
+    <p>🚫Tutorial</p>
+  <% end %>
+
+   <% if @composition.instruments.any? %>
+    <h3>Instruments Used:</h3>
+    <ul>
+      <% @composition.instruments.each do |instrument| %>
+        <li><%= instrument.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>🚫Instruments</p>
+  <% end %>
 
   <% if @composition.file.attached? %>
     <% case @composition.file.blob.content_type %>
@@ -14,7 +30,6 @@
       <%= cl_video_tag @composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
     <% when /^audio\// %>
       <%= cl_video_tag @composition.file.key, controls: true, quality: 'auto', fetch_format: 'auto' %>
-
     <% else %>
       <p>Unsupported file type.</p>
     <% end %>
@@ -23,8 +38,8 @@
   <% end %>
 
   <div id="feedbacks">
-    <%@feedbacks.each do |feedback|  %>
-    <%= render "feedbacks/feedback", feedback: feedback %>
+    <% @feedbacks.each do |feedback| %>
+      <%= render "feedbacks/feedback", feedback: feedback %>
     <% end %>
   </div>
 
@@ -34,5 +49,4 @@
       <%= f.submit "Post Feedback", class: "btn btn-primary" %>
     <% end %>
   </div>
-
 </div>

@@ -1,7 +1,14 @@
-<h1>Create New Composition</h1>
-<%= simple_form_for [@musician,@composition] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :file, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div style="margin: auto;">
+  <h1>Create New Composition</h1>
+  <%= simple_form_for [@musician, @composition] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :file, as: :file %>
+    <%= f.input :tutorial, as: :boolean, label: "Is this a tutorial?", required: false %>
+
+    <h3>Select Instruments</h3>
+    <%= f.input :instrument_ids, as: :check_boxes, collection: Instrument.all, label_method: :name, value_method: :id, required: false %>
+
+    <%= f.submit "Create Composition" %>
+  <% end %>
+</div>
