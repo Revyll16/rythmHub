@@ -7,7 +7,7 @@ class MusiciansController < ApplicationController
   before_action :authorize_musician, only: [:edit, :update]
 
   def index
-    @musicians = Musician.geocoded
+    @musicians = Musician.all
 
     # The `geocoded` scope filters only musicians with coordinates
     @markers = @musicians.geocoded.map do |musician|
@@ -31,7 +31,6 @@ class MusiciansController < ApplicationController
   end
 
   def show
-    
     @musician = Musician.find(params[:id])
     @compositions = @musician.compositions
     @composition = Composition.new
