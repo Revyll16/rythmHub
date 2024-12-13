@@ -19,6 +19,10 @@
   width: 80%;
 }
 
+.forum-show::-webkit-scrollbar {
+  display: none;
+}
+
 .avatar{
   height: 2rem;
   width: 2rem;
@@ -49,10 +53,23 @@
   padding-top: 20px;
 }
 
+.index-container::-webkit-scrollbar {
+  width: 8px; /* Set scrollbar width */
+}
+
+.index-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #dc2a06, #1ba4e4); /* Gradient color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.index-container::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Track color */
+}
+
 .button-forum{
   display: block;
   text-decoration: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.196);
 }
 
 .forum-landing{
