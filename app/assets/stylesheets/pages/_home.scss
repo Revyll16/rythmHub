@@ -53,7 +53,15 @@
 .h2-carousel {
   color: var(--color-text-light); /* Light text */
   font-weight: bolder;
+  font-size: 2.1rem;
 }
+
+.p-carousel {
+  font-size: 1.6rem;  /* Adjust the font size as needed */
+  line-height: 1.6;
+    /* Optional: Adjust the line height for readability */
+}
+
 
 /* Carousel styles */
 .carousel {
