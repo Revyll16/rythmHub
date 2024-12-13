@@ -1,14 +1,15 @@
-<h1 class="text-center" style="margin-top: 100px;">Create a New Forum</h1>
 
-<div class="container" style="max-width: 500px; margin-top: 50px;">
+<div class="container" style="max-width: 500px; margin-top: 150px; background-color: #c6381f; flex-direction: column; border-radius: 12px;">
+<h1 class="text-center text-white" style="margin-top: 28px; font-size: 2.3rem;">Create a New Forum</h1>
+<h2 class="text-white text-center mb-5 mx-3" style="font-size: 1rem;">Discuss your favourite topics with musicians from all around the world</h2>
   <%= simple_form_for @forum do |f| %>
     <div>
-      <%= f.input :title, label: "Forum Title" %>
+      <%= f.input :title, label: false, label_html: { class: "text-white" }, input_html: { class: "form-control" }, placeholder: "Title" %>
     </div>
 
-    
-    <div>
-      <%= f.submit "Create Forum", class: "btn btn-primary" %>
+
+    <div class="text-center mt-5">
+      <%= f.submit "Create Forum", class: "button" %>
     </div>
   <% end %>
 </div>

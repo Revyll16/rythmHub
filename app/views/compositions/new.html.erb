@@ -1,16 +1,40 @@
-
 <br><br><br>
-<div style="padding: 24px; margin-left: 22px;">
-  <h1>Create New Composition</h1>
-  <%= simple_form_for [@musician, @composition] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :video_url %>
-    <%= f.input :tutorial, as: :boolean, label: "Is this a tutorial?", required: false %>
+<div style="padding: 50px; margin: 50px auto; background-color: #c6381f;width:70vw;border-radius:12px;">
+  <h1 class="text-white text-center mb-5" style="font-size: 3rem;">Create New Composition</h1>
 
-    <h3>Select Instruments</h3>
-    <%= f.input :instrument_ids, as: :check_boxes, collection: Instrument.all, label_method: :name, value_method: :id, required: false %>
+  <%= simple_form_for [@musician, @composition], html: { style: "width: 50vw; margin: 0 auto;" } do |f| %>
+    <div class="form-group">
+      <%= f.input :title, placeholder: "Title", label: false, input_html: { class: "form-control mb-3" } %>
+    </div>
 
-    <%= f.submit "Create Composition" %>
+    <div class="form-group">
+      <%= f.input :description, placeholder: "Describe your composition", label: false, input_html: { class: "form-control mb-3" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :video_url, placeholder: "Youtube URL", label: false, input_html: { class: "form-control mb-3" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :tutorial, as: :boolean, label: "Is this a tutorial?", label_html: { class: "text-white" }, required: false %>
+    </div>
+
+    <h3 class="text-white text-center">Select Instruments</h3>
+    <div class="form-group">
+      <%= f.input :instrument_ids,
+                  as: :check_boxes,
+                  collection: Instrument.all,
+                  label: "",
+                  value_method: :id,
+                  required: false,
+                  label_html: { class: "text-white ms-3" },
+                  item_wrapper_class: "d-inline-block me-3 text-white",
+                  input_html: {class: "me-1"},
+                  wrapper_html: {class: "text-center"} %>
+    </div>
+
+    <div class="text-center mt-4">
+      <%= f.submit "Create Composition", class: "button" %>
+    </div>
   <% end %>
 </div>

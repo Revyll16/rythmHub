@@ -40,53 +40,6 @@
   /* Text color */
   /* Smooth background movement animation */
 }
-
-/* Glassmorphism effect on cards with background image */
-.card {
-
-  background-size: cover;
-  /* Ensure the background image covers the whole card */
-  position: relative;
-  max-width: 250px;
-  height: 350px;
-  border-radius: 10px;
-  padding: 1rem;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 7.5px;
-  transition: all 0.7s ease-in-out;
-  /* Smoother transition for all movements */
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  /* Slight white border for separation */
-  backdrop-filter: blur(10px);
-  /* Apply blur effect to the background */
-  -webkit-backdrop-filter: blur(10px);
-  /* For Safari */
-
-  filter: grayscale(100%);
-  /* Initially make the image black and white */
-  transition: filter 0.4s ease, transform 0.4s ease;
-  /* Smooth transition for filter and transform */
-}
-
-/* Hover effect for cards with scaling */
-.card:hover {
-  filter: grayscale(0%);
-  /* Remove grayscale filter */
-  transform: scale(1.1) rotate(5deg);
-  /* Slight scaling and rotation */
-  border-radius: 15px;
-}
-
-/* Subtle floating effect on cards */
-.card:hover {
-  animation: float 1s ease-in-out infinite;
-  /* Floating animation on hover */
-}
-
 @keyframes float {
   0% {
     transform: translateY(0);
@@ -265,7 +218,7 @@ html {
   border-radius: 5px;
   font-size: 1rem;
   text-decoration: none;
-  
+
   text-align: center;
   transition: background-color 0.4s ease-in-out;
 }
